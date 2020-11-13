@@ -1,0 +1,58 @@
+<scroll-view scroll-y="true">
+  <view class="container">
+    <view class="navbar">
+      <view wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="topnav"
+        bindtap="navbarTap">{{item}}</view>
+    </view>
+    <swiper current='{{currentTab}}' duration="300" bindchange="bindChange" class="swiper" style="height:{{winHeight}}px;">
+      <!-- 常用页 -->
+      <swiper-item class="home-menu" hidden="{{currentTab!==0}}">
+        <scroll-view class="menuItem" wx:for="{{navArr.common}}" wx:key="common" wx:for-item="item" bindlongpress="deleteNav"
+          data-itemkey="{{item.itemKey}}">
+          <navigator url="{{item.navURL}}" class="a">
+            <view style="background-color:{{item.bgColor}}" class="home-navigator-img">
+              <image class="icon" src="{{item.imgSrc}}"></image>
+            </view>
+            <text class="txt">{{item.itemName}}</text>
+          </navigator>
+        </scroll-view>
+      </swiper-item>
+      <!-- 人资页 -->
+      <swiper-item class="home-menu" hidden="{{currentTab!==1}}">
+        <scroll-view class="menuItem" wx:for="{{navArr.HR}}" wx:key="hr" wx:for-item="item" bindlongpress="addNav1"
+          data-itemkey="{{item.itemKey}}">
+          <navigator url="{{item.navURL}}" class="a">
+            <view style="background-color:{{item.bgColor}}" class="home-navigator-img">
+              <image class="icon" src="{{item.imgSrc}}"></image>
+            </view>
+            <text class="txt">{{item.itemName}}</text>
+          </navigator>
+        </scroll-view>
+      </swiper-item>
+      <!-- 行政页 -->
+      <swiper-item class="home-menu" hidden="{{currentTab!==2}}">
+        <scroll-view class="menuItem" wx:for="{{navArr.ADM}}" wx:key="ADM" wx:for-item="item" bindlongpress="addNav2"
+          data-itemkey="{{item.itemKey}}">
+          <navigator url="{{item.navURL}}" class="a">
+            <view style="background-color:{{item.bgColor}}" class="home-navigator-img">
+              <image class="icon" src="{{item.imgSrc}}"></image>
+            </view>
+            <text class="txt">{{item.itemName}}</text>
+          </navigator>
+        </scroll-view>
+      </swiper-item>
+      <!-- 生活页 -->
+      <swiper-item class="home-menu" hidden="{{currentTab!==3}}">
+        <scroll-view class="menuItem" wx:for="{{navArr.life}}" wx:key="life" wx:for-item="item" bindlongpress="addNav3"
+          data-itemkey="{{item.itemKey}}">
+          <navigator url="{{item.navURL}}" class="a">
+            <view style="background-color:{{item.bgColor}}" class="home-navigator-img">
+              <image class="icon" src="{{item.imgSrc}}"></image>
+            </view>
+            <text class="txt">{{item.itemName}}</text>
+          </navigator>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</scroll-view>

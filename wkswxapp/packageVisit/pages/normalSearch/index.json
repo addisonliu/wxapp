@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-icon": "../../../components/icon/index",
+    "i-card": "../../../components/card/index",
+    "i-message": "../../../components/message/index"
+  }
+}

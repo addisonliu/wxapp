@@ -1,0 +1,145 @@
+page {
+  height: 100%;
+  width: 100%;
+  background: #FFF;
+}
+.whole{
+width:100%;
+height:100%;
+
+}
+/* .switch-type {
+display: flex;
+} */
+.logo{
+width: 100%;
+height: 440rpx;
+/* background: red; */
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.half{
+width: 100%;
+height: 55%;
+/* background: red; */
+display: flex;
+align-items: top;
+justify-content: center;
+position: relative;
+}
+.change_lang{
+position: absolute;
+top: 20rpx;
+right: 20rpx;
+z-index: 100;
+height: 60rpx;
+width: 200rpx;
+background-color: #FFF;
+line-height: 60rpx;
+text-align: center;
+}
+
+.logo image{
+width: 240rpx;
+height: 240rpx;
+position: absolute;
+left: 0;
+bottom: 0;
+display: block;
+width: 100%;
+z-index: -999;
+}
+
+.form{
+margin:0 calc(50% - 300rpx);
+}
+.input{
+width: 600rpx;
+height: 100rpx;
+/* background: pink; */
+border-bottom: 1px solid #cacaca;
+display: flex;
+align-items: center;
+}
+.password{
+margin-top: 20rpx;
+}
+
+.icon>image{
+width: 100%;
+height: 100%
+}
+/* 输入框共有属性 */
+input{
+font-size: 23rpx;
+}
+
+.btn{
+margin-top: 40rpx;
+}
+/* 按钮公共属性 */
+.size{
+width: 600rpx;
+height: 100rpx;
+line-height: 100rpx;
+border-radius: 50rpx;
+/* background: red; */
+text-align: center;
+margin-top: 30rpx;
+}
+.login{
+background: rgba(29, 109, 189, 0.788);
+color: white;
+}
+.indexinfo-img {
+flex:1.5;
+display:flex;
+justify-content: top;
+align-items: center;
+
+height:90%
+}
+
+.login-switch{
+width: 600rpx;
+height: 32rpx;
+box-sizing: border-box;
+margin-top:20rpx;
+position: relative;
+}
+navigator {
+width: 150rpx;
+}
+.login-switch>chgpwd {
+position: absolute;
+left: 0;
+top: 0;
+}
+/* .login-switch>chanese {
+position: absolute;
+left: 0;
+top: 0;
+} */
+
+.login-switch>text:last-child{
+position: absolute;
+top: 0;
+right: 0;
+color: #3690cf;
+}
+
+.check{
+padding-top:20rpx;
+padding-bottom:20rpx;
+}
+
+.checkbox{
+transform:scale(0.65);
+vertical-align: middle;
+}
+
+.grayfont{
+color: #78909C;
+vertical-align: middle;
+}

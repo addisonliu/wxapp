@@ -1,0 +1,210 @@
+<!-- <i-tab-bar current="{{ current }}" bindchange="handleChange">
+    <i-tab-bar-item key="query" title="离职进度"></i-tab-bar-item>
+    <i-tab-bar-item key="print" title="离职证明"></i-tab-bar-item>
+</i-tab-bar> -->
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{current=='query' ? 'on' : ''}}" data-current="query" bindtap="handleChange">离职进度</view>
+    <view class="swiper-tab-list {{current=='print' ? 'on' : ''}}" data-current="print" bindtap="handleChange">离职证明</view>
+</view>
+<view wx:if="{{current=='apply'}}" class="container">
+  <view class='apply' style="border-bottom:1px solid #e2e2e2">
+    <view class='applyTitle'>申请日:</view>
+    <view><text class="applyTxt">{{now}}</text></view>
+  </view>
+  <view class='apply' style="border-bottom:1px solid #e2e2e2">
+    <view class='applyTitle'>申请人工号:<text class="applyTxt"> {{employee.Empno}}</text></view>
+    <view class='applyTitle'>申请人姓名:<text class="applyTxt"> {{employee.Chname}}</text></view>
+  </view>
+  <view class='apply' style="border-bottom:1px solid #e2e2e2">
+    <view class='applyTitle'>所在部门:<text class="applyTxt"> {{employee.Deptcode}}</text></view>
+    <view class='applyTitle'>职称:<text class="applyTxt"> {{employee.JobName}}</text></view>
+  </view>
+  <view class='apply' style="border-bottom:1px solid #e2e2e2">
+    <view class='applyTitle'>入职日期:</view>
+    <view><text class="applyTxt">{{employee.Hiredate}}</text></view>
+  </view>
+  <view class='apply' style="border-bottom:1px solid #e2e2e2">
+    <view class='applyTitle'>在职最后一日:</view>
+    <picker mode="date" value="{{resigndate}}" start="{{now}}" bindchange="bindResDateChange">
+      <view class="picker">
+        <text class="applyTxt">{{resigndate}}</text> <text class='choose'>请选择</text>
+      </view>
+    </picker>
+  </view>
+  <view class='apply' style="border-bottom:1px solid #e2e2e2">
+    <view class='applyTitle'>相隔天数:<text class="applyTxt"> {{days}}</text></view>
+    <view class='applyTitle'><text class="notice" decode="{{true}}">IDL请提前三十天提出申请 \n &nbsp;&nbsp;&nbsp;&nbsp;DL请提前七天提出申请</text></view>
+  </view>
+  <view>
+  <view class='apply' style="border-bottom:1px solid #e2e2e2">
+    <view class='applyTitle'>原因:</view>
+  </view>
+  <view class='applyOther' >
+  <textarea class='textarea' maxlength="200" bindblur="bindTextAreaBlur" auto-height placeholder="{{showTextArea?'请输入离职原因':''}}"/>
+    <!-- <i-input value="{{ reason }}" type="textarea"  placeholder="{{showTextArea?'请输入离职原因':''}}" maxlength="200" bindinput='bindTextAreaBlur'/> -->
+  </view>
+  <view class='apply'>
+   <view class='applyTitle'><text class="reason">无法继续在本企业服务,顾决定辞去现有职务，敬请长官惠予核准</text></view></view>
+  </view>
+  <view class='apply' style="border-bottom:1px solid #e2e2e2">
+    <view class='applyTitle'>离职原因:</view>
+
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" range-key="{{'ResignationReason'}}">
+      <view class="picker">
+        <text class="applyTxt">{{objectArray[index].ResignationReason}}</text> <text class='choose'>请选择</text>
+      </view>
+    </picker>
+    
+  </view>
+  <view class='applyLast'>
+    <view class='applyTitle'>交接人:</view>
+    <input type='text' maxlength="9" value='{{handover}}' placeholder="请输入工号"   bindinput="getEmpno" ></input>
+  </view>
+  <view>
+  <i-toast id="toast" />
+  <i-modal visible="{{ visible }}" bind:ok="handleSubmit" bind:cancel="handleCancle">
+    <view>请确认您已至干部处填写书面【离职确结书】，若未填写此申请无效</view>
+</i-modal>
+  <i-button bind:click="handleClick" type="success" shape="circle">提交</i-button>
+  </view>
+</view>
+<view wx:if="{{current=='query'}}" class="container">
+<view class='resign row' style="border-bottom:1px solid #e2e2e2">
+    <view class='textColor'>工号:</view>
+       <view>
+      <text class="txt">{{EmpNo}}</text>
+    </view>
+  </view>
+  <view class='resignDetail row'>
+    <view class='textColor'>姓名:</view>
+    <view>
+      <text class="txt">{{ChName}}</text>
+    </view>
+  </view>
+   <view class='resignDetail row'>
+    <view class='textColor'>部门:</view>
+    <view>
+  <text class="txt">{{DeptCode}}</text>
+    </view>
+  </view>
+   <view class='resignDetail row'>
+    <view class='textColor'>在职最后一日:</view>
+    <view>
+  <text class="txt">{{OndutyLastDay}}</text>
+    </view>
+  </view>
+   <view class='resignDetail row'>
+    <view class='textColor'>离职原因:</view>
+    <view>
+       <text class="txt">{{ResignationDetailReason}}</text>
+    </view>
+  </view>
+       <view class="h">
+        <text class="txt">待签核表单详细信息如下：</text>
+    </view>
+
+    <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
+<view class="table">
+  <view class="tr bg-w" >
+    <view class="th_1">进行步骤</view>
+    <view class="th_2">待签核人</view>
+    <view class="th_3">待签核人分机</view>
+    <view class="th_4">签核状态</view>
+    <view class="th_5">签核日期</view>
+  </view>
+  <block wx:for="{{SignDetailList}}" wx:key="{{item.RID}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 1}}">
+      <view class="td_1">{{item.StepName}}</view>
+      <view class="td_2">{{item.ToBeSignedName}}</view>
+      <block wx:if="{{item.EXT==''}}">
+      <view class="td_3" data-ext="{{item.EXT}}"  >{{item.EXT}}</view>
+      </block>
+      <block wx:else>
+      <view class="td_3"  bindtap='enterContact' data-ext="{{item.EXT}}"  >{{item.EXT}}</view>
+      </block>
+       <view class="td_4">{{item.SignStatus}}</view>
+      <view class="td_5">{{item.SignDateTime}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td_1">{{item.StepName}}</view>
+      <view class="td_2">{{item.ToBeSignedName}}</view>
+      <block wx:if="{{item.EXT==''}}">
+      <view class="td_3" data-ext="{{item.EXT}}">{{item.EXT}}</view>
+      </block>
+      <block wx:else>
+      <view class="td_3"  bindtap='enterContact' data-ext="{{item.EXT}}">{{item.EXT}}</view>
+      </block>
+       <view class="td_4">{{item.SignStatus}}</view>
+      <view class="td_5">{{item.SignDateTime}}</view>
+    </view>
+  </block>
+</view>
+</scroll-view>
+</view>
+<view wx:if="{{current=='print'}}" class="container">
+  <view class='pdfLast'>
+    <view class='applyTitle'>邮箱:</view>
+    <input type='text' maxlength="50" value='{{mail}}' placeholder="请输入邮箱"   bindinput="getMail" ></input>
+  </view>
+  <view class='noticeMore'><text>邮箱用于接收生成的离职证明文件，请确保其正确性</text></view>
+  <view class='applyTitle'></view>
+  <view>
+  <i-toast id="toast" />
+  <i-button bind:click="createPdf" disabled="{{show}}" type="success" shape="circle">提交</i-button>
+  </view>
+</view>
+
+<view class='tip-content-dialog' wx:if="{{showModal}}">
+  <scroll-view class="tip-dialog-view tc bg_rule p_all15 p_b20" scroll-y='true' style='height:85%;padding:30rpx;'>
+    <view class="applyNotice1">
+     <text class='block'>注意事项</text>
+    </view>
+    <view class="applyNotice">
+  <text class="noticeMore">手机端申请离职前，请先至<text>干部处</text>填写书面【离职确结书】，并确保您填写的离职日期和原因与【离职确结书】上一致，否则系统将不会开离职单。</text>
+  </view>
+     <view class="applyNotice">
+  <text class="noticeMore" decode="{{true}}">请在<text>助理处</text>确认：住宿与否；结清假卡随表缴回与否，间接人员需缴回员工训练卡；办公室钥匙缴回与否；员工保管财产卡文具及办公用品缴还与否</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore" decode="{{true}}">请在<text>工具室</text>确认：工具缴还与否；OA设备缴还与否</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore" decode="{{true}}">请在<text>财务处</text>确认：固定资产与财务费用结清与否，若您属于Site部门，财务费用请在分管PlantI,PlantII,PlantIII的3位签核人那里均确认无欠款</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore" decode="{{true}}">请在<text>资料中心</text>确认：资料是否缴回</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore" decode="{{true}}">请与<text>移交人</text>确认：移交热应承办业务分别详述经营财务及职务内容，如有重大遗漏者，愿负移交不清责任</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore" decode="{{true}}">请在<text>五厂地下室综合服务站中心</text>确认：确认员工识别卡，静电衣，静电帽，静电鞋，拖鞋，鞋柜钥匙是否缴回，未缴回物品，根据年资及公司所发物品数量做扣款处理</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore1">请您注意以下几点：</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore" decode="{{true}}">1.请您于离职当日上午09:00---下午12:00准时至离职办理中心（5厂员工入口地下室）</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore" decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;<text>a.节假日不办理离职手续及归还静电衣物品</text></text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore" decode="{{true}}">2.当天未跑完流程之离职单HR会放至隔天处理</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore" decode="{{true}}">3.请离职人员在规定的时间里跟催离职系统签核进度(打电话请干部/助理跟签，或到签核所在的具体地点(XX部门/中心/处/室)确认)</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore" decode="{{true}}">4.请您准确记下您的鞋柜号码，若鞋柜号码错误或者用其它钥匙代替鞋柜钥匙者视为未交鞋柜钥匙办理</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore" decode="{{true}}">5.请于离职当日按以上规定办理，否则视为未交接，未准时到达指定地点办理离职手续的，逾期不予补办！</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore2"><text>重要！</text>提交申请后，请尽快填写书面<text>[离职确认书]</text>，交给干部/助理，否则系统的离职单将不会被提交，由此带来无法正常离职的后果请自负！<text>旷职员工</text>离职由助理代填，请勿自行申请！<text>如有特殊情况或试用期离职，请至干部处提出书面申请</text></text>
+  </view>
+  <i-button bind:click="readClick" type="error" disabled="{{disabled}}">{{codename}}</i-button>
+  </scroll-view>
+</view>
+

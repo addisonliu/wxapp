@@ -1,0 +1,62 @@
+<!--packageHr/pages/mealapplication/alter/index.wxml-->
+<!-- <text>packageHr/pages/mealapplication/alter/index.wxml</text> -->
+<!--packageHr/pages/mealapplication/application/index.wxml-->
+<!-- <text>packageHr/pages/mealapplication/application/index.wxml</text> -->
+<view class="container">
+  <scroll-view scroll-y="true" style="height:568px;overflow-y:auto;overflow:hidden;">
+
+    <view class='outDetail row'>
+      <view class='textColor'><text style="color:#f23030">*</text>申请部门:</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{arrSkill}}">
+        <view class="picker">
+          {{arrSkill[index]}} <text class='choose'>请选择</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class='outDetail row'>
+      <view class='textColor'><text style="color:#f23030">*</text>区域:</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{arrSkill}}">
+        <view class="picker">
+          {{arrSkill[index]}} <text class='choose'>请选择</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class='outDetail row'>
+      <view class='textColor'><text style="color:#f23030">*</text>班别:</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{arrSkill}}">
+        <view class="picker">
+          {{arrSkill[index]}} <text class='choose'>请选择</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class='outDetail row'>
+      <view class='textColor'><text style="color:#f23030">*</text>中餐:</view>
+      <textarea class='textarea' bindblur="bindam" auto-height placeholder="0" />
+      </view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>晚餐:</view>
+  <textarea class='textarea' bindblur="bindpm" auto-height placeholder="0" />
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>夜宵:</view>
+  <textarea class='textarea' bindblur="bindppm" auto-height placeholder="0" />
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>早早餐:</view>
+  <textarea class='textarea' bindinput="bindaam"  auto-height placeholder="0" />
+</view>
+<view class="text">
+    <view class="text1"> 1.各餐别报餐时间:</view>
+    <view class="text3">中餐:前日19:00前</view>
+    <view class="text3">晚餐:当日12:00前</view>
+    <view class="text3">夜宵及早早餐:当日16:00前.</view>
+    <view class="text2">超出报餐时间视为报餐异常.</view>
+    <view class="text2">2.假日国假报餐规定:员工餐厅工作前一个工作</view>
+    <view class="text2"> 日16点前提报假期每天四餐的用餐需求</view>
+  </view>
+<button class='butt' bindtap="sendApplication">提交</button>
+</scroll-view>
+</view>

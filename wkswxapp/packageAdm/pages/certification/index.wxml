@@ -1,0 +1,35 @@
+<!--pages/certification/certification.wxml-->
+<view class="container" wx:if="{{show}}">
+<view class="content">
+  <view class="title">返岗通行证明</view>
+  <view class="content">
+  兹有如下人员为我司在职员工：
+    <text> 
+    姓名： {{name}}
+    工号： {{userId}}
+    身份证号码： {{idNum}}
+    {{cermain}}
+    </text>
+  </view>
+  <view class="chorp" >
+  <!-- style="background:url(/static/image/cer_WKS.jpg) no-repeat left top;background-size:150px;" -->
+  <image class='background' src="/static/image/cer_{{site}}.jpg" mode="aspectFill"></image>
+    <text>
+    \n
+    {{company}}\n 
+    {{cerdate}}
+
+
+
+
+    </text>
+  </view>
+
+</view>
+</view>
+
+<i-modal title="提示" visible="{{ visible }}" actions="{{ actions }}" bind:click="handleClick" >
+    <view>{{error}}</view>
+</i-modal>
+
+<i-toast id="toast" />

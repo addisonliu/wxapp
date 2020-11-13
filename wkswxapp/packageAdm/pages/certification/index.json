@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "开工通行证明",
+  "usingComponents": {
+    "i-modal": "../../../components/modal/index",
+    "i-toast": "../../../components/toast/index"
+  }
+}

@@ -1,0 +1,101 @@
+.maindetail{
+  display: flex;
+  flex-direction: column;
+  background-color: #e4e4e4;
+}
+.mainlist{
+  width: 100%;
+  height: 80rpx;
+  margin-bottom: 1rpx;
+  display:flex ;
+  align-items: center;
+  background-color: #fff;
+}
+.mainlefttitle{
+  font-size: 28rpx;
+  font-weight:bold;
+  margin-left: 20rpx;
+  width: 130rpx;
+  text-align: justify;
+  text-align-last: justify;
+  position: relative;
+}
+.mainlefttitle>text{
+  position: absolute;
+  right: -10rpx;
+  top: 20%;
+  color: red;
+}
+.mainrightcontion{
+  font-size: 24rpx;
+  margin-left: 100rpx;
+  text-align: left;
+  line-height: 80rpx;
+  align-items: center;
+}
+.picker{
+  width: 400rpx;
+}
+.goodsdescribe{
+  background-color: #fff;
+  padding:20rpx;
+  font-size: 24rpx;
+  width: 100%;
+  height: 300rpx;
+}
+.goodsimgdetails{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  padding: 20rpx 0;
+  width: 100%;
+}
+.pic{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 20rpx 20rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  align-self: center;
+}
+.picbox{
+  position: relative;
+}
+.icon-delete{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+}
+.pic>image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.addpic{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 20rpx;
+  overflow: hidden;
+  align-self: center;
+}
+.goodsdetailsbottom{
+  height: 150rpx;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10rpx;
+  background-color: #fff;
+  
+}
+.goodsdetailsbottom>view{
+  font-weight: bold;
+  color: #fff;
+  background-color: #2fb7eb;
+  height: 60rpx;
+  width: 100rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  margin-right: 40rpx;
+}

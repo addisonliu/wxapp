@@ -1,0 +1,54 @@
+<view class="whole">
+  <i-notice-bar icon="systemprompt" loop>
+    {{is_CH?"Wistron microservices mainly include query functions such as attendance, resignation, salary, etc., which can only be used for company employee ID and visitor fixed account login.":"纬创微服务主要包括考勤、离职、薪资等方面的查询功能,仅限公司员工工号及访客固定账号登录使用。"}}
+  </i-notice-bar>
+  <!-- <view class="switch-type">
+    <view class="btn {{currentSelectTripType == 'Chinese' ? 'active' : ''}}" bindtap='selectedChinese' data-id='Chinese'>中文</view>
+    <view class="btn {{currentSelectTripType == 'English' ? 'active' : ''}}" bindtap='selectedEnglish' data-id='English'>英文</view>
+  </view> -->
+  <!-- logo部分 -->
+  <view class="half">
+    <view class="change_lang" bindtap="changeLang">{{is_CH?"中文登入":"Log in English"}}</view>
+    <image class="indexinfo-img" src="{{is_CH?'/static/image/background1.png':'/static/image/background0.png'}}" background-size="100% 100%"></image>
+  </view>
+  <!-- <view class="logo">
+  <image src='../../static/image/logo.png'
+ ></image>
+</view> -->
+  <!-- 输入框部分 -->
+  <scroll-view scroll-y style="height:{{winHeight}}px;">
+    <view class='form'>
+      <view class='account input'>
+        <view class='title'>{{is_CH?"Account":"账号"}}：</view>
+        <input type='text' maxlength="{{identity ? 10 : 11}}" value='{{empno}}'
+          placeholder="{{is_CH?(identity ?'Please enter you work number ':'Please enter account'):(identity?'请输入工号': '请输入账号')}}" bindinput="getEmpno"></input>
+      </view>
+      <view class='password input'>
+        <view class='title'>{{is_CH?"Password":"密码"}}：</view>
+        <input type='password' maxlength="20" bindinput="getPassword" class='shortInput'
+          placeholder="{{is_CH?(identity ?'ID card for last six ':'Please enter password'):(identity?'初始密码身份证后6位': '请输入密码')}}" value='{{password}}'></input>
+      </view>
+
+      <view class='login-switch'>
+        <navigator url="/pages/changepwd/index" wx:if="{{ identity === true}}" class='chgpwd'>
+          <text style="color:#3690cf">{{is_CH?"Forget Password":"忘记密码"}}</text>
+        </navigator>
+        <text wx:if="{{identity == false}}" bindtap='swicthIdentity'>{{is_CH?"Employees log":"员工登入"}}</text>
+        <text wx:if="{{identity == true }}" bindtap='swicthIdentity'>{{is_CH?"Visitor log":"访客登入"}}</text>
+      </view>
+
+      <view class='btn'>
+        <view class='login size' bindtap='login'>{{is_CH?"Log in":"登入"}}</view>
+      </view>
+
+      <view class='check'>
+        <checkbox-group bindchange="checkboxChange">
+          <checkbox value="{{choose}}" checked="{{checked}}" class='checkbox' />
+          <text class='grayfont'>{{is_CH?"Remember the Password":"记住密码"}}</text>
+        </checkbox-group>
+      </view>
+    </view>-
+  </scroll-view>
+  <i-message id="message" />
+  <i-toast id="toast" />
+</view>

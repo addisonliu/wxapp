@@ -1,0 +1,55 @@
+<!--packageAdm/pages/shoecabinet/index.wxml-->
+<!-- <text>packageAdm/pages/shoecabinet/index.wxml</text> -->
+<view class="container">
+<scroll-view scroll-y style="height:{{winHeight}}px;">
+<view class='out row' style="border-bottom:1px solid #e2e2e2">
+  <view class='textColor'><text style="color:#f23030">*</text>鞋柜区域:</view>
+  <view>
+    <text class="txt">{{shoeRegion}}</text>
+  </view>
+</view>
+<view class='outnDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>鞋柜编号:</view>
+  <view>
+    <text class="txt">{{shoeClosetNo}}</text>
+  </view>
+</view>
+<!-- <view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>鞋柜报修原因:</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{reasonArr}}" >
+      <view class="picker">
+        {{reasonArr[index]}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view> -->
+</scroll-view>
+
+<!-- <button class='butt' bindtap="readsubmit">鞋柜维修提报</button> -->
+</view>
+
+ <view class="contain">
+  <view class ='item'>如有鞋柜相关问题,请联系员工入口处鞋柜管理员</view>
+  </view>
+<!--
+<view class='tip-content-dialog' wx:if="{{showModal}}">
+  <scroll-view class="tip-dialog-view tc bg_rule p_all15 p_b20" scroll-y='true' style='height:85%;padding:30rpx;'>
+  <view class="notice">
+  <view class="applyNotice">
+  <text class="noticeMore1">鞋柜区域:</text>
+  <text class="noticeMore1">{{shoeObject[0]}}</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore1">鞋柜编号:</text>
+  <text class="noticeMore1">{{shoeObject[1]}}</text>
+  </view>
+ <view class="applyNotice">
+  <text class="noticeMore1">鞋柜报修原因:</text>
+  <text class="noticeMore1">{{reason}}</text>
+  </view>
+</view>
+   <view class="btn">
+  <button bindtap='readalter' class='alter'>返回修改</button>
+ <button bindtap='sendApplication' class='submit'>确认提报</button>
+</view>
+  </scroll-view>
+</view>  -->

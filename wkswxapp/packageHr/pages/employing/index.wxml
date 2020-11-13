@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="Email">
+    <view>邮箱：</view>
+    <view><input type="text" placeholder="请输入邮箱" bindinput="getEmail"></input></view>
+  </view>
+  <button bindtap="submit">提交</button>
+  <view class="message">
+    <view>邮箱用于接收生成的在职证明文件，请确保其正确性</view>
+  </view>
+
+</view>

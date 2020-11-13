@@ -1,0 +1,35 @@
+<!--packageHr/pages/twelvestatus/twelvestatus.wxml-->
+<!-- <text>packageHr/pages/twelvestatus/twelvestatus.wxml</text> -->
+<view class="main">
+    <view class="table">
+    <view class="tr bg-w">
+    <view class="th_1 ">津贴类型</view>
+    <view class="th_2 ">等级</view>
+    <view class="th_3">待签核主管</view>
+     <view class="th_4">签核状态</view>
+  </view>
+  <scroll-view scroll-y style="height:550rpx;overflow: hidden; overflow-y:auto">
+  <block wx:for="{{Fourstatus}}" wx:key="{{item.RID}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td_1">{{item.AllowanceType}}</view>
+       <view class="td_2">{{item.SkillLevel}}</view>
+       <view class="td_3">{{item.SupervisorName}}</view>
+      <view class="td_4">{{item.SignStatus}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td_1">{{item.AllowanceType}}</view>
+      <view class="td_2">{{item.SkillLevel}}</view>
+      <view class="td_3">{{item.SupervisorName}}</view>
+      <view class="td_4">{{item.SignStatus}}</view>
+    </view>
+  </block>
+  </scroll-view>
+</view>
+</view>
+  <view class="container">
+  <view class="items">上岗证: </view>
+  <view class = "item">签核完毕后,每周一三五17:00-21:00至C区电脑教室考试</view>
+  <view class="items">4级/11级/12级/13级(高手/技术员/资深技术员/高级技术员):</view>
+  <view class ='item'>签核完毕后,请依照训练单位实际通知参与考试,可咨询助理或干部</view>
+  </view>
+

@@ -1,0 +1,199 @@
+<view class="container">
+  <view class="list-container" wx:for='{{list}}' wx:key="key">
+    <view class="list-item-month"  bindtap="changeState" data-parentindex='{{item.id}}'>
+      <view>{{item.YearMonth}}</view>
+      <image src='/static/image/down.jpg' id='{{item.id}}' class="list-item-arrow" style="transform:{{item.state ? 'rotate(0deg)' : 'rotate(180deg)'}}"></image>
+    </view>
+    <view class="list-item-container" style="animation-name:{{animation}}" wx:if='{{item.state === true }}'>
+      <view class="list-item-info">
+        <view>
+          <text>{{item.TEmpNo}}:</text>
+          <text>{{item.EmpNo}}</text>
+        </view>
+        <view>
+          <text>{{item.TChname}}:</text>
+          <text>{{item.Chname}}</text>
+        </view>
+        <view>
+          <text>{{item.TDeptCode}}:</text>
+          <text>{{item.DeptCode}}</text>
+        </view>
+        <view>
+          <text>{{item.TBankCardNo}}:</text>
+          <text>{{item.BankCardNo}}</text>
+        </view>
+        <view>
+          <text>{{item.TRealIncome}}:</text>
+          <text>{{item.RealIncome}}</text>
+        </view>
+        <view>
+          <text>{{item.TPayDate}}:</text>
+          <text>{{item.PayDate}}</text>
+        </view>
+        
+      </view>
+      <view class="list-item-info">
+          <view wx:if="{{item.TIncome1!=''}}">
+            <text>{{item.TIncome1}}:</text>
+            <text>{{item.Income1}}</text>
+          </view>
+          <view wx:if="{{item.TIncome2!=''}}">
+            <text>{{item.TIncome2}}:</text>
+            <text>{{item.Income2}}</text>
+          </view>
+          <view wx:if="{{item.TIncome3!=''}}">
+            <text>{{item.TIncome3}}:</text>
+            <text>{{item.Income3}}</text>
+          </view>
+          <view wx:if="{{item.TIncome4!=''}}">
+            <text>{{item.TIncome4}}:</text>
+            <text>{{item.Income4}}</text>
+          </view>
+          <view wx:if="{{item.TIncome5!=''}}">
+            <text>{{item.TIncome5}}:</text>
+            <text>{{item.Income5}}</text>
+          </view>
+          <view wx:if="{{item.TIncome6!=''}}">
+            <text>{{item.TIncome6}}:</text>
+            <text>{{item.Income6}}</text>
+          </view>
+          <view wx:if="{{item.TIncome7!=''}}">
+            <text>{{item.TIncome7}}:</text>
+            <text>{{item.Income7}}</text>
+          </view>
+          <view wx:if="{{item.TIncome8!=''}}">
+            <text>{{item.TIncome8}}:</text>
+            <text>{{item.Income8}}</text>
+          </view>
+          <view wx:if="{{item.TIncome9!=''}}">
+            <text>{{item.TIncome9}}:</text>
+            <text>{{item.Income9}}</text>
+          </view>
+          <view wx:if="{{item.TIncome10!=''}}">
+            <text>{{item.TIncome10}}:</text>
+            <text>{{item.Income10}}</text>
+          </view>
+          <view wx:if="{{item.TIncome11!=''}}">
+            <text>{{item.TIncome11}}:</text>
+            <text>{{item.Income11}}</text>
+          </view>
+          <view wx:if="{{item.TIncome12!=''}}">
+            <text>{{item.TIncome12}}:</text>
+            <text>{{item.Income12}}</text>
+          </view>
+          <view wx:if="{{item.TIncome13!=''}}">
+            <text>{{item.TIncome13}}:</text>
+            <text>{{item.Income13}}</text>
+          </view>
+          <view wx:if="{{item.TIncome14!=''}}">
+            <text>{{item.TIncome14}}:</text>
+            <text>{{item.Income14}}</text>
+          </view>
+          <view wx:if="{{item.TIncome15!=''}}">
+            <text>{{item.TIncome15}}:</text>
+            <text>{{item.Income15}}</text>
+          </view>
+          <view wx:if="{{item.TIncome16!=''}}">
+            <text>{{item.TIncome16}}:</text>
+            <text>{{item.Income16}}</text>
+          </view>
+          <view wx:if="{{item.TIncome17!=''}}">
+            <text>{{item.TIncome17}}:</text>
+            <text>{{item.Income17}}</text>
+          </view>
+          <view wx:if="{{item.TIncome18!=''}}">
+            <text>{{item.TIncome18}}:</text>
+            <text>{{item.Income18}}</text>
+          </view>
+          <view wx:if="{{item.TIncome19!=''}}">
+            <text>{{item.TIncome19}}:</text>
+            <text>{{item.Income19}}</text>
+          </view>
+          <view wx:if="{{item.TIncome20!=''}}">
+            <text>{{item.TIncome20}}:</text>
+            <text>{{item.Income20}}</text>
+          </view>
+          <view wx:if="{{item.Texpend1!=''}}">
+            <text>{{item.Texpend1}}:</text>
+            <text>{{item.expend1}}</text>
+          </view>
+          <view wx:if="{{item.Texpend2!=''}}">
+            <text>{{item.Texpend2}}:</text>
+            <text>{{item.expend2}}</text>
+          </view>
+          <view wx:if="{{item.Texpend3!=''}}">
+            <text>{{item.Texpend3}}:</text>
+            <text>{{item.expend3}}</text>
+          </view>
+          <view wx:if="{{item.Texpend4!=''}}">
+            <text>{{item.Texpend4}}:</text>
+            <text>{{item.expend4}}</text>
+          </view>
+          <view wx:if="{{item.Texpend5!=''}}">
+            <text>{{item.Texpend5}}:</text>
+            <text>{{item.expend5}}</text>
+          </view>
+          <view wx:if="{{item.Texpend6!=''}}">
+            <text>{{item.Texpend6}}:</text>
+            <text>{{item.expend6}}</text>
+          </view>
+          <view wx:if="{{item.Texpend7!=''}}">
+            <text>{{item.Texpend7}}:</text>
+            <text>{{item.expend7}}</text>
+          </view>
+          <view wx:if="{{item.Texpend8!=''}}">
+            <text>{{item.Texpend8}}:</text>
+            <text>{{item.expend8}}</text>
+          </view>
+          <view wx:if="{{item.Texpend9!=''}}">
+            <text>{{item.Texpend9}}:</text>
+            <text>{{item.expend9}}</text>
+          </view>
+          <view wx:if="{{item.Texpend10!=''}}">
+            <text>{{item.Texpend10}}:</text>
+            <text>{{item.expend10}}</text>
+          </view>
+          <view wx:if="{{item.Texpend11!=''}}">
+            <text>{{item.Texpend11}}:</text>
+            <text>{{item.expend11}}</text>
+          </view>
+          <view wx:if="{{item.Texpend12!=''}}">
+            <text>{{item.Texpend12}}:</text>
+            <text>{{item.expend12}}</text>
+          </view>
+          <view wx:if="{{item.Texpend13!=''}}">
+            <text>{{item.Texpend13}}:</text>
+            <text>{{item.expend13}}</text>
+          </view>
+          <view wx:if="{{item.Texpend14!=''}}">
+            <text>{{item.Texpend14}}:</text>
+            <text>{{item.expend14}}</text>
+          </view>
+          <view wx:if="{{item.Texpend15!=''}}">
+            <text>{{item.Texpend15}}:</text>
+            <text>{{item.expend15}}</text>
+          </view>
+          <view wx:if="{{item.Texpend16!=''}}">
+            <text>{{item.Texpend16}}:</text>
+            <text>{{item.expend16}}</text>
+          </view>
+          <view wx:if="{{item.Texpend17!=''}}">
+            <text>{{item.Texpend17}}:</text>
+            <text>{{item.expend17}}</text>
+          </view>
+          <view wx:if="{{item.Texpend18!=''}}">
+            <text>{{item.Texpend18}}:</text>
+            <text>{{item.expend18}}</text>
+          </view>
+          <view wx:if="{{item.Texpend19!=''}}">
+            <text>{{item.Texpend19}}:</text>
+            <text>{{item.expend19}}</text>
+          </view>
+          <view wx:if="{{item.Texpend20!=''}}">
+            <text>{{item.Texpend20}}:</text>
+            <text>{{item.expend20}}</text>
+          </view>
+      </view>
+    </view>
+  </view>
+</view>

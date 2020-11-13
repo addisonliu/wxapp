@@ -1,0 +1,98 @@
+/* pages/applicationSearch/index.wxss */
+.container{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vh;
+  background: #fff;
+  overflow: hidden;
+}
+.header{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 120rpx;
+  line-height: 120rpx;
+  background: rgb(102,153,255);
+  text-align: center;
+  font-size: 40rpx;
+  color: #fff;
+}
+.header>view{
+  position: absolute;
+  top: 0;
+  left: 20rpx;
+  color:#fff;
+}
+.content{
+  position: fixed;
+  left: 0;
+  top: 120rpx;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: calc(100vh - 120rpx);
+  padding: 20rpx 10rpx;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.search{
+  display: flex;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding:0 20rpx;
+}
+.search>input{
+  flex: 4.5;
+  border:1px solid #ccc;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  box-sizing: border-box;
+  padding:10rpx 20rpx;
+  height: 74rpx;
+}
+.search>button{
+  flex: 1;
+  background: #2d8cf0;
+  color: #fff;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 29rpx;
+  height: 74rpx;
+  line-height: 80rpx;
+  width: 100%;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.card-content>view,.card-footer>view{
+  display: flex;
+  height: 40rpx;
+  color: #495060;
+}
+.card-content>view:nth-child(n+2){
+    margin-top: 20rpx;
+}
+.card-content>view>label,.card-footer>view>label{
+  flex: 1.8;
+  height: 100%;
+}
+.card-content>view>text,.card-footer>view>text{
+  flex: 3.2;
+  display: block;
+  box-sizing: border-box;
+  margin-left: 40rpx;
+}
+.card-footer>view>label,.card-footer>view>text{
+  font-size: 29rpx;
+  color: #2d8cf0;
+}
+.noData{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 32rpx;
+}

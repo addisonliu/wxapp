@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="mainMessage">
+   <navigator class="nav nav1" url="/packageHr/pages/bankcard/bankcardSubmit/index">
+     <view><image src="/static/image/banknew.png"></image></view>
+     <text>新入职员工银行卡号上传</text>
+   </navigator>
+   <navigator  class="nav nav2" url="/packageHr/pages/bankcard/bankcardChange/index">
+    <view><image src="/static/image/bankchange.png"></image></view>
+     <text>银行卡号变更</text>
+   </navigator>
+   <navigator  class="nav nav3" url="/packageHr/pages/bankcard/bankcardSearch/index">
+    <view><image src="/static/image/banksearch.png"></image></view>
+     <text>查询银行卡号</text>
+   </navigator>
+  </view>
+  <view class="explain" style="width:100vw-20rpx">
+    <view class="title">提醒:</view>
+    <view class="ex-text">
+      <view>1. 上传的银行卡号必须为员工本人身份证号办理的银行卡，否则影响工资发放；</view>
+      <view>2. 新入职员工第一次上传银行卡号，请选第一个（只允许上传一次），其他因银行卡丢失，开户异常等原因重新办理银行卡，变更卡号请选第二个；</view>
+      <view>3. 工资发放银行仅限中国农业银行和中国工商银行，其他银行暂不支持发薪；</view>
+      <view>4. 请在入职一周内办理并上传银行卡号；</view>
+    </view>
+  </view>
+</view>

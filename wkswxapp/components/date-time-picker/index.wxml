@@ -1,0 +1,6 @@
+<!--packageIE/pages/date-time-picker/index.wxml-->
+<!-- <text>packageIE/pages/date-time-picker/index.wxml</text> -->
+<picker mode="multiSelector" range="{{rangeList}}" value="{{rangeValue}}"
+  bindchange="selectChangeFn" bindcolumnchange="selectColumnChangeFn">
+  <slot></slot>
+</picker>

@@ -1,0 +1,39 @@
+<!--pages/unnormal/unnormal.wxml-->
+<scroll-view scroll-y style="height:{{height}}px;">
+<block wx:if="{{flag==true}}">
+  <block wx:for="{{UnnormalDetail}}" wx:key="{{item.RID}}">
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th1 ">班别</view>
+        <view class="th2 ">实上班时间</view>
+        <view class="th3">迟到分钟数</view>
+      </view>
+      <view class="tr-m bg-w">
+        <view class="td1"></view>
+        <view class="td2">{{item.StartDate}}</view>
+        <view class="td3">{{item.StartNum}}</view>
+      </view>
+      <view class="tr-m bg-w">
+        <view class="th1-m">{{item.Shift}}</view>
+        <view class="th2 ">实下班时间</view>
+        <view class="th3">早退分钟数</view>
+      </view>
+      <view class="tr-m bg-w">
+        <view class="td1"></view>
+        <view class="td2">{{item.EndDate}}</view>
+        <view class="td3">{{item.EndNum}}</view>
+      </view>
+    </view>
+  </block>
+  </block>
+<block wx:else>
+    <view class="table">
+      <view class="tr bg-w">
+        <view class="th1 ">班别</view>
+        <view class="th2 ">实上班时间</view>
+        <view class="th3">迟到分钟数</view>
+      </view>
+    </view>
+</block>
+</scroll-view>
+  

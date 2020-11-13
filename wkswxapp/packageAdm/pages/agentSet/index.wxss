@@ -1,0 +1,70 @@
+/* pages/AgentSet/agentset.wxss */
+.agent{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.agent_title{
+  text-align: center;
+  font-size: 1.7rem;
+  margin-top: 28%;
+}
+
+.id_row{
+  display: flex;
+  flex-direction: row; 
+  margin-top: 8%;
+  width: 100%;
+}
+
+.id_txt{
+  font-size: 1.1rem;
+  width: 35%;
+  text-align: center;
+}
+
+.id_num{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.agent_row{
+  display: flex;
+  flex-direction: row; 
+  margin-top: 3%;
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+.agent_id_txt{
+  width: 35%;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.agent_id_num{
+  /* border:1px solid #000;
+  align-items: center;
+  justify-content: center;
+  text-align: center;*/
+  width: 100%; 
+  width: 57%;
+  font-size: 1.1rem;
+}
+
+.btn{
+  margin-top: 8%;
+  font-size: 40rpx;
+  height: 100rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1rpx solid rgb(230, 226, 226);
+}

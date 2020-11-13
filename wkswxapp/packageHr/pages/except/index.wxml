@@ -1,0 +1,16 @@
+
+<view class="page">
+
+    <view class='mine_cells'>
+	   <navigator url="{{item.url}}" wx:for="{{except}}" wx:key="item.id" class="mine_cell">
+       <image class="mine_icon" src="/static/image/except_{{item.id}}.png" />
+      <text class="mine_title">{{item.name}}</text>
+      <view class="mine_arrow"></view>
+    </navigator>
+  </view>
+
+
+ 
+  </view>
+
+ 

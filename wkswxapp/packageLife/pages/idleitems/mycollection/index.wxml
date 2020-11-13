@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="goodslist"  wx:for="{{collected}}" wx:key="collected" wx:for-item="item">
+    <view class="leftimg">
+      <image src="{{item.MainPic}}"></image>
+    </view>
+    <view class="midcontain">
+      <view class="midtitle">{{item.Title}}</view>
+      <view class="midprice">
+        <view>¥ {{item.Price}}</view>
+        <view style="margin:0 10rpx">|</view>
+        <view>{{item.NewDegree}}</view>
+      </view>
+      <view class="midtime">{{item.CollectTime}}</view>
+    </view>
+    <view class="rightbtn">
+      <image src="/static/image/f_s.png"></image>
+      <view class="delete" bindtap="ondeleteTap" data-goodsid="{{item.GoodsID}}">删除</view>
+    </view>
+  </view>
+</view>

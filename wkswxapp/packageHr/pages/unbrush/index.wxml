@@ -1,0 +1,22 @@
+<!--pages/unbrush/unbrush.wxml-->
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th ">班别</view>
+    <view class="th ">实上班时间</view>
+    <view class="th">实下班时间</view>
+  </view>
+   <scroll-view scroll-y style="height:{{height}}px;">
+  <block wx:for="{{UnbrushDetail}}" wx:key="{{item.RID}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td">{{item.Shift}}</view>
+      <view class="td">{{item.StartDate}}</view>
+       <view class="td">{{item.EndDate}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td">{{item.Shift}}</view>
+      <view class="td">{{item.StartDate}}</view>
+       <view class="td">{{item.EndDate}}</view>
+    </view>
+  </block>
+  </scroll-view>
+</view>

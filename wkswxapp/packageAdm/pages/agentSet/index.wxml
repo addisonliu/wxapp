@@ -1,0 +1,19 @@
+<!--pages/AgentSet/agentset.wxml-->
+<view class="agent">
+   <text class="agent_title">设    定</text>
+   
+    <view class="id_row">
+        <view style="width:35%;margin-left:5%;text-align:right;"><text class="id_txt">代理人工号：</text></view>
+        <view style="border:1px solid #000;width:50%;height: 70rpx;text-align:left;margin-left:4%;"><text class="id_num">{{m1}}</text></view>
+      </view>
+      
+      <view class="agent_row">
+        <view style="width:28%;display: flex;flex-direction: row; margin-left:12%;">
+         <view style="width:50%;text-align:left;"><text class="agent_id_txt">工</text></view>
+         <view style="width:50%;text-align:right;"><text class="agent_id_txt">号：</text></view>
+        </view>
+        <view style="border:1px solid #000;width:50%;height: 70rpx;margin-left:4%"><input class="agent_id_num" placeholder="请填写工号" placeholder-style="color:#070" value="{{m2}}" bindinput="input_id"></input></view>
+      </view>
+
+    <button class="btn" disabled="{{status}}" bindtap="submit" style="width:49%;color: rgb(44, 196, 51);font-weight: bold;">提交</button>
+</view>

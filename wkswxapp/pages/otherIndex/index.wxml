@@ -1,0 +1,54 @@
+<view class="container">
+  <view class="indexinfo" >
+		<image  class="indexinfo-img" src="/static/image/wclogo.png" background-size="cover"></image>
+	</view>
+
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
+  <view class="index-menu">
+  <view class="item">
+      <navigator url="/packageVisit/pages/healthVisitForm/index" class="a">
+       <image class="icon" src="/static/image/health.png"></image>
+        <text class="txt">健康宣告书</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/packageVisit/pages/applicationForm/index" class="a">
+          <image class="icon" src="/static/image/ot.png"></image>
+        <text class="txt">访客申请</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/packageVisit/pages/applicationSearch/index" open-type="redirect" class="a">
+       <image class="icon" src="/static/image/lv.png"></image>
+        <text class="txt">访客查询</text>
+      </navigator>
+    </view>
+
+    <view class="item">
+      <navigator url="/packageVisit/pages/normalExecution/index" class="a">
+      <image class="icon" src="/static/image/zzzm.png"></image>
+        <text class="txt">一般施工</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/packageVisit/pages/dangerExecution/index" class="a">
+      <image class="icon" src="/static/image/zzzm.png"></image>
+        <text class="txt">危險施工</text>
+      </navigator>
+    </view>
+
+    <view class="item">
+      <navigator url="/packageVisit/pages/normalSearch/index" class="a">
+      <image class="icon" src="/static/image/xzzm.png"></image>
+        <text class="txt">施工查询</text>
+      </navigator>
+    </view>
+
+  </view>
+
+
+</view>
+<i-modal id='modal' visible="{{show}}"  title="{{title}}" bind:ok="handleHidden" show-cancel="{{false}}" tou>
+</i-modal>
+
+

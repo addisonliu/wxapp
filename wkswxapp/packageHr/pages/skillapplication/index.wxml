@@ -1,0 +1,46 @@
+<!--packageHr/pages/skillapplication/skillapplication.wxml-->
+<!-- <text>packageHr/pages/skillapplication/skillapplication.wxml</text> -->
+<view class="container">
+  <view class="item" bindtap='bindViewUp'>
+    <view class="up">上岗证</view>
+    <view class="ups">DL内部考核鉴定卡</view>
+  </view>
+  <view class="itemg" bindtap='bindViewFour'>
+    <view class="four">4级</view>
+    <view class="dl">DL技能高手</view>
+    <view class="ji">技能津贴提报</view>
+  </view>
+  <view class="itemj" bindtap='bindViewEleven'>
+    <view class="eleven">11级</view>
+    <view class="elevendl">DL技术员</view>
+    <view class="elevens">技能津贴提报</view>
+  </view>
+  <view class='itemz' bindtap='bindViewTwelve'>
+    <view class="twelve">12级</view>
+    <view class="twelvedl">DL资深技术员</view>
+    <view class="twelves">技能津贴提报</view>
+  </view>
+  <view class='itemgj' bindtap='bindViewThirteen'>
+    <view class="thirteen">13级</view>
+    <view class="thirteendl">DL高级技术员</view>
+    <view class="thirteens">技能津贴提报</view>
+  </view>
+
+  <!-- <view class="applyNotice"  bindtap='bindViewUp' >
+  <text class="noticeMore1">上岗证</text>
+  </view>
+    <view class="applyNotice">
+  <text class="noticeMore">DL内部考核鉴定卡</text>
+  </view> -->
+
+</view>
+<!-- <view class="page">
+    <view class='mine_cells'>
+	   <navigator url="{{item.url}}" wx:for="{{skill}}" wx:key="item.id" class="mine_cell">
+       <image class="mine_icon" /> 
+        <!-- src="/static/image/skill_{{item.id}}.png"  -->
+<!-- <text class="mine_title">{{item.name}}</text>
+      <view class="mine_arrow"></view>
+    </navigator>
+  </view>
+  </view> -->

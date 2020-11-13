@@ -1,0 +1,81 @@
+
+.mine-header{
+  height: 300rpx;
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+}
+.mine-header-bg{
+  height: 200rpx;
+  width: 100%;
+  z-index: 1;
+  background-color: #2fb7eb;
+}
+.userinfo{
+  position: absolute;
+  left: 30rpx;
+  bottom: 0rpx;
+  border-radius: 50%;
+  width: 200rpx;
+  height: 200rpx;
+  background-color: #fff;
+  padding: 10rpx;
+  z-index: 1000;
+  overflow: hidden;
+}
+.mine-header-info{
+  width: 180rpx;
+  height: 180rpx;
+  background-color: #fff;
+  display: block;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.mine-content{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  background-color: #fff;
+
+}
+.mine-content>view{
+  display: flex;
+  flex-direction: row;
+  padding: 0 20rpx;
+  height: 80rpx;
+  width: 100%;
+  line-height: 80rpx;
+}
+
+.mine-content>view>text:nth-child(1){
+  padding-left: 20rpx;
+  width: 25%;
+  text-align: justify;
+  text-align-last: justify;
+}
+.mine-content>view>text:nth-child(2){
+  padding-right: 10rpx;
+  width: 70%;
+  text-align: right;
+  color: #b8b6ba;
+}
+.user-name{
+  margin-bottom: 10rpx;
+}
+.user-name>text:nth-child(1){
+  font-weight: bold;
+  text-align: left; 
+  overflow: hidden;
+}
+
+.logout{
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  line-height: 100rpx;
+  position: absolute;
+  bottom: 10rpx;
+  text-align: center;
+  letter-spacing: 10rpx;
+}

@@ -1,0 +1,68 @@
+/* pages/Scan/Scan.wxss */
+.con{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.header{
+  height: 10%;
+  text-align: center;
+  margin-top: 7%;
+}
+
+.headertxt{
+  font-size: 2rem;
+}
+
+.body{
+  height:600rpx;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.bodytxt{
+  height: 10%;
+  text-align: center;
+  color: #0066ff;
+  margin-top: 10rpx;
+}
+
+create_QR{
+  height: 20%;
+  width: 70%;
+  margin-left: 10%;
+}
+
+.btn{
+  justify-content: center;
+  align-items: center;
+}
+
+.footer{
+  position: absolute;
+  bottom: 60rpx;
+  width: 55%;
+  height: 99rpx;
+  text-align: center;
+  margin-left: 22.5%;
+}
+
+.img_icon{
+  width: 250rpx;
+  height: 99rpx;
+} 
+
+.footer_end{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 82rpx;
+  text-align: center;
+  font-size: 29rpx;
+}
+

@@ -1,0 +1,22 @@
+<!--pages/unatten/unatten.wxml-->
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th ">旷工开始日</view>
+    <view class="th ">旷工截止日</view>
+    <view class="th">旷工天数</view>
+  </view>
+ <scroll-view scroll-y style="height:{{height}}px;">
+  <block wx:for="{{UnattenDetail}}" wx:key="{{item.RID}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td">{{item.StartDate}}</view>
+       <view class="td">{{item.EndDate}}</view>
+       <view class="td">{{item.Days}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td">{{item.StartDate}}</view>
+       <view class="td">{{item.EndDate}}</view>
+       <view class="td">{{item.Days}}</view>
+    </view>
+  </block>
+  </scroll-view>
+</view>

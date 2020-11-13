@@ -1,0 +1,78 @@
+<view class="container">
+  <view class="maindetail">
+    <view class="mainlist">
+      <view class="mainlefttitle">分类<text>*</text></view>
+      <view class="mainrightcontion">
+        <picker value="{{index}}" bindchange="bindchangeClassfiy" range="{{classify}}" range-key="{{'CategoryName'}}">
+          <input placeholder="请选择类别" class="picker" value="{{classify[index].CategoryName}}"></input>
+        </picker>
+      </view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">标题<text>*</text></view>
+      <view class="mainrightcontion">
+        <input placeholder="请输入标题最多10字" class="picker" maxlength="10" bindblur="bindKeyInput"></input>
+      </view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">新旧<text>*</text></view>
+      <view class="mainrightcontion">
+        <picker value="{{index2}}" bindchange="bindchangeDegree" range="{{degree}}" range-key="{{'degreemes'}}">
+          <input placeholder="请选择新旧" class="picker" value="{{degree[index2].degreemes}}"
+            bindblur="bindchangeInput"></input>
+        </picker>
+      </view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">出售价格<text>*</text></view>
+      <view class="mainrightcontion">
+        <input placeholder="请输入价格" type="number" class="picker" bindblur="bindInputPrice"></input>
+      </view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">物品描述<text>*</text></view>
+    </view>
+    <view class="goodsdescribe"><textarea placeholder="请输入品牌型号，入手渠道，转手原因等信息（必填）"
+        bindblur="bindInputDescribe"></textarea></view>
+
+    <view class="mainlist">
+      <view class="mainlefttitle">图片<text>*</text></view>
+    </view>
+    <view class="goodsimgdetails">
+      <view class="pic picbox" wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+        <image src="{{item}}" data-index="{{index}}"></image>
+        <icon type="cancel" size="23" class="icon-delete" bindtap="deletePic"></icon>
+      </view>
+      <view class="addpic" bindtap="chooseImageTap">
+        <image src="/static/image/my.png"></image>
+      </view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">所在地点<text>*</text></view>
+      <view class="mainrightcontion">
+        <input placeholder="请输入所在地" class="picker" maxlength="25" bindblur="bindInputAddress"></input></view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">交易地点<text>*</text></view>
+      <view class="mainrightcontion">
+        <input placeholder="请输入交易地点" class="picker" maxlength="25" bindblur="bindInputSell"></input>
+      </view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">联系人<text>*</text></view>
+      <view class="mainrightcontion">
+        <input placeholder="请输入姓名或称呼" class="picker" maxlength="10" bindblur="bindInputSeller"></input>
+      </view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">联系电话<text>*</text></view>
+      <view class="mainrightcontion">
+      <input placeholder="请输入电话号码" class="picker" maxlength="11" bindblur="bindInputTel"></input>
+    </view>
+    </view>
+
+  </view>
+  <view class="goodsdetailsbottom">
+        <view bindtap="uploadimgs">发布</view>
+  </view>
+</view>

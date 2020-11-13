@@ -1,0 +1,73 @@
+<!--pages/DelayMeeting/DelayMeeting.wxml-->
+<view class="DelayMeeting">
+
+  <view class="titlebar">
+      
+  </view>
+
+  <view class="firstview">
+  
+    <view class="msgbar">
+      <text class="txt1">会议信息</text>
+   </view>
+
+  <view class="msg_area">
+    <view class="v1">
+      <view class="v1_1"><text class="v1_txt1">会议室：</text></view>
+      <view class="v1_2"><text class="v1_txt2">{{roomid}}</text></view>                                                                                                      
+    </view>
+
+    <view class="v2">
+      <view class="v2_1"><text class="v2_txt1">工号：</text></view>
+      <view class="v2_2"><text class="v2_txt2">{{myid}}</text></view>
+    </view>
+
+    <view class="v3">
+      <view class="v3_1"><text class="v3_txt1">时间：</text></view>
+      <view class="v3_2"><text class="v3_txt2">{{time}}</text></view>
+    </view>
+
+    <view class="v4">
+      <view class="v4_1"><text class="v4_txt1">日期：</text></view>
+      <view class="v4_2"><text class="v4_txt2">{{date}}</text></view>
+    </view>
+  </view>
+  </view>
+  
+  <view class="secondview">
+    <view class="delaybar">
+      <text class="txt2">设置时间</text>
+    </view>
+
+    <view class="next_meeting">
+         <view class="next_meeting_1"><text class="v4_txt1">下一场会议时间：</text></view>
+         <view class="next_meeting_2"><text class="v4_txt2">{{nextmeeting_time}}</text></view>
+    </view>
+
+    <view class="datepicker">
+      <view class="delay">
+         <text class="delay_txt">延长至:</text> 
+      </view>
+      <picker mode="time" class="date_picker" bindchange="changeTime" value="{{picktime}}"> 
+         <view class="picker_detail">
+           {{picktime}} 
+         </view>
+      </picker>
+
+    <view >
+    <modal hidden="{{modalHidden}}" confirm-text="确定"
+    cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel"> 
+    <view>
+      <text>当前会议延长时间占用下一场会议时间,是否继续延长？</text>
+    </view>
+    </modal>
+    </view>
+    </view>
+
+      <view class="pickerbtn">
+        <button bindtap="delay_ok" style="width:70%;color: rgb(44, 196, 51);font-weight: bold;">确认延长</button>
+      </view>
+   
+  </view>
+  
+</view>

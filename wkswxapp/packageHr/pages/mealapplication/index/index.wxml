@@ -1,0 +1,17 @@
+<!--packageHr/pages/mealapplication/index/index.wxml-->
+<!-- <text>packageHr/pages/mealapplication/index/index.wxml</text> -->
+<view class="container">
+  <view class="application" bindtap='bindapplication'>报餐申请</view>
+  <view class="alter" bindtap='bindalter'>报餐修改</view>
+  <view class="query" bindtap='bindquery'>报餐查询</view>
+  <view class="text">
+    1.报餐申请及修改权限仅限助理
+    <view class="text2"> 2.各餐别报餐时间:</view>
+    <view class="text3">中餐:前日19:00前</view>
+    <view class="text3">晚餐:当日12:00前</view>
+    <view class="text3">夜宵及早早餐:当日16:00前.</view>
+    <view class="text2">超出报餐时间视为报餐异常.</view>
+    <view class="text2">3.假日国假报餐规定:员工餐厅工作前一个工作日</view>
+    <view class="text2"> 16点前提报假期每天四餐的用餐需求</view>
+  </view>
+</view>

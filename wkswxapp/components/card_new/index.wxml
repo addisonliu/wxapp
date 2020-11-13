@@ -1,0 +1,12 @@
+<view class="i-class_new i-card {{ full ? 'i-card-full' : '' }}">
+    <view class="i-class_new i-card-header">
+        <view class="i-card-header-content">
+            
+            {{ title }}
+        </view>
+        <view class="i-card-header-extra" wx:if="{{ extra }}">{{ extra }}</view>
+        <!-- <open-data type="userAvatarUrl" class="i-card-header-thumb" ></open-data> -->
+    </view>
+    <view class="i-class_new i-card-body"><slot name="content"></slot></view>
+    <view class="i-class_new i-card-footer"><slot name="footer"></slot></view>
+</view>

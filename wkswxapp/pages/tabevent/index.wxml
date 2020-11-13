@@ -1,0 +1,75 @@
+<!--pages/tabenvent/tabenvent.wxml-->
+<!-- <i-tab-bar current="{{ current }}" bindchange="handleTabChange">
+    <i-tab-bar-item key="info" title="公告"></i-tab-bar-item>
+    <i-tab-bar-item key="pic" title="相册"></i-tab-bar-item>
+</i-tab-bar> -->
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{current=='info' ? 'on' : ''}}" data-current="info" bindtap="handleTabChange">公告</view>
+    <view class="swiper-tab-list {{current=='pic' ? 'on' : ''}}" data-current="pic" bindtap="handleTabChange">相册</view>
+</view>
+<view wx:if="{{current=='info'}}">
+  <view style='height:94%'>
+    <scroll-view style='height:94%;position: absolute;' scroll-y='true'>
+      <!-- <block wx:for="{{InfoDetailList}}" wx:key="{{item.RID}}">
+        <view class="row" bindtap='getnum' data-num="{{item.RID}}">
+          <i-notice-bar>{{item.ActName}}</i-notice-bar>
+        </view>
+      </block> -->
+      <view style='width:100%;flex-wrap:wrap;display:flex'>
+        <block wx:for="{{InfoDetailList}}" wx:key="{{item.RID}}" style='flex-wrap:wrap;'>
+          <view style='width:48%;margin:1% 1%;' bindtap='getnum' data-num="{{item.RID}}">
+            <image style="width:100%" src="{{simgurl}}/{{item.ActImg}}" mode="aspectFill"/>
+            <!-- <i-notice-bar>{{item.ActName}}</i-notice-bar> -->
+            <view><text class='infotitle'>{{item.ActName}}</text></view>
+            <view><text class='infodate'>{{item.ActDate}}</text></view>
+          </view>
+        </block> 
+      </view>
+    </scroll-view>
+    <view class='tip-content-dialog' wx:if="{{showModal}}">
+      <scroll-view class="tip-dialog-view tc bg_rule p_all15 p_b20" scroll-y='true' style='height:85%;padding:10rpx;'>
+        <!-- <view>
+          <text class='block'>{{showTitle}}</text>
+        </view> -->
+        <image style='width:100%;position:absolute;top:2%' src="{{showImg}}" mode="widthFix"/>
+      </scroll-view>
+      <image class="dialogClose" src="/static/image/close_n.png" bindtap='closedetail'/>
+    </view>
+  </view>
+</view>
+<view wx:if="{{current=='pic'}}">
+  <view style='height:94%'>
+    <scroll-view style='height:94%;position: absolute;' scroll-y='true'>
+      <block wx:for="{{allpic}}" wx:key="{{item.AlbumID}}">
+        <view class="acttitle">{{item.title}}</view>
+        <view class="actdate">{{item.AlbumDate}}</view>
+        <scroll-view class="image-group" scroll-x="true">
+          <block wx:for="{{item.piclist}}" wx:for-item="pic" wx:for-index="id" wx:key="id">
+            <image bindtap='getpic' data-title="{{item.title}}" data-piclist="{{item.piclist}}" data-albumid="{{item.AlbumID}}" data-pic="{{pic}}" data-src="{{imgurl}}{{item.AlbumID}}/{{pic}}" src="{{imgurl}}{{item.AlbumID}}/{{pic}}" mode="aspectFill"/>
+          </block>
+        </scroll-view>
+      </block>
+    </scroll-view>
+    <view class='tip-content-dialog' wx:if="{{showPicDetail}}">
+      <scroll-view class="tip-dialog-view1 tc bg_rule p_all15 p_b20" scroll-y='true' style='height:85%;padding:5rpx;'>
+        <view style="height:90%">
+          <!-- <image style="position:absolute;height:100%;width:100%;display:flex;justify-content: center;align-items:center;" src="{{showPicUrl}}" mode="aspectFit"/> -->
+          <!-- <scroll-view class="image-group1" scroll-x="true" scroll-left="10">
+          <block wx:for="{{showPicList}}" wx:for-item="pic" wx:for-index="id" wx:key="id">
+            <image src="{{imgurl}}{{showPicID}}/{{pic}}" mode="aspectFit"/>
+          </block>
+        </scroll-view> -->
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}" duration="{{duration}}" current="{{showCurrent}}" style='height:95%'>
+      <block wx:for="{{showPicList}}" wx:for-item="pic" wx:for-index="id" wx:key="id">
+        <swiper-item>
+           <image src="{{imgurl}}{{showPicID}}/{{pic}}" style='position:absolute;height:100%;width:100%;display:flex;justify-content: center;align-items:center;z-index:-1' mode="aspectFit"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+        </view>
+        
+      </scroll-view>
+      <image class="dialogClose" src="/static/image/close_n.png" bindtap='closepicdetail'/>
+    </view>
+  </view>
+</view>

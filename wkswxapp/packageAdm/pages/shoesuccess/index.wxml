@@ -1,0 +1,8 @@
+<!--packageAdm/pages/shoesuccess/index.wxml-->
+<!-- <text>packageAdm/pages/shoesuccess/index.wxml</text> -->
+<!-- <view>
+  <image class="image" src="../../../static/image/success.png"  ></image>
+<view class="words" >提交成功,鞋柜管理员会尽快安排人员维修</view>
+<button class="button" bindtap="backhome" >返回首页</button>
+</view> -->
+

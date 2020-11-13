@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="mainMessage" wx:for="{{message}}" wx:for-item='item' wx:key="message">
+    <view class="messageDetail">
+      <view><text class="xin">*</text>申请人工号:</view>
+      <view class="rightMES">{{item.empno}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>申请人姓名:</view>
+      <view class="rightMES">{{item.chName}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>部门代码:</view>
+      <view class="rightMES">{{item.deptCode}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>补办类型:</view>
+      <picker class="pick" bindchange="changeType" value="{{index}}" range="{{category}}" range-key="{{'categoryName'}}">
+        <input type="text" placeholder="请选择" placeholder-style="color:black;" value="{{type}}" disabled="true"></input> 
+      </picker>
+    </view>
+  </view>
+  <view class="explain" style="width:100vw-20rpx">
+    <view class="title">说明:</view>
+    <view class="ex-text">
+      <view>1. 上岗证和臂章申请成功后，如需撤销请在4h内致电5736 7888转3542；</view>
+      <view>2. 上岗证和技术员臂章工本费5元/枚；</view>
+      <view>3. 上岗证和技术员臂章补办申请提交后：</view>
+      <view><text  style='display:inline-block;width:48rpx'></text>领取地点：C区电脑教室</view>
+      <view><text  style='display:inline-block;width:48rpx'></text>领取时间：每周一、周三、周五 17:00-21:00  (当日申请当日无法领取，节假日不办理)</view>
+    </view>
+  </view>
+  <button bindtap="submit">提交</button>
+</view>

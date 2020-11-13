@@ -1,0 +1,17 @@
+/* pages/healthcheck/health.wxss *//* pages/healthcheck/healthCheck.wxss */
+.container{
+  text-align: left;
+  text-indent: 50rpx;
+  font-size:4vw;
+  padding: 10px 10px 10px 10px;
+}
+
+
+view {
+  margin: 20rpx 0 10rpx 0;
+}
+
+input { outline: none;border: none;list-style: none;background: lightgreen }
+.textstyle{
+  padding: 20rpx 0 10rpx 0;
+}

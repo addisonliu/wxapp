@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="vacation-title">
+    <text>假别名称</text>
+    <text>剩余时数</text>
+  </view>
+  <view class="vacation-content">
+    <view wx:for="{{vacationTime}}" wx:key="this" wx:for-item="item">
+      <text >{{item.category}}</text>
+      <text>{{item.hours}}</text>
+    </view>
+  </view>
+</view>

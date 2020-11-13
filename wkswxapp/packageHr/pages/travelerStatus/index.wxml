@@ -1,0 +1,71 @@
+<!--pages/Traveler Status/index.wxml-->
+<view class="contaienr">
+  <!-- <view class="nav">
+      <view class="{{state ? 'nav_actived' : ''}}" bindtap="changeState" data-state='true'>Pick up</view>
+      <view class="{{state ? '' : 'nav_actived'}}" bindtap="changeState" data-state='false'>Departure</view>
+  </view> -->
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{state ? 'on' : ''}}" data-state="true" bindtap="changeState">Pick up</view>
+    <view class="swiper-tab-list {{!state ? 'on' : ''}}" data-state="false" bindtap="changeState">Departure</view>
+  </view>
+  <view wx:for='{{data}}' wx:key='{{item.Site}}'>
+      <view class="a">
+    <view>{{state ? 'Arrival' : 'Departure'}} Site: {{item.Site}}</view>
+    <view wx:if='{{showDetailKey === true}}'>{{state ? 'Arrival' : 'Departure'}} Date: {{date}}</view>
+  </view>
+  <view class="date_info" wx:if='{{showDetailKey === false}}'>
+    <view>
+      <view>Date</view>
+      <view>Summary</view>
+    </view>
+    <view class="date_count">
+      <view wx:for="{{item.SummaryList}}"  wx:key="{{value.Date}}" bindtap="getDetail" id='{{item.Site}}' data-date='{{value.Date}}' wx:for-item="value">
+        <view >{{value.Date}}</view>
+        <view>{{value.Summary}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="data_detail" wx:if='{{showDetailKey === true}}'>
+    <view  wx:for='{{detailInfo}}' wx:key='{{v.Num}}' wx:for-item='v'>
+      <view class="list-item" bindtap="changeArrowState" id='{{v.Site}}'>
+      <view>{{state ? 'From' : 'To'}} {{v.Site}} - {{v.SummaryDetail.length}} people</view>
+      <image src='/static/image/down.jpg' id='{{v.Site}}' class="list-item-arrow" style="transform:{{v.state ? 'rotate(0deg)' : 'rotate(180deg)'}}"></image>
+    </view>
+    <view class="person" wx:if='{{v.state}}' wx:key='{{val.UID}}'  wx:for='{{v.SummaryDetail}}' wx:for-item="val">
+      <view>{{val.UID}}</view>
+      <view class="person-info">
+        <view>
+          <view>Chinese Name</view>
+          <view>{{val.ChName}}</view>
+        </view>
+        <view>
+          <view>English Name</view>
+          <view>{{val.EnName}}</view>
+        </view>
+        <view>
+          <view>Phone No.</view>
+          <view>{{val.PhoneNo}}</view>
+        </view>
+        <view>
+          <view>Title</view>
+          <view>{{val.Title}}</view>
+        </view>
+        <view>
+          <view>Travel Schedule</view>
+          <view>{{val.Scheduling}}</view>
+        </view>
+        <view>
+          <view>Arrival Time</view>
+          <view>{{val.Time}}</view>
+        </view>
+        <view>
+          <view>Flight No</view>
+          <view>{{val.FlightNo}}</view>
+        </view>
+      </view>
+     </view>
+    </view>
+  </view>
+  </view>
+</view>
+<i-toast id="toast" />

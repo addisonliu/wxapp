@@ -1,0 +1,43 @@
+<!--pages/Query/query.wxml-->
+<!-- 查询主界面 -->
+<view class="QueryRoom">
+    <text class="Title">{{meetingNumber}}会议室</text>
+    <view class="select_time">
+      <text class="tx2" style="font-size:45rpx;">日期：</text>
+      <input type="text" data-name="inputvalue1" class="date1"  placeholder="起始日期" bindtap="input1" value="{{inputvalue1}}" bindinput="bindinput1" style="font-size:40rpx;"></input>
+      <text class="tx3">--</text>
+      <input type="text" data-name="inputvalue2" class="date2" placeholder="终止日期" bindtap="input2" value="{{inputvalue2}}" bindinput="bindinput2" style="font-size:40rpx;"></input>
+    </view>
+
+<view class="canlendarBgView">
+  <view class="canlendarView">
+    <view class="canlendarTopView">
+      <view class="leftBgView"  bindtap="handleCanlendar" data-handle="prev">
+        <view class="leftView" style="font-size:40rpx;" >《</view>
+      </view>
+      <view class="centerView" style="font-size:40rpx;">{{cur_year || "--"}}年{{cur_month || "--"}}月</view>
+      <view class="rightBgView" bindtap="handleCanlendar" data-handle="next">
+        <view class="rightView" style="font-size:40rpx;">》</view>
+      </view>
+    </view>
+    
+  <view class="all">
+   <view class="weekBgView">
+    <view class="weekView" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+  </view>
+  <view class="dataBgView">
+    <view wx:if="{{hasEmptyGrid}}" class="dateEmptyView" wx:for="{{emptyGrids}}" wx:key="{{index}}" data-idx="{{index}}"></view>
+    <view class="dateView" wx:for="{{ days }}" wx:key="{{ index }}" data-idx="{{ index }}" bindtap="dateSelectAction">
+      <view class="datesView {{index == todayIndex ? 'dateSelectView' :''}}">{{item}}</view>
+    </view>
+  </view>
+  </view>
+  </view>
+</view>
+
+<view class="_btn">
+      <button class="btn" bindtap="querybtn">查询</button>
+</view>
+
+<view class="kongbai"></view>
+</view>  

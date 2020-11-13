@@ -1,0 +1,22 @@
+/* pages/healthSearch/healthSearch.wxss */
+.main{
+  margin: 30rpx 0;
+}
+.date{
+  margin-bottom: 20rpx;
+  margin-left:40rpx;
+  font-size: 16px;
+  font-weight:bold;
+}
+.txtgreen
+{
+  color:green;
+}
+.txtred
+{
+  color:red;
+}
+.txtorg
+{
+  color:orange;
+}

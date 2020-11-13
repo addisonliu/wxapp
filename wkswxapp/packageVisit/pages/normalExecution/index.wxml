@@ -1,0 +1,279 @@
+<!-- 页面1 -->
+<view class="container {{pageAnimation1}}" >
+  <view class="form-item" wx:for='{{pageList1}}' wx:for-item="v" wx:key="v.id">
+    <view class="form-item-label">
+      <label>{{v.label}}</label>
+      <text wx:if="{{v.isRequired === true}}">*</text>
+    </view>
+    <view class="form-item-remark">
+    	<text wx:if="{{v.remark.length > 0}}">注:XXXXXXXXXXXXXXXXXXXXXXXXXXXXX</text>
+    </view>
+    <view class="form-item-input">
+    	<input type="text" disabled="{{v.disabled}}" id="{{v.id}}" style="background:{{v.disabled ? '#eee' : '#fff'}}"
+    		value="{{data[v.id]}}" bindblur="getInputValue"></input>
+    	<picker value="{{value}}" id="{{v.id}}" bindchange="enNamePickerChange"
+		 range="{{enNameList}}" wx:if="{{v.otherType === 'picker'}}">
+          {{v.otherLabel}}
+      </picker>
+    </view>
+  </view>
+  <view class="form-item turn-page">
+  	<!-- 切换页面 data-page位目标页面页码 -->
+  	<button bind:tap="nextPage" data-page='2' style="display: block; margin: 20rpx auto" id='next1'>下一页</button>
+  </view>
+</view>
+
+<!-- 页面2 -->
+<view class="container {{pageAnimation2}}">
+	<view class="form-item" wx:for='{{pageList2}}' wx:for-item="v" wx:key="v.id">
+		<view class="form-item-label">
+      <label>{{v.label}}</label>
+      <text wx:if="{{v.isRequired === true}}">*</text>
+    </view>
+    <view class="form-item-input">
+    	<input type="text" disabled="{{v.disabled}}" id="{{v.id}}" style="background:{{v.disabled ? '#eee' : '#fff'}}"
+    		value="{{data[v.id]}}" wx:if="{{v.type === 'input'}}" bindblur="getInputValue" ></input>
+    	<picker mode="date" value="{{data[v.id]}}" start="{{v.start}}" id="{{v.id}}" bindchange="enNamePickerChange"  wx:if="{{v.id === 'fromdate' || v.id === 'todate' }}">
+          {{v.otherLabel}}
+      </picker>
+      <!-- 简易的radio 懒得封装成组件 默认选中预先data中设置值-->
+    	<view class="chen-radio" wx:if="{{v.type === 'radio'}}">
+    		<view class="radio-item" wx:for="{{v.radioList}}" wx:for-item="r" wx:key="{{r.value}}">
+    			<text style="background: {{data[v.id] === r.value ? '#0cf' : '#fff'}}; border-color: {{data[v.id] === r.value ? '#ecfcff' : '#ccc'}}" bind:tap="radioChange" data-value="{{v.id + '_' + r.value}}">✓</text>
+    			<label bind:tap="radioChange" data-value="{{v.id + '_' + r.value}}">{{r.label}}</label>
+    		</view>
+			</view>
+    </view>
+	</view>
+	<view class="form-item turn-page">
+  	<button bind:tap="prePage" data-page='1'>上一页</button>
+  	<text>-2-</text>
+  	<button bind:tap="nextPage" data-page='3'  id='next2'>下一页</button>
+  </view>
+</view>
+
+<!-- 页面3 -->
+<view class="container {{pageAnimation3}}">
+	<view class="add-worker-container-show">
+		<text style='font-size:30rpx; font-weight:900;color:rgb(5, 153, 252)' bind:tap="showAdd" wx:if="{{addCheckedPerson.length === 0}}">新增施工人员信息</text>
+		<text style="color:#f23030;font-size:24rpx">注:点击完成后无法再次新增施工人员</text>
+	</view>
+	<view class="checked-worker-container">
+		<view class="checked-worker-title">
+			已选名单
+		</view>
+		<view class="checked-worker-label">
+			<view >姓名</view>
+			<view>身份证</view>
+			<view>特殊岗位证件</view>
+		</view>
+		<view class="checked-worker-item" wx:for="{{addCheckedPerson}}" wx:for-item="v" wx:key="item.key" >
+			<view>{{v.GuestName}}</view>
+			<view>{{v.hideIdCard}}</view>
+			<view bind:tap="previewWorkerImg" data-path="{{v.tempFilePaths}}" wx:if="{{v.tempFilePaths.length > 0}}">点击预览</view>
+		</view>
+	</view>
+	<view class="form-item turn-page">
+  	<button bind:tap="prePage" data-page='2'>上一页</button>
+  	<text>-3-</text>
+  	<button bind:tap="nextPage" data-page='4' id='next3'>下一页</button>
+  </view>
+</view>
+
+<!-- 新增施工人员页面 -->
+<view class="container {{addWorkerPageAnimation}}" >
+	<view class="add-worker-operations">
+		<view bind:tap="hideAdd">
+			<button class="btnback">返回</button>>
+		</view>
+		<view>已选 <text>{{addCheckPerson.length}}</text> 人</view>
+		<view bind:tap="saveCheckedWorker">
+				<button class="btnback">完成</button>>
+		</view>
+	</view>
+	<view class="add-worker-container">
+		<view class="add-worker-label">
+			<view>姓名</view>
+			<view>身份证</view>
+			<view>特殊岗位证件</view>
+		</view>
+		<view class="add-worker-operation">
+			<view class="add-worker-btn" style='font-size:30rpx; font-weight:900' bind:tap="showAddWorkerDialog">
+				点击新增
+			</view>
+			<view  bind:tap="showAddNewWorkerAttentionDialog">上传证件注意事项</view>
+		</view>
+		<checkbox-group bindchange="checkboxChange">
+			<view class="add-worker-item" wx:for="{{addWorkerPerson}}" wx:for-item="item" wx:key="item.key">
+				<view class="add-worker-item-checkbox">
+					<checkbox checked="{{item.checked}}" value="{{item.AppIDNO}}_{{item.key}}"></checkbox>
+				</view>
+				<view class="add-worker-item-name">{{item.GuestName}}</view>
+				<view class="add-worker-item-id">{{item.hideIdCard}}</view>
+				<view class="add-worker-item-operations">
+					<view style="color: #09f" bind:tap="addWorkerImg" data-id='{{item.AppIDNO}}' wx:if="{{!item.tempFilePaths}}">新增</view>
+					<view style="color: #09f" bind:tap="previewWorkerImg" data-path='{{item.tempFilePaths}}' wx:if="{{item.tempFilePaths.length > 0}}">预览</view>
+					<view style="color: #f30" bind:tap="deleteItemWorkerImg" data-id='{{item.AppIDNO}}'>取消</view>
+				</view>
+			</view>
+		</checkbox-group>
+		<view></view>
+	</view>
+	<view class="add-delete-worker">
+		<view bind:tap="addWorkerAllChecked">{{isAddChecked ? '取消全选' : '全选'}}</view>
+		<view bind:tap="deleteConfirm">删除</view>
+	</view>
+</view>
+
+<!-- 新增dialog -->
+<view class="add-worker-form {{addWorkerDialogAnimation}}" wx:if='{{showAddDialog}}'>
+	<view>
+		<view class="add-worker-form-header">新增施工人员</view>
+		<view class="add-worker-form-content">
+			<view class="add-worker-form-item">
+				<label>施工人员姓名:</label>
+				<input type="text" id='GuestName' bindinput="getAddWorkerInputName"/>
+			</view>
+			<view class="add-worker-form-item">
+				<label>身份证:</label>
+				<input type="idcard" id='AppIDNO' bindinput="getAddWorkerInputIdCard"/>
+			</view>
+		</view>
+		<view class="add-worker-form-footer">
+			<view style="background-color: #1089ff" bind:tap="confimAddNewWorker">确定</view>
+			<view style="background-color: #ef4b4b" bind:tap="hideAddWorkerDialog">取消</view>
+		</view>
+	</view>
+</view>
+
+<!-- 新增注意施工人員事項 -->
+<view class="container add-worker-attention {{addNewWorkerAttentionAnimation}}" wx:if="{{showAddNewWorkerAttention}}" style="transform: translateX(0)">
+	<view class="execution-attention-title">
+		上傳施工個人資質文件 <text style="color:#f23030;font-size:18px">*</text>
+	</view>
+	<view>
+		<view class="add-worker-attention-title">一般施工:</view>
+		<view class="add-worker-attention-item">1. 进厂作业人员承诺书 </view>
+		<view class="add-worker-attention-title">危险施工:</view>
+		<view class="add-worker-attention-item">
+			1. 进厂作业人员承诺书
+		</view>
+		<view class="add-worker-attention-item">
+			2. 高处作业证.
+		</view>
+		<view class="add-worker-attention-item">
+			3. 焊接与热切割作业证.
+		</view>
+		<view class="add-worker-attention-item">
+			4. 起重机指导证&起重机操作证&起重机检验合格证.
+		</view><view class="add-worker-attention-item">
+			5. 电工作业证.
+		</view>
+		<view class="add-worker-attention-item">
+			6. 挖掘机操作证.
+		</view>
+		<view class="add-worker-attention-item">
+			7. 叉车司机证&叉车检验合格证.
+		</view>
+		<view class="add-worker-attention-remark">
+			备注: *吊挂作业如涉及使用叉车, 需上传叉车司机证和叉车检验合格证.
+		</view>
+		<view class="add-worker-attention-button {{addNewWorkerAttention === '确认' ? '' : 'add-worker-attention-button-disabled'}}" bind:tap="hideAddNewWorkerAttentionDialog">{{addNewWorkerAttention}}</view>
+	</view>
+</view>
+<!-- page4 -->
+<view class="container {{pageAnimation4}}">
+	<view class="execution-attention-title">
+		请选择施工要进行的步骤 <text style="color:#f23030;font-size:18px">*</text>
+	</view>
+	<view class="execution-attention-container" >
+		<view class="execution-attention-check-title">
+			<view>选择</view>
+			<view>施工步骤</view>
+		</view>
+		<!--  -->
+		<checkbox-group bindchange="getEvaluation">
+			<view class="execution-attention-check-item"
+			 wx:for="{{evaluationSheetArr}}" wx:for-item='v' wx:key="{{v.ID}}">
+				<view><checkbox value="{{v.ID}}"  id='checkbox1'></checkbox></view>
+				<view>{{v.Step}}</view>
+			</view>
+		</checkbox-group>
+		<!--  -->
+	</view>
+	<view class="form-item turn-page">
+  	<button bind:tap="prePage" data-page='3'>上一页</button>
+  	<text>-4-</text>
+  	<button bind:tap="nextPage" data-page='5' id='next4'>下一页</button>
+  </view>
+</view>
+
+<!-- page5 -->
+<view class="container {{pageAnimation5}}">
+	<view class="execution-attention-title">
+		施工作业注意事项及应对措施 <text style="color:#f23030;font-size:18px">*</text>
+	</view>
+	<view class="execution-attention-container" >
+		<view class="execution-attention-item" wx:for="{{evaluationSheetShow}}" wx:for-item="item" wx:key="{{item.ID}}">
+			<view>{{item.Step}}</view>
+			<view>
+				<view>施工隐患:</view>
+				<view>{{item.Endange}}</view>
+			</view>
+			<view>
+				<view>应对措施:</view>
+				<view>{{item.Method}}</view>
+			</view>
+			<view>
+				<view>环境危害:</view>
+				<view>{{item.Damage}}</view>
+			</view>
+			<view>
+				<view>应对措施:</view>
+				<view>{{item.Measure}}</view>
+				</view>
+		</view>
+
+<checkbox-group bindchange='accept'>
+   <view class='check-boxx'>
+     <checkbox  value='aaaaaa' style='font-size:33rpx; font-weight:900' class='cb'>
+		 我已阅读并知悉以上内容*
+		</checkbox>
+   </view>
+</checkbox-group>
+	</view>
+
+	<view class="form-item turn-page">
+  	<button bind:tap="prePage" data-page='4'>上一页</button>
+  	<text>-5-</text>
+  	<button bind:tap="nextPage" data-page='6' id='next5'>下一页</button>
+  </view>
+</view>
+
+<!-- page6  -->
+<view class="container {{pageAnimation6}}">
+	<view class="execution-attention-title">
+		上传厂商资质文件 <text style="color:#f23030;font-size:18px">*</text>
+	</view>
+	<view class="upload-file-execution">
+		<view class="upload-file-title">包含项目:</view>
+		<view class="upload-file-item">1. 营业执照.</view>
+		<view class="upload-file-item">2. 厂商入厂作业承诺书.</view>
+		<view class="upload-file-item">3. 厂商自律书.</view>
+		<view class="upload-file-item">4. 安全生产管理协议.</view>
+		<view class="upload-file-title" style="color:red">注意事项:</view>
+		<view class="upload-file-item" style="color:red">上传文件通过使用聊天窗口选取文件,请保证文件小于8M并且文件格式正确 </view>
+	</view>
+ 	<upload sourceType='file' uploadFileType="{{uploadFileType}}" bindsuccess='uploadsuccess'  bind:delete='deleteFile'>
+  </upload>
+	<view class="form-item turn-page">
+  	<button bind:tap="prePage" data-page='5'>上一页</button>
+  </view>
+  <button class="submit" bind:tap="submit" disabled="{{isDisabled}}">提交</button>
+</view>
+
+<i-message id='message'/>
+<modal title="删除确认" hidden="{{showDeleteConfirm}}" actions="{{deleteConfirmFooter}}" bindconfirm="deleteWorkerChecked"
+bindcancel="deleteWorkerCancel" >
+ <view>你确定要删除吗?</view>
+</modal>

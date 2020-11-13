@@ -1,0 +1,25 @@
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th_3">假别</view>
+    <view class="th_4">时数</view>
+    <view class="th_1 ">开始时间</view>
+    <view class="th_2 ">结束时间</view>
+    <view class="th_5 ">状态</view>
+  </view>
+  <block wx:for="{{LeaveList}}" wx:key="{{item.RID}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 1}}">
+      <view class="td_3">{{item.Type}}</view>
+      <view class="td_4">{{item.Hours}}</view>
+      <view class="td_1">{{item.StartDate}}</view>
+       <view class="td_2">{{item.EndDate}}</view>
+      <view class="td_5">{{item.Status}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td_3">{{item.Type}}</view>
+      <view class="td_4">{{item.Hours}}</view>
+      <view class="td_1">{{item.StartDate}}</view>
+       <view class="td_2">{{item.EndDate}}</view>
+      <view class="td_5">{{item.Status}}</view>
+    </view>
+  </block>
+</view>

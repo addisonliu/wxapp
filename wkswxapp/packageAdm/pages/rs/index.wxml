@@ -1,0 +1,67 @@
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">已结薪</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">未结薪</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 80}}px" bindchange="bindChange">
+    <!--已结薪 -->
+    <swiper-item>
+      <!--按钮-->
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th_1">餐别</view>
+    <view class="th_2 ">餐厅</view>
+    <view class="th_3 ">刷卡时间</view>
+    <view class="th_4 ">金额</view>
+    <view class="th_5">付费原因</view>
+  </view>
+  <view scroll-y style="height:calc(100vh - 80rpx);overflow: hidden; overflow-y:auto">
+  <block wx:for="{{LastRsList}}" wx:key="{{item.RID}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td_1">{{item.Type}}</view>
+      <view class="td_2">{{item.Vendor}}</view>
+       <view class="td_3">{{item.RsDate}}</view>
+      <view class="td_4">{{item.PayPerson}}</view>
+      <view class="td_5">{{item.PayReason}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td_1">{{item.Type}}</view>
+      <view class="td_2">{{item.Vendor}}</view>
+       <view class="td_3">{{item.RsDate}}</view>
+      <view class="td_4">{{item.PayPerson}}</view>
+      <view class="td_5">{{item.PayReason}}</view>
+    </view>
+  </block>
+  </view>
+</view>
+</swiper-item>
+    <!-- 未结薪 -->
+<swiper-item>
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th_1">餐别</view>
+    <view class="th_2 ">餐厅</view>
+    <view class="th_3 ">刷卡时间</view>
+    <view class="th_4 ">金额</view>
+    <view class="th_5">付费原因</view>
+  </view>
+  <view scroll-y style="height:calc(100vh - 80rpx);overflow: hidden; overflow-y:auto">
+  <block wx:for="{{RsList}}" wx:key="{{item.RID}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td_1">{{item.Type}}</view>
+      <view class="td_2">{{item.Vendor}}</view>
+       <view class="td_3">{{item.RsDate}}</view>
+      <view class="td_4">{{item.PayPerson}}</view>
+      <view class="td_5">{{item.PayReason}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td_1">{{item.Type}}</view>
+      <view class="td_2">{{item.Vendor}}</view>
+       <view class="td_3">{{item.RsDate}}</view>
+      <view class="td_4">{{item.PayPerson}}</view>
+      <view class="td_5">{{item.PayReason}}</view>
+    </view>
+  </block>
+  </view>
+</view>
+</swiper-item>
+</swiper>

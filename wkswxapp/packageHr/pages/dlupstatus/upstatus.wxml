@@ -1,0 +1,44 @@
+<!--packageHr/pages/upstatus/upstatus.wxml-->
+<!-- <text>packageHr/pages/upstatus/upstatus.wxml</text> -->
+<swiper-item>
+    <view class="table">
+    <view class="tr bg-w">
+    <view class="th_1 ">等级</view>
+    <view class="th_2 ">技能类别</view>
+    <view class="th_3">签核状态</view>
+  </view>
+  <view scroll-y style="height:calc(100vh - 80rpx);overflow: hidden; overflow-y:auto">
+  <block wx:for="{{upArr}}" wx:key="{{item.RID}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td_1">{{item.skillLevel}}</view>
+       <view class="td_2">{{item.skill}}</view>
+       <view class="td_3">{{item.applicationState}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td_1">{{item.skillLevel}}</view>
+      <view class="td_2">{{item.skill}}</view>
+      <view class="td_3">{{item.applicationState}}</view>
+    </view>
+  </block>
+  </view>
+</view>
+    </swiper-item>
+
+  <view class="container">
+  <view class="items">上岗证: </view>
+  <view class = "item">签核完毕后,每周一三五17:00-21:00至C区电脑教室考试</view>
+  <view class="items">4级/11级/12级/13级(高手/技术员/资深技术员/高级技术员):</view>
+  <view class ='item'>签核完毕后,请依照训练单位实际通知参与考试,可咨询助理或干部</view>
+
+  <!-- <view bindtap='bindViewTap' class='userinfo'>
+ <text style="color:#3690cf" >返回首页</text>
+</view> -->
+
+<!-- <navigator url="pages/skillapplication/up/up" class="userinfo">
+ <text style="color:#3690cf" >返回首页</text>
+</navigator> -->
+  </view>
+
+  <!-- <view bindtap='bindViewTap' class='userinfo'>
+ <text style="color:#3690cf" >返回首页</text>
+</view> -->

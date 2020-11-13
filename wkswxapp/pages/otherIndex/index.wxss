@@ -1,0 +1,174 @@
+page{
+    height: 100%;
+    width: 100%;
+    background: #f4f4f4;
+}
+.container{
+    background: #f4f4f4;
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+}
+.indexinfo {
+  display:flex;
+  width: 100%;
+ 	background: #333;  justify-content: center;
+  align-items: cneter;
+}
+.indexinfo-img{
+  width: 100%;
+}
+
+.indexinfo-avatar {
+  flex:1.5;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:300rpx;
+}
+
+
+.profile-info{
+    width: 100%;
+    height: 280rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 30.25rpx;
+    background: #333;
+}
+
+.profile-info .avatar{
+    height: 148rpx;
+    width: 148rpx;
+    border-radius: 50%;
+}
+
+.profile-info .info{
+    flex: 1;
+    height: 85rpx;
+    padding-left: 31.25rpx;
+}
+
+.profile-info .name{
+    display: block;
+    height: 45rpx;
+    line-height: 45rpx;
+    color: #fff;
+    font-size: 37.5rpx;
+    margin-bottom: 10rpx;
+}
+
+.profile-info .level{
+    display: block;
+    height: 30rpx;
+    line-height: 30rpx;
+    margin-bottom: 10rpx;
+    color: #7f7f7f;
+    font-size: 30rpx;
+}
+
+.index-menu{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.index-menu .item{
+    width: 33.33333vw;
+    height: 187.5rpx;
+    border-right: 1px solid rgba(0,0,0,.15);
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    text-align: center;
+}
+
+.index-menu .item .a{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.index-menu .item.no-border {
+    border-right: 0;
+}
+
+.index-menu .item.item-bottom {
+    border-bottom: none;
+}
+
+.index-menu .icon{
+    margin: 0 auto;
+    display: block;
+    height: 52.803rpx;
+    width: 52.803rpx;
+    margin-bottom: 16rpx;
+}
+
+
+
+.index-menu .txt{
+    display: block;
+    height: 24rpx;
+    width: 100%;
+    font-size: 24rpx;
+    color:#333;
+}
+
+.logout{
+    margin-top: 50rpx;
+    height: 101rpx;
+    width: 100%;
+    line-height: 101rpx;
+    text-align: center;
+    background: #fff;
+    color: #333;
+    font-size: 30rpx;
+}
+
+.service {
+  position: static;
+  background-color: transparent;
+  color: transparent;
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-align: left;
+  line-height: normal;
+  display: inline;
+}
+
+.index {
+  width:100%;
+  height: 40rpx;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    text-align: center;  
+  padding: 40rpx;
+}
+
+ .h {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 130rpx;
+  background: #fff;
+}
+
+ .h .txt {
+  padding-right: 30rpx;
+  background-size: 16.656rpx 27rpx;
+  display: inline-block;
+  height: 36rpx;
+  font-size: 33rpx;
+  line-height: 36rpx;
+}
+
+

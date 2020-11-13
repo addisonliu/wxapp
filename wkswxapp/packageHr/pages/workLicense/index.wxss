@@ -1,0 +1,57 @@
+.container{
+  background-color: #fff;
+}
+.mainMessage{
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+.messageDetail{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 80rpx;
+  width: 100%;
+  line-height: 80rpx;
+}
+.xin{
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  vertical-align: center;
+  color: rgb(233, 34, 34);
+}
+.rightMES{
+  color: #b8b6ba;
+}
+.pick{
+  text-align: right;
+}
+
+.title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.explain{
+  /* height: 400rpx; */
+  margin: 20rpx;
+  padding: 10rpx;
+  border:2rpx solid rgb(211, 211, 211);
+  background-color: #fff;
+  letter-spacing: 2rpx;
+}
+
+.ex-text>view{
+ line-height: 40rpx;
+ margin: 20rpx 0;
+}
+button{
+  margin-top: 40rpx;
+  color: #fff;
+  letter-spacing: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color:rgb(47,183,235);
+  border: 0;
+  border-radius: 40rpx;
+}

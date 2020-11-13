@@ -1,0 +1,74 @@
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">当日记录</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">历史记录</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:calc(100vh - 80rpx)"
+  bindchange="bindChange">
+  <!-- 当日记录 -->
+  <swiper-item>
+    <view class="table">
+
+      <view class="tr bg-w">
+        <view class="th_1 ">开始时间</view>
+        <view class="th_2 ">刷进/刷出</view>
+      </view>
+      <view scroll-y style="height:calc(100vh - 80rpx);overflow: hidden; overflow-y:auto">
+        <block wx:for="{{RecordDetial}}" wx:key="userDate">
+          <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+            <view class="td_1">{{item.userDate}}</view>
+            <view class="td_2">{{item.mode}}</view>
+          </view>
+          <view class="tr" wx:else>
+            <view class="td_1">{{item.userDate}}</view>
+            <view class="td_2">{{item.mode}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </swiper-item>
+  <!--历史记录 -->
+  <swiper-item>
+    <view class='list_box' wx:for='{{newrecord}}' wx:key='this' wx:for-item='item'>
+      <!-- 按钮   -->
+      <view class='list'>
+        <view class='list_name_box' style="border-bottom: 2px solid #efefef;" data-parentitem='{{item}}'
+          bindtap="listTap">
+          <text class='list_item_name'>{{item.yearmonth}}</text>
+          <image src='/static/image/down.jpg' class='icon_down'></image>
+        </view>
+        <view wx:if='{{item.show}}'>
+          <scroll-view scroll-y style="height:calc(100vh - 335rpx)">
+            <view class="title">
+                <view class="td_22">日期</view>
+                <view class="td_11">星期</view>
+                <view class="td_55">时数</view>
+                <view class="td_33">开始时间</view>
+                <view class="td_44">结束时间</view>
+              </view>
+            <block wx:for='{{recorddetail[item.yearmonth]}}' wx:key='this' wx:for-item='dItem'>
+              <!-- <view class="tr bg-g" wx:if="{{index % 2 == 0}}" wx:if="{{dItem.onReTime === null}}"> -->
+              <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+                <view class="td_22">{{dItem.attDate}}</view>
+                <view class="td_11">{{dItem.dayOfWeek}}</view>
+                <view class="td_55">{{dItem.workTime}}</view>
+                <view class="td_33">{{dItem.onReTime}}</view>
+                <view class="td_44">{{dItem.offReTime}}</view>
+              </view>
+              <view class="tr" wx:else>
+                <view class="td_22">{{dItem.attDate}}</view>
+                <view class="td_11">{{dItem.dayOfWeek}}</view>
+                <view class="td_55">{{dItem.workTime}}</view>
+                <view class="td_33">{{dItem.onReTime}}</view>
+                <view class="td_44">{{dItem.offReTime}}</view>
+              </view>
+            </block>
+          </scroll-view>
+          <!-- 
+       <view wx:for='{{recorddetail[item.yearmonth]}}' wx:key='this' wx:for-item='dItem'>
+        {{dItem.attDate}}
+       </view>    -->
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>

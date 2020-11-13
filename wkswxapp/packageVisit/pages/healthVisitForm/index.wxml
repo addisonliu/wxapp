@@ -1,0 +1,375 @@
+<!--pages/healthVisitForm/healthVisitForm.wxml-->
+<view class="container">
+<scroll-view scroll-y style="height:{{winHeight}}px;">
+<view class='info row' style="border-bottom:1px solid #e2e2e2">
+  <view class='textColor'><text style="color:#f23030">*</text>姓名<text class="textEn">(Name)</text>:</view>
+  <input type='text' class='textarea1' bindinput="getName" placeholder="请输入姓名" value='{{chname}}'></input>
+</view>
+<view class='infoDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>公司名<text class="textEn">(Company Name)</text>:</view>
+  <input type='text' class='textarea1' bindinput="getCompanyName" placeholder="请输入公司名" value='{{companyName}}'></input>
+</view>
+<view class='infoDetail row'>
+  <view class='textColor'>日期<text class="textEn">(Date)</text>:</view>
+  <view>
+    <text class="txt">{{now}}</text>
+  </view>
+</view>
+<view class='infoDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>身份证号码<text class="textEn">(ID)</text>:</view>
+  <input type='text' class='textarea1' maxlength="18" bindinput="getIdno" placeholder="请输入身份证号码" value='{{idno}}'></input>
+</view>
+<view class='infoDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>联络电话<text class="textEn">(Contact Number)</text>:</view>
+  <input type='text' class='textarea2' maxlength="11" bindinput="getPhone" placeholder="请输入联络电话" value='{{phone}}'></input>
+</view>
+<view class='infoDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>参访目的<text class="textEn">(Purpose)</text>?</view>
+    <picker class='judge' bindchange="bindPurposeChange" value="{{index}}" range="{{purposeArray}}" range-key="{{'Description'}}">
+      <view class="picker">
+        {{purpose}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+<view class='title'>您的身体状况(Your physical condition):</view>
+<view class='infoDetail row' wx:if="{{(site=='WKS')}}">
+  <view class='textColor'><text style="color:#f23030">*</text>当日的{{codechname}}颜色?<text class="textEn">\n(Color of {{codeenname}} Code?)</text></view>
+    <picker class='judge' bindchange="bindCodeChange" value="{{index}}" range="{{codeArray}}" range-key="{{'Description'}}">
+      <view class="picker">
+        {{code}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+<view class='infoDetail row' wx:if="{{(site=='WKS')}}">
+  <view class='textColor'><text style="color:#f23030">*</text>当日的行程卡颜色?<text class="textEn">\n(Color of Itinerary Card?)</text></view>
+    <picker class='judge' bindchange="bindXCodeChange" value="{{index}}" range="{{xcodeArray}}" range-key="{{'Description'}}">
+      <view class="picker">
+        {{xcode}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+<view class='infoDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>是否被隔离管制中?<text class="textEn">\n(Is it under quarantine?)</text></view>
+    <picker class='judge' bindchange="bindInsulateChange" value="{{index}}" range="{{insulateArray}}" range-key="{{'Description'}}">
+      <view class="picker">
+        {{insulate}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+<view class='infoDetail row' wx:if="{{insulate!=''&&insulate!='否'}}">
+  <view class='textColor'><text style="color:#f23030">*</text>开始隔离日期:<text class="textEn">\n (Start isolation date:)</text></view>
+    <picker mode="date" value="{{insulatefrom}}" bindchange="bindFromDateChange">
+      <view class="picker">
+        {{insulatefrom}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+<view class='infoDetail row' wx:if="{{insulate!=''&&insulate!='否'}}">
+  <view class='textColor'><text style="color:#f23030">*</text>结束隔离日期:<text class="textEn">\n (End isolation date:)</text></view>
+    <picker mode="date" value="{{insulateto}}" bindchange="bindToDateChange">
+      <view class="picker">
+        {{insulateto}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+<view class='infoDetail row2' wx:if="{{insulate!=''&&insulate!='否'}}">
+  <view class='textColor'><text style="color:#f23030">*</text>隔离期间是否有违规外出?<text class="textEn">\n (Is there any illegal going out during isolation?)</text></view>
+  <view class='judge2'>
+    <radio-group class="radio-group" bindchange="isInsulateOutChange">
+      <label class="radio" wx:for="{{items}}" wx:key="item.id">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+</view>
+<view class='infoDetail row2' wx:if="{{insulateaddressflag=='Y'}}">
+  <view class='textColor2'><text style="color:#f23030">*</text>隔离期间违规外出详细地址？<text class="textEn">\n (Where did you go during isolation?)</text></view>
+  <textarea class='textarea4' bindblur="bindInsulateAddress" auto-height placeholder="请输入详细地址" />
+</view>
+<view class='infoDetail row4'>
+  <view class='textColor2'><text style="color:#f23030">*</text>是否有发热/咳嗽/咽痛/气促等呼吸道感染症状?<text class="textEn">\n (Are there symptoms of respiratory infection such as fever/cough/sore throat/ shortness of breath?)</text></view>
+  <view class='judge4'>
+    <radio-group class="radio-group" bindchange="isSymptomChange">
+      <label class="radio" wx:for="{{items}}" wx:key="item.id">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+</view>
+<view class='infoDetail row4'>
+  <view class='textColor2'><text style="color:#f23030">*</text>亲密接触的家属、人群是否有疑似症状?<text class="textEn">\n (Any close family members and people have suspected symptoms?)</text></view>
+  <view class='judge4'>
+    <radio-group class="radio-group" bindchange="isTouchSymptomChange">
+      <label class="radio" wx:for="{{items}}" wx:key="item.id">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+</view>
+<view class='infoDetail row2'>
+  <view class='textColor'><text style="color:#f23030">*</text>今日体温(度数):<text class="textEn">\n Today's temperature(degrees): </text></view>
+  <input type='text' class='textarea2' maxlength="4" bindinput="getTemperature" placeholder="请输入体温" value='{{temperature}}'></input>
+</view>
+<!-- <view class='infoDetail row2'>
+  <view class='textColor'>今日体温(度数,第二次):<text class="textEn">\n Today's second temperature(degrees): </text></view>
+  <input type='text' class='textarea2' maxlength="4" bindinput="getSecondTemperature" placeholder="请输入体温" value='{{stemperature}}'></input>
+</view> -->
+<view class='title'>您今日所在地区情况(Your location):
+</view>
+<view class='infoDetail row' >
+<!-- style="background:{{region[0]=='湖北省'||（region[0]=='浙江省'&&region[1]=='温州市'） ? 'red':''}}" -->
+  <view class='textColor'><text style="color:#f23030">*</text>当日所在地:<text class="textEn">\n (Location of the day:)</text></view>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+    {{region[0]}}{{region[1]}}{{region[2]}}
+    <text class='choose'>请选择</text>
+    </view>
+  </picker>
+</view>
+<view class='infoDetail row2'>
+  <view class='textColor'><text style="color:#f23030">*</text>村镇、街道:<text class="textEn">\n (Village/streety:)</text></view>
+  <textarea class='textarea' bindblur="bindAddress" auto-height placeholder="请输入详细地址" />
+</view>
+<view class='infoDetail row2'>
+  <view class='textColor2'><text style="color:#f23030">*</text>所在街道是否确诊病例?<text class="textEn">\n (Is there any confirmed case in your street?)</text></view>
+  <view>
+    <radio-group class="radio-group" bindchange="isIdentityChange">
+      <label class="radio" wx:for="{{items}}" wx:key="item.id">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+</view>
+<view class='infoDetail row3'>
+  <view class='textColor2'><text style="color:#f23030">*</text>14天內是否与确诊人员有密切接触?<text class="textEn">\n (Any close contact with the confirmed person within 14 days?)</text></view>
+  <view class='judge4'>
+    <radio-group class="radio-group" bindchange="isTouchChange">
+      <label class="radio" wx:for="{{items}}" wx:key="item.id">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+</view>
+<view class='infoDetail row3'>
+  <view class='textColor2'><text style="color:#f23030">*</text>14天内是否与确诊人员住同一栋楼?<text class="textEn">\n (Do you live in the same building as the patient within 14 days?)</text></view>
+  <view class='judge4'>
+    <radio-group class="radio-group" bindchange="isSameBuildingChange">
+      <label class="radio" wx:for="{{items}}" wx:key="item.id">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+</view>
+<view class='title'>14天内动向(Trends within 14 days):</view>
+<!-- <view class='infoDetail row3'>
+  <view class='textColor2'><text style="color:#f23030">*</text>春节假期是否去过或经停湖北省境内?<text class="textEn">\n (Ever been or stopped in Hubei Province during Spring Festival?)</text></view>
+    <picker bindchange="bindAcrossChange" value="{{index}}" range="{{acrossArray}}" range-key="{{'Description'}}">
+      <view class="picker">
+        {{acrossdes}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+<view class='infoDetail row4'>
+  <view class='textColor2'><text style="color:#f23030">*</text>春节假期是否接触过湖北来的同事或亲友?<text class="textEn">\n (Ever met colleagues or relatives from Hubei during the Spring Festival?)</text></view>
+  <view class='judge4'>
+    <radio-group class="radio-group" bindchange="isHolidyTouchChange">
+      <label class="radio" wx:for="{{items}}" wx:key="item.id">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+</view> -->
+<view class='infoDetail row5'>
+  <view class='textColor2'><text style="color:#f23030">*</text>14天内是否去过或经停{{place}}境内?<text class="textEn">\n (Ever been or stopped in {{enplace}} within 14 days?)</text></view>
+    <picker class='judge4' bindchange="bindAcrossChange" value="{{index}}" range="{{acrossArray}}" range-key="{{'Description'}}">
+      <view class="picker">
+        {{acrossdes}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+<view class='infoDetail row5'>
+  <view class='textColor2'><text style="color:#f23030">*</text>是否接触过14天內返回的{{place}}的同事或亲友?<text class="textEn">\n (Have you ever met colleagues or relatives from {{enplace}} who has returned in 14 days?)</text></view>
+  <view class='judge4'>
+    <radio-group class="radio-group" bindchange="isHolidyTouchChange">
+      <label class="radio" wx:for="{{items}}" wx:key="item.id">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+</view>
+<view class='title'>返回{{sitetwo}}计划(Plan of back):</view>
+<view class='infoDetail row6'>
+  <view class='textColor2'><text style="color:#f23030">*</text>预计返回{{sitetwo}}日期(已返回{{sitetwo}}填写实际日期,春节一直留守的统一填2020/01/24):<text class="textEn">\n Expected return date(fill in the actual date if you has returned, and fill in 2020/01/24 if you have stayed behind during the Spring Festival):</text></view>
+    <picker class='judge4' mode="date" value="{{returndate}}" bindchange="bindBackDateChange">
+      <view class="picker">
+        {{returndate}} <text class='choose'>\n请选择</text>
+      </view>
+    </picker>
+</view>
+<!-- <view class='infoDetail row'>
+  <view class='textColor2'><text style="color:#f23030">*</text>返回{{sitetwo}}后住宿<text class="textEn">(Accommodation)</text>：</view>
+    <picker bindchange="bindLiveChange" value="{{index}}" range="{{liveArray}}" range-key="{{'Description'}}">
+      <view class="picker">
+        {{live}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view> -->
+<!-- <view class='infoDetail row4'>
+  <view class='textColor2'><text style="color:#f23030">*</text>共住人员是否有接触过湖北来的同事或亲友?<text class="textEn">\n (Does your roommates ever contact with colleagues or relatives from Hubei?)</text></view>
+  <view class='judge4'>
+    <radio-group class="radio-group" bindchange="isLiveTouchChange">
+      <label class="radio" wx:for="{{items}}" wx:key="item.id">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+</view> -->
+<view class='infoDetail row7'>
+  <view class='textColor2'><text style="color:#f23030">*</text>共住人员是否有接触14天內返回的{{place}}的同事或亲友?<text class="textEn">\n (Have your roommates ever met colleagues or relatives from {{enplace}} who has returned in 14 days?)</text></view>
+  <view class='judge4'>
+    <radio-group class="radio-group" bindchange="isLiveTouchChange">
+      <label class="radio" wx:for="{{items}}" wx:key="item.id">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+</view>
+<!-- <view class='infoDetail row1'>
+  <view class='textColor2'><text style="color:#f23030">*</text>是否有接到通知？湖北、温州、台州、杭州、宁波同仁在未接到公司正式通知前不得返回{{sitetwo}}，否则交由政府防疫单位隔离管控！<text class="textEn">\n (Have you received the notice that Hubei and Wenzhou colleagues are not allowed to return to Kunshan before receiving the official notice of the company, or they will be isolated and controlled by the government's epidemic prevention unit!)</text></view>
+  <view class='judge4'>
+    <radio-group class="radio-group" bindchange="isNoticeChange">
+      <label class="radio" wx:for="{{items}}" wx:key="item.id">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+</view> -->
+<view class='infoDetail row'>
+  <view class='textColor1'>其他备注<text class="textEn">(Others)</text>:</view>
+  <input type='text' class='more' bindinput="getMore" placeholder="备注事项" value='{{more}}'></input>
+</view>
+<view class='check'>
+<checkbox-group bindchange="checkboxChange">
+  <checkbox value="{{choose}}"/>
+  本人收到纬创公司通知并据实填写以上内容, 且对所有内容完全理解。
+(I have received the company's notice and fill in the above contents according to the facts, and fully understand all contents.)
+</checkbox-group>
+</view>
+</scroll-view>
+
+<i-toast id="toast" />
+<i-modal title="{{title}}" visible="{{ visible }}" actions="{{ actions }}" bind:click="handleClick" >
+    <view><text>{{message}}</text>
+    <view class="table">
+    <view class="tr">
+      <view class="td">公司名</view>
+      <view class="td4">{{companyName}}</view>
+      <!-- <view class="td "></view>
+      <view class="td2"></view> -->
+    </view>
+    <view class="tr">
+      <view class="td">日期</view>
+      <view class="td1">{{now}}</view>
+      <view class="td">姓名</view>
+      <view class="td2 ">{{chname}}</view>
+      <view class="td"></view>
+    </view>
+    </view>
+    </view>
+</i-modal>
+<i-modal_red title="{{title}}" visible="{{ visible_red }}" actions="{{ actions }}" bind:click="handleClick" >
+    <view><text>{{message}}</text>
+    <view class="table">
+    <view class="tr">
+      <view class="td">公司名</view>
+      <view class="td4">{{companyName}}</view>
+      <!-- <view class="td "></view>
+      <view class="td2"></view> -->
+    </view>
+    <view class="tr">
+      <view class="td">日期</view>
+      <view class="td1">{{now}}</view>
+      <view class="td">姓名</view>
+      <view class="td2 ">{{chname}}</view>
+      <view class="td"></view>
+    </view>
+    </view>
+    </view>
+</i-modal_red>
+<i-modal_yellow title="{{title}}" visible="{{ visible_yellow }}" actions="{{ actions }}" bind:click="handleClick" >
+    <view><text>{{message}}</text>
+    <view class="table">
+    <view class="tr">
+      <view class="td">公司名</view>
+      <view class="td4">{{companyName}}</view>
+      <!-- <view class="td "></view>
+      <view class="td2"></view> -->
+    </view>
+    <view class="tr">
+      <view class="td">日期</view>
+      <view class="td1">{{now}}</view>
+      <view class="td">姓名</view>
+      <view class="td2 ">{{chname}}</view>
+      <view class="td"></view>
+    </view>
+    </view>
+    </view>
+</i-modal_yellow>
+<i-modal_green title="{{title}}" visible="{{ visible_green }}" actions="{{ actions }}" bind:click="handleClick" >
+    <view><text>{{message}}</text>
+    <view class="table">
+    <view class="tr">
+      <view class="td">公司名</view>
+      <view class="td4">{{companyName}}</view>
+      <!-- <view class="td "></view>
+      <view class="td2"></view> -->
+    </view>
+    <view class="tr">
+      <view class="td">日期</view>
+      <view class="td1">{{now}}</view>
+      <view class="td">姓名</view>
+      <view class="td2 ">{{chname}}</view>
+      <view class="td"></view>
+    </view>
+    </view>
+    </view>
+</i-modal_green>
+<!-- <button class='butt' bindtap="sendApplication">提交</button> -->
+<i-button bind:click="sendApplication" type="success" shape="circle" disabled="{{isdisabled}}">提交</i-button>
+</view>
+
+ <view class='tip-content-dialog' wx:if="{{showModal}}">
+  <scroll-view class="tip-dialog-view tc bg_rule p_all15 p_b20" scroll-y='true' style='height:85%;padding:30rpx;'>
+    <view class="applyNotice11">
+     <text class='notice-title'>网上健康宣告</text>
+    </view>
+    <view class="applyNotice12">
+     <text class='notice-title'>(Online health announcement)</text>
+    </view>
+    <view class="applyNotice">
+  <text class="noticeMore">根据《中华人民共和国传染病防治法》2013修订版第一章十二条，如实填写健康宣告表，并在有需要时接受卫生防疫工作人员的医院检查；根据第八章第七十七条 ，导致传染病传播、流行，给他人人身、财产造成损害的，<text>应当依法承担民事责任。</text></text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore">According to Article 12 of Chapter I of the 2013 revision of the law of the people's Republic of China on the prevention and control of infectious diseases, fill in the health declaration form truthfully and accept the hospital inspection of the health and epidemic prevention staff when necessary; according to Article 77 of Chapter VIII, if the spread and prevalence of infectious diseases are caused and the personal and property of others are damaged, <text>the civil liability shall be borne according to law.</text></text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore1">个人资料收集声明(Personal data collection statement)：</text>
+  </view>
+     <view class="applyNotice">
+  <text class="noticeMore">1.你向纬创资通提供的个人资料是用于预防传染病发生和传播。 \n The personal data you provide to Wistron is used to prevent the occurrence and spread of infectious diseases.</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore">2.你所提供的个人资料，在有需要的情况下，可能会向政府部门或相关防疫机构披露。除此之外，资料只会用于你同意或传染病防治法允许的情况下，才向有关方面披露。\n The personal data you provide may be disclosed to government departments or relevant epidemic prevention agencies when necessary. In addition, the information will only be disclosed to relevant parties with your consent or permitted by the law on prevention and control of infectious diseases.</text>
+  </view>
+  <view class="applyNotice">
+  <text class="noticeMore">3.你填写的资料只有在需要追踪病人或接触者时才会被处理。这种情况下，你可能会被要求核实资料，你有权查阅及更正你的个人资料。如不出现此状况，申报表将在30日后不作任何处理而销毁。\n The information you fill in will be processed only when the patient or contact needs to be tracked. In this case, you may be asked to verify the data, and you have the right to check and correct your personal data. If not, the return will be destroyed after 30 days without any treatment.</text>
+  </view>
+  <view class='check'>
+<checkbox-group bindchange="checkboxNoticeChange">
+  <checkbox value="{{noticechoose}}"/>
+  本人已阅读并同意上述条款(I have read and agree to the above terms)
+</checkbox-group>
+</view>
+  <i-button bind:click="readClick" class='read-btn' type="error" disabled="{{disabled}}">{{codename}}</i-button>
+  </scroll-view>
+</view>   

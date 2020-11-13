@@ -1,0 +1,6 @@
+<!--packageAdm/pages/create_QR/create_QR.wxml-->
+<!-- <text>packageAdm/pages/create_QR/create_QR.wxml</text> -->
+<view class="con">
+   <canvas class='canvas' canvas-id='canvas' bindlongtap='save' style="background:#fff;width:270px;height:270px;"></canvas>
+</view>
+

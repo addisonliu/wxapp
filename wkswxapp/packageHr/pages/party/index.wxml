@@ -1,0 +1,22 @@
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th_1">奖惩力度</view>
+    <view class="th_2 ">提报日期</view>
+    <view class="th_3 ">奖惩事由</view>
+    <view class="th_4 ">状态</view>
+  </view>
+  <block wx:for="{{PartyList}}" wx:key="{{item.RID}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 1}}">
+      <view class="td_1">{{item.Type}}</view>
+      <view class="td_2">{{item.ApplyDate}}</view>
+       <view class="td_3">{{item.reason}}</view>
+      <view class="td_4">{{item.Status}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td_1">{{item.Type}}</view>
+      <view class="td_2">{{item.ApplyDate}}</view>
+       <view class="td_3">{{item.reason}}</view>
+      <view class="td_4">{{item.Status}}</view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,90 @@
+<!--pages/applicationForm/index.wxml-->
+<view class='container'>
+  <!-- <view class='title'>
+      访客申请单
+  </view> -->
+  <view class='content'>
+    <view wx:for="{{list}}" wx:key="item.id" class='item'>
+      <label for="{{item.id}}">{{item.title}}<text style="color:#f23030" wx:if="{{item.require === true }}">  *</text></label>
+      <block wx:if="{{item.type != 'container'}}">
+         <view class='item-input'>
+          <input type='text' id="{{item.type === 'input' ? item.id : ''}}" disabled='{{item.disabled}}' style="background-color:{{item.disabled && item.type === 'input' ? '#eee' : '#fff'}}" bindblur='blur' value="{{data[item.id] ?  data[item.id] : ''}}" placeholder='{{item.placeholder}}'>
+          </input>
+          <picker mode="{{item.type}}" wx:if="{{item.type === 'date' || 'time'}}" bindchange='changeData' id="{{item.type !== 'input' ? item.id : ''}}">{{item.otherTitle}}</picker>
+          <picker value="{{value}}"  bindchange="bindPickerChange" range="{{selectOptions}}" wx:if="{{item.id === 'ENName'}}">
+              {{item.otherTitle}}
+          </picker>
+        </view>
+      </block>
+      <block wx:if="{{item.type == 'container'}}">
+        <view class='item-visitor'>
+            <view bindtap='changeState'>点击新增/修改访客信息</view>
+            <view class='visitor' wx:if="{{checkedData.length>0}}" >
+                 <view wx:for="{{checkedData}}"  wx:key="{{item.key}}">
+                    <text>{{item.GuestName}}</text>
+                    <text>{{item.AppIDNO}}</text>
+                    <text>{{item.GoodsName}}</text>
+                  </view>
+            </view>
+        </view>
+      </block>
+    </view>
+    <view class="a"></view>
+    <button bindtap="sendApplication" disabled='{{data.length< 11}}'>送出签核</button>
+  </view>
+  <view class='visitor-info' style="animation:{{animation}};transform:{{transform}}">
+    <view>
+      <text bindtap='changeState'>返回</text>
+      <text bindtap='selectConfirm'>完成</text>
+    </view>
+    <view class='visitor-item visitor-title'>
+        <text></text>
+        <view>
+          <text>姓名</text>
+          <text>身份证号</text>
+          <text>携带物品</text>
+        </view>
+    </view>
+    <view class='btn'>
+      <view>
+        <text bindtap='addVisitor'>新增访客</text>
+        <text>{{idxs.length}}</text>
+        <text bindtap="showDeleteVisitor">删除新增</text>
+      </view>
+    </view>
+    <view style='overflow:hidden;overflow-y:auto;height:calc(100vh - 160rpx - 44px)'>
+        <checkbox-group bindchange="chkChange">
+        <view class='allCheck'><text bind:tap="AllCheck">{{!allCheck ? '全选' : '取消全选'}}</text></view>
+        <view class='visitor-item' wx:for="{{checkData}}" wx:key="{{item.key}}">
+            <checkbox class="visitor-item-chk" value="key{{item.key}}" checked="{{item.checked}}" disabled="{{item.disabled}}"></checkbox>
+            <view>
+                <text>{{item.GuestName}}</text>
+                <text>{{item.AppIDNO}}</text>
+                <input type='text' value="{{item.GoodsName}}" bindblur='getVisitorThings' id="key{{item.key}}" maxlength='18'></input>
+            </view>
+        </view>
+      </checkbox-group>
+    </view>
+  </view>
+  <view id='dialog' wx:if="{{showModal}}" style="animation:{{show}}">
+    <view>
+      <view id='close' bindtap='hideModal'><i-icon type="close" size="18"/></view>
+      <view id='dialog-header'>新增访客</view>
+      <view id='dialog-container'>
+        <view wx:for="{{addNewVisitorList}}" wx:key="{{item.id}}">
+          <label>{{item.label}}</label>
+          <input type='text' value='' bindinput='newVisitorInfo' id="{{item.id}}"></input>
+        </view>
+      </view>
+      <view id='dialog-footer'>
+        <button bindtap='confirmAdd'>新增</button>
+        <button bindtap='hideModal'>取消</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<i-message id='message' />
+<i-modal title="删除确认" visible="{{ visible }}" actions="{{ actions }}" bind:click="isDeleteVisitor">
+    <view>删除的访客为选中的访客</view>
+</i-modal>

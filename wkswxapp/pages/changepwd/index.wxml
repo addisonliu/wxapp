@@ -1,0 +1,14 @@
+<!--pages/changepwd/index.wxml-->
+
+<view class="page">
+<view class='title'>身份证号:</view>
+<input  type='text' maxlength="18" bindinput="getDPassword" class='shortInput' placeholder='请输入完整的身份证号'></input>
+<view class='title'>新密码:</view>
+<input  type='password' maxlength="20" bindinput="getNPassword" class='shortInput'></input>
+<view class='title'>再次确认新密码:</view>
+<input  type='password' maxlength="20" bindinput="getMPassword" class='shortInput'></input>
+<view class='remark'>8-20位字母数字组合:</view>
+<view class='btn'>
+    <view class='submit size' bindtap='submit'>确认提交</view>
+  </view>
+</view>

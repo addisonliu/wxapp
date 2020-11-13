@@ -1,0 +1,63 @@
+/**app.wxss**/
+
+page {
+    height: 100%;
+    width: 100%;
+    background: #F8F8F8;
+}
+
+.container {
+  background: #FFF;
+  height: auto;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+  font-family: PingFangSC-Light,helvetica,'Heiti SC';
+} 
+
+view,image,text,navigator{
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+
+}
+
+view,text{
+  font-family: PingFangSC-Light,helvetica,'Heiti SC';
+  font-size: 29rpx;
+  color: #333;
+}
+
+.table {
+  border: 0px solid darkgray;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+}
+.td {
+    width:40%;
+    justify-content: center;
+    text-align: center;
+}
+.bg-w{
+  background: snow;
+}
+.bg-g{
+  background: #E6F3F9;
+}
+.th {
+  width: 40%;
+  justify-content: center;
+  background: #2fb7eb;
+  color: #fff;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+
+

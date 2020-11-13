@@ -1,0 +1,56 @@
+<!--pages/healthSearch/healthSearch.wxml-->
+<view class="main" wx:if="{{hidden}}">
+<view class="date">{{empno}}({{date}})</view>
+<i-steps current="7" direction="vertical">
+    <i-step status='{{todayauth=="Y"?"finish":"error"}}'>
+        <view slot="title">
+              今日入厂权限
+        </view>
+        <view slot="content">
+            <view class='{{todayauth=="Y"?"txtgreen":"txtred"}}'>{{todayauth=='Y'?"有入厂权限":"无入厂权限"}};{{todaydesc}}</view>
+        </view>
+    </i-step>
+    <i-step status='{{tomorrowauth=="Y"?"finish":"error"}}' >
+        <view slot="title">
+            明日入厂权限
+        </view>
+        <view slot="content">
+            <view class='{{tomorrowauth=="Y"?"txtgreen":"txtred"}}'>{{tomorrowauth=='Y'?"有入厂权限":"无入厂权限"}};{{tomorrowdesc}}</view>
+        </view>
+    </i-step>
+    <i-step status='{{health=="E"?"finish":"error"}}'>
+        <view slot="title">
+            今日健康宣告书填写状况
+        </view>
+        <view slot="content">
+            <view class='{{health=="E"?"txtgreen":"txtred"}}'>{{healthdesc}}</view>
+        </view>
+    </i-step>
+    <i-step status='{{special=="Y"?"finish":"error"}}'>
+        <view slot="title">
+            是否在可入厂名单(白名单)
+        </view>
+        <view slot="content">
+            <view class='{{special=="Y"?"txtgreen":"txtred"}}'>{{special=='Y'?"是":"否"}}</view>
+        </view>
+    </i-step>
+    <i-step status='{{check=="Y"?"finish":"error"}}'>
+        <view slot="title">
+            核酸检测状况
+        </view>
+        <view slot="content">
+             <view class='{{check=="Y"?"txtgreen":"txtred"}}'>{{check=='Y'?"通过":"未检测"}}</view>
+        </view>
+    </i-step>
+    <i-step status='{{action=="未經過疫情管制區域"?"finish":"error"}}'>
+        <view slot="title">
+            行动轨迹结果
+        </view>
+        <view slot="content">
+            <view class='txtgreen' wx:if="{{action=='未經過疫情管制區域'||action=='未去疫区'}}">{{action}}</view>
+            <view class='txtorg' wx:elif="{{action=='疫情管制非重點區域'}}">{{action}}</view>
+            <view class='txtred' wx:else>{{action}}</view>
+        </view>
+    </i-step>
+</i-steps>
+</view>

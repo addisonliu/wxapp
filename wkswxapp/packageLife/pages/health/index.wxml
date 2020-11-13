@@ -1,0 +1,56 @@
+<!--pages/healthcheck/health.wxml-->
+<view class="container">
+
+  <view class="section" wx:if="{{site!='WZS'}}">
+    <view class="section__title">当前Site:{{site}}不适用此功能。</view>
+  </view>
+
+  <view wx:if="{{site=='WZS'}}" hidden="{{isHidden}}">
+    <view class="section" >
+      <view class="section__title">当前用户<view>
+            {{emplid}} \  {{name}}
+            </view>
+        </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+
+        <view class="flex-item">
+          <view wx:if="{{declareStatus}}"><icon type="success" size="20" color="green"/>健康宣告书</view>
+          <view wx:else><icon type="cancel" size="20" color="red"/>健康宣告书</view>        
+        </view>        
+
+        <view class="flex-item">
+          <view wx:if="{{backToWork}}"><icon type="success" size="20" color="green"/>复工证明</view>
+          <view wx:else><icon type="cancel" size="20" color="red"/>复工证明</view> 
+        </view>   
+      </view>
+
+    <view class="section" wx:if="{{enablePost}}">
+      <view class="section__title">当前体温
+        </view>
+      <view class="flex-wrp" style="flex-direction:row;" wx:if="{{enablePost}}">
+        <form bindsubmit="saveTemperature">
+        <view class="flex-item">
+        <input name="temperature" type="digit" class="weui-input"  focus="true"  placeholder="请输入体温...℃"/>
+        </view>
+        <view class="flex-item">
+        <button formType="submit">记录当前体温</button>
+        </view>
+        </form>   
+      </view>
+    </view>
+
+    <view class="section" >   
+      <view class="section__title">今日体温量测记录:
+      </view>
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view wx:for="{{temperatureHis}}" wx:for-index="idx" wx:for-item="item">
+            {{item.temp}}℃, {{item.time}}
+            </view>
+        </view>          
+      </view>
+    </view>
+
+
+  </view>
+</view>
+

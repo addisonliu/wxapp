@@ -1,0 +1,7 @@
+ <view class='lock-box'>
+    <view class="'lock-title' {{titleColor}}">{{title}}</view>
+    <view class="lock-title-deputy">{{title_deputy}}</view>
+    <canvas disable-scroll='true' class='lock-cav' bindtouchstart='touchS' bindtouchmove='touchM' bindtouchend='touchE' canvas-id='locker' style='width:686rpx;height:686rpx'></canvas>
+    <view hidden='{{resetHidden}}' bindtap='lockreset' class='lock-reset'>重置</view>
+    <view hidden='{{forgetHidden}}' bindtap='lockforget' class='lock-reset'>忘记手势密码？</view>
+</view> 

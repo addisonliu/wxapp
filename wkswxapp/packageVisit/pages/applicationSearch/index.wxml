@@ -1,0 +1,34 @@
+<!--pages/applicationSearch/index.wxml-->
+<view class='container'>
+  <view class='header'>
+    访客申请单
+    <view bindtap='back'><i-icon type="return" size="22" color='#fff'/></view>
+  </view>
+  <view class='content'>
+    <view class='search'>
+      <input placeholder='请输入您的手机号' bindblur='checkPhone' id="phoneNumber"></input>
+      <button bindtap='handleClick'>查询</button>
+    </view>
+    <block wx:if="{{list.length > 0}}">
+      <view wx:for="{{list}}" wx:key="{{item.sequenceid}}">
+        <i-card title="访客单号" extra="{{item.sequenceid}}" >
+            <view slot="content" class='card-content'>
+              <view><label>访客公司</label><text>{{item.guestfacname}}</text></view>
+              <view><label>受访人</label><text>{{item.companionname}}</text></view>
+              <view><label>进厂日期/时间</label><text>{{item.bookin}}</text></view>
+              <view><label>出厂日期/时间</label><text>{{item.bookout}}</text></view>
+            </view>
+            <view slot="footer" class='card-footer'>
+              <view><label>签核状态</label><text>{{item.step}}</text></view>
+            </view>
+        </i-card> 
+      </view>
+    </block>
+    <block wx:if="{{list.length == 0}}">
+      <view class='noData'>
+          暂无任何申请记录
+      </view>
+    </block>
+  </view>
+</view>
+<i-message id="message"></i-message>

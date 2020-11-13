@@ -1,0 +1,8 @@
+<view class="page">
+<view class='title'>身份证号:</view>
+<input  type='text' maxlength="18" bindinput="getDPassword" class='shortInput' placeholder='请输入完整的身份证号'></input>
+<view class="remark">{{remark}}</view>
+<view class='btn'>
+    <view class='submit size' bindtap='submit'>确认提交</view>
+  </view>
+</view>

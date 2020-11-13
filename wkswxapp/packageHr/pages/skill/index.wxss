@@ -1,0 +1,80 @@
+/* packageHr/pages/skill/skill.wxss */
+.main{
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 1150rpx;
+}
+.title{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: left;
+  height: 80rpx;
+  align-items: center;
+  white-space: nowrap; 
+  width: 1150rpx;
+}
+.table>view{
+  justify-content: center;
+  justify-content: center;
+  height: 80rpx;
+  align-items: center;
+  white-space: nowrap;
+  padding-left: 40rpx;}
+.tit{
+  background-color:#2fb7eb;
+  color: #fff;
+}
+.title>view{
+  display: block;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 20rpx;
+}
+.message{
+  background-color:#fff;
+  color: black;
+}
+.message>view{
+  justify-content: center;
+  text-align: center;
+  padding: 0 20rpx; 
+  color: black;
+}
+.t1{
+  width: 100rpx;
+}
+.t2{
+  width:200rpx;
+}
+.t3{
+  width: 200rpx;
+}
+.t4{
+  width: 100rpx;
+}
+.t5{
+  width: 200rpx;
+}
+.t6{
+  width: 200rpx;
+}
+.t7{
+  width:150rpx;
+}
+.container{
+  margin-top: 20rpx;
+  padding: 20rpx;
+  border:2rpx solid rgb(211, 211, 211);
+  background-color: #fff;
+}
+.items{
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-top: 6%;
+}
+.item{
+  margin-top: 3%
+}

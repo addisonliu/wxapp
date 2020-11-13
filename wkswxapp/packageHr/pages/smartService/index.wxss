@@ -1,0 +1,155 @@
+/* pages/smartService/smartService.wxss */
+
+.all {
+  height: 80%;
+}
+
+.inputRoom {
+  width: 100vw;
+  height: 9%;
+  border-top: 1px solid #cdcdcd;
+  background-color: #f1f1f1;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  z-index: 20;
+  justify-content: space-between;
+}
+
+input {
+  width: 58vw;
+  height: 9.33vw;
+  background-color: #fff;
+  border-radius: 8rpx;
+  margin-left: 12vw;
+  padding: 0vw 3vw;
+  align-items: center;
+  font-size: 28rpx;
+  color: #444;
+}
+
+.send {
+  width: 18vw;
+  height: 9.33vw;
+  font-size: 35rpx;
+  color: #FFF;
+  margin-right: 3vw;
+  background-color: #02C261;
+  border-radius: 4rpx;
+  line-height: 70rpx;
+}
+
+.btn {
+  padding: 20rpx 0;
+  margin-left: -1.6vw;
+}
+
+.b1 {
+  width: 14vw;
+  height: 8vw;
+  font-size: 35rpx;
+  color: #444;
+  background-color: #fff;
+  border-radius: 10rpx;
+  border: 1rpx solid #d9d9d9;
+  /* button名稱居中 */
+  vertical-align: middle;
+  text-align: center;
+  line-height: 33px;
+}
+
+.b2 {
+  width: 14vw;
+  height: 8vw;
+  font-size: 35rpx;
+  color: #fff;
+  background-color: #40A9FF;
+  border-radius: 10rpx;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 33px;
+}
+
+.leftMsg {
+  font-size: 30rpx;
+  color: #444;
+  line-height: 7vw;
+  padding: 2vw 2.5vw;
+  background-color: #fff;
+  margin-left: -1.6vw;
+  border-radius: 10rpx;
+  /* z-index: 10; */
+}
+
+.left {
+  font-size: 30rpx;
+  color: #444;
+  line-height: 7vw;
+  padding: 2vw 2.5vw;
+  background-color: white;
+  border-radius: 10rpx;
+  /* z-index: 10; */
+}
+
+.rightMsg {
+  font-size: 30rpx;
+  color: #444;
+  line-height: 7vw;
+  padding: 2vw 2.5vw;
+  background-color: #96EB6A;
+  margin-right: -1.6vw;
+  border-radius: 10rpx;
+  z-index: 10;
+}
+
+.select {
+  color: #1D8ACB;
+  font-size: 30rpx;
+  line-height: 2.2;
+}
+
+.imgStyle {
+  width: 8.5vw;
+  height: 8.5vw;
+  margin-left: 2vw;
+  margin-top: 18rpx;
+
+}
+
+.mStyle {
+  z-index: 30;
+}
+
+.popMes {
+  position: fixed;
+  top: 200rpx;
+  right: 10rpx;
+  display: flex;
+  flex-direction: column;
+  z-index: 99999;
+}
+
+.popTxt {
+  writing-mode: vertical-lr;
+  margin: 20rpx 0;
+  line-height: 100rpx;
+}
+
+.kf_btn {
+  border: 0;
+  height: 80rpx;
+  background-color: rgba(255, 255, 255, 0);
+  border: 0px;
+  margin: 0;
+  padding: 0;
+}
+
+.kf_btn::after {
+  border: 0;
+}
+
+.kf_image {
+  width: 80rpx;
+  height: 80rpx;
+}

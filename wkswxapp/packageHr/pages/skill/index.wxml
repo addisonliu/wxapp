@@ -1,0 +1,38 @@
+<!--packageHr/pages/skill/skill.wxml-->
+<!-- <text>packageHr/pages/skill/skill.wxml</text> -->
+<scroll-view scroll-x="true" style="overflow:hidden;overflow-x:auto; display:flex;" >
+  <view class="main">
+      <view class="title tit"> 
+        <view class="t1">类型</view>
+        <view class="t2">类别</view>
+        <view class="t3">技能</view>
+        <view class="t4">等级</view>
+        <view class="t5">批准日期</view>
+        <view class="t6">考试日期</view>
+        <view class="t7">状态</view>
+      </view>
+      <scroll-view scroll-y="true"style="height:550rpx;width:1150rpx; overflow-y:auto;overflow:hidden;">
+      <view class="title message" wx:for="{{Skillarr}}" wx:key="{{item.RID}}">
+        <view class="t1">{{item.applyType}}</view>
+        <view class="t2">{{item.skillCategory}}</view>
+        <view class="t3">{{item.skill}}</view>
+        <view class="t4">{{item.skillLevel}}</view>
+        <view class="t5">{{item.applyTime}}</view>
+        <view class="t6">{{item.finishDate}}</view>
+        <view class="t7">{{item.applicationState}}</view>
+      </view>
+    </scroll-view>
+  </view>
+</scroll-view>
+<!-- <view class = 'table'> -->
+<!-- <view class='tr-1'>上岗证:</view> -->
+<!-- <view class = 'tr2'>签核完毕后,每周一三五17:00-21:00至C区电脑教室考试</view>
+  <view class = 'tr3'>4级/11级/12级/13级(高手/技术员/资深技术员/高级技术员):</view>
+  <view class ='tr4'>签核完毕后,请依照训练单位实际通知参与考试,可咨询助理或干部</view> -->
+<!-- </view> -->
+<view class="container">
+  <view class="items">上岗证: </view>
+  <view class="item">签核完毕后,每周一三五17:00-21:00至C区电脑教室考试</view>
+  <view class="items">4级/11级/12级/13级(高手/技术员/资深技术员/高级技术员):</view>
+  <view class='item'>签核完毕后,请依照训练单位实际通知参与考试,可咨询助理或干部</view>
+</view>

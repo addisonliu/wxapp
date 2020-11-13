@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="mainMessage"  wx:for="{{bankDataBase}}" wx:for-item='item' wx:key="bankdatabase"> 
+    <view class="messageDetail">
+      <view><text class="xin">*</text>申请人工号:</view>
+      <view class="rightMES">{{item.empno}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>申请人姓名:</view>
+      <view class="rightMES">{{item.chName}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>身份证号码:</view>
+      <view class="rightMES">{{item.idno}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>银行:</view>
+      <view class="rightMES">{{item.bankName}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>银行卡号:</view>
+      <view class="rightMES">{{item.cardNo}}</view>
+    </view>
+
+  </view>
+  <view class="explain" style="width:100vw-20rpx">
+    <view class="title">提醒:</view>
+    <view class="ex-text">
+      <view>1. 此银行卡号为发薪的卡号，请核对，若银行卡号错误，请在银行卡号变更中重新上传维护；</view>
+      <view>2. 工资发放银行仅限中国农业银行和中国工商银行，其他银行暂不支持发薪；</view>
+      <view>3. 银行卡必须为使用者本人身份证号办理的银行卡；</view>
+    </view>
+  </view>
+</view>

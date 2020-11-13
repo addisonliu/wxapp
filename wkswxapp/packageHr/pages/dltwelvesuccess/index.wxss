@@ -1,0 +1,32 @@
+/* packageHr/pages/dltwelvesuccess/index.wxss */
+.image {
+  width: 200rpx;
+  height: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25%;
+  margin-left: 35%;
+}
+.words{
+  display: flex;
+  margin-top: 20rpx;
+  text-align: center;
+  justify-content: center;
+  margin-top: 30rpx;
+  align-items: center;
+  font-weight: bold;
+  font-size: 35rpx;
+  margin-left: -2%;
+}
+.button{
+  width: 40%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin-top: 30%;
+  margin-left: 27%;
+  background: #5ab9eb;
+  color: #fff;
+  }

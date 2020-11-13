@@ -1,0 +1,39 @@
+/* pages/certification/certification.wxss */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0 0 20rpx;
+  box-sizing: border-box;
+} 
+.title{
+  margin-top: 30rpx;
+  margin-bottom: 25rpx;
+  font-weight:bold;
+  text-align: center;
+  font-size: 20px;
+}
+
+.content{
+  text-align: left;
+  text-indent: 50rpx;
+  padding: 10px 10px 10px 10px;
+  font-size: 15px;
+}
+
+.chorp{
+  margin-left:250rpx
+}
+.background {
+  width: 150px;
+  height: 150px;
+  /* position:fixed;  */
+  background-size:100% 100%;
+  margin-left:-30rpx;
+  margin-top:30rpx;
+  position: absolute;
+  z-index: 1;
+  /* z-index: -1; */
+}

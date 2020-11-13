@@ -1,0 +1,47 @@
+ pages/main/index.wxss 
+
+.lock-box {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.lock-cav {
+    position: absolute;
+    top: 200rpx;
+    left: 32rpx;
+    z-index: 5;
+}
+.lock-title {
+    width: 100%;
+    height: 130rpx;
+    line-height:80px;
+    text-align: center;
+    font-size: 30;
+    color: rgba(64, 64, 64, 1);
+}
+.lock-title-deputy{
+    width: 100%;
+    text-align: center;
+    font-size: 24;
+    color: rgba(206, 203, 206, 1)
+}
+.lock-title.error {
+    color: #e64340
+}
+.lock-title.succ {
+    color: #09bb07
+}
+.lock-reset {
+    position: absolute;
+    top: 950rpx;
+    width: 100%;
+    text-align: center;
+    color: #10AEFF;
+    font-size: 30rpx;
+}
+.lock-reset:active {
+    opacity: 0.8;
+}

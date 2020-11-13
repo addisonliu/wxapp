@@ -1,0 +1,114 @@
+<!--pages/MeetingMessage/meetingmessage.wxml-->
+<view class="con">
+
+  <text class="title"></text>
+
+  <view class="siterow">
+   <view class="iconview">
+    <view style="width:30%;text-align: right;"><image class="icon" src="../Image/site1.png"></image></view>
+    <view style="width:70%;text-align: right;"><text class="site1">会议室</text></view>
+   </view> 
+   <view class="textright">
+    <text class="site2">{{roomid}}</text>
+   </view>
+  </view>
+
+
+  <view class="timerow">
+   <view class="iconview">
+     <view style="width:30%;text-align: right;"><image class="icon" src="../Image/time1.png"></image></view>
+     <view style="width:70%;text-align: center;"><text class="time1">时间</text></view>
+   </view>
+   <view class="textright">
+     <text class="time2">{{time}}</text>
+   </view>
+  </view>
+
+
+  <view class="daterow">
+   <view class="iconview">
+    <view style="width:30%;text-align: right;"><image class="icon1" src="../Image/date1.png"></image></view>
+    <view style="width:70%;text-align: center;"><text class="date1">日期</text></view>
+   </view>
+    <view class="textright">
+    <text class="date2">{{date}}</text>
+   </view>
+  </view>
+
+  <view class="orderpeoplerow">
+   <view class="iconview">
+    <view style="width:30%;text-align: right;"><image class="icon2" src="../Image/orderpeople1.png"></image></view>
+    <view style="width:70%;text-align: right;"><text class="orderpeople1">预定者</text></view>
+   </view>
+   <view class="textright">
+    <text class="orderpeople2">{{orderpeople}}</text>
+   </view>
+  </view>
+
+
+  <view class="hosterrow">
+   <view class="iconview">
+    <view style="width:30%;text-align: right;"><image class="icon2" src="../Image/hoster1.png"></image></view>
+    <view style="width:70%;text-align: right;"><text class="hoster1">主持人</text></view>
+   </view>
+   <view class="textright">
+    <text class="hoster2">{{hoster}}</text>
+   </view>
+  </view>
+
+  <view class="meeting_substancerow">
+   <view class="iconview1">
+    <image class="icon1" src="../Image/meeting_substance.png"></image>
+    <text class="meeting_substance1">会议主旨</text>
+   </view>
+   <scroll-view scroll-y="true" class="iconview2" style="height: 195rpx;">
+    <text class="meeting_substance2">{{meeting_substance}}</text>
+   </scroll-view>
+  </view>
+
+  <view class="joinpeoplerow">
+   <view class="iconview1">
+      <image class="icon1" src="../Image/people1.png"></image>
+      <text class="joinpeople1">与会人员</text>
+   </view>
+   
+  <scroll-view scroll-y="true" style="height:180rpx;" class="iconview2">
+    <text class="joinpeople2">{{joinpeople}}</text>
+   </scroll-view> 
+  </view>
+
+  <view class="radioView">
+    <view class="dailiset">
+      <button class="daliset_btn" style="width:100%;color: rgb(44, 196, 51);font-weight: bold;" bindtap="dailisheding">代理设定</button> 
+    </view>
+
+    <view >
+    <modal hidden="{{modalHidden}}" confirm-text="确定"
+    cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">
+     
+    <view class="iconview1">
+     <image class="icon1" src="../Image/agent.png"></image>
+     <text class="loginLab">设定</text>
+   </view> 
+
+   <view class="iconview3">
+     <view class="radio1">
+       <radio style="margin-left: 11px;" checked="{{checked1}}" value="{{value1}}" catchtap='checkedTap1'>
+        <text class="loginLab1">{{value1}}</text>
+      </radio>
+     </view>
+     <view class="radio2">
+       <radio style="margin-left: 11px;" checked="{{checked2}}" value="{{value2}}" catchtap='checkedTap2'>
+        <text class="loginLab1">{{value2}}</text>
+      </radio>
+     </view>
+    </view>
+    </modal>
+    </view>
+
+    <view class="delayset">
+      <button class="delay_btn" style="width:100%;color: rgb(44, 196, 51);font-weight: bold;" bindtap="delay_btn">延长会议</button>
+    </view>
+
+  </view>
+</view>

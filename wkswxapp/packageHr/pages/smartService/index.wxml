@@ -1,0 +1,90 @@
+<!--pages/smartService/smartService.wxml-->
+
+<view>
+  <view class='all'>
+    <scroll-view scroll-y scroll-into-view='{{toView}}' style='height: {{scrollHeight}};'>
+      <!-- <view class='scrollMsg'> -->
+      <block wx:key wx:for='{{msgList}}' wx:for-index='index'>
+        <!-- 单个消息1 客服发出（左） -->
+        <!-- justify-content: flex-end; -->
+        <view wx:if='{{item.speaker=="server"}}' id='msg-{{index}}' style='display:flex; padding: 2vw 15vw 2vw 2vw; '>
+          <view style='width: 11w; height: 11vw;'>
+            <image style='width: 11vw; height: 11vw; border-radius: 10rpx;' src='../../../static/image/ass.png'></image>
+          </view>
+          <view style='width: 3vw; height: 11vw; margin-left: 0.5vw; display: flex; align-items: center; z-index: 9;'>
+            <image style='width: 3vw;' src='' mode='widthFix'></image>
+          </view>
+          <view>
+
+            <view class='left'>
+              <view class='leftMsg'>{{item.content}}</view>
+
+
+              <view wx:if='{{item.option!=""}}' style="margin-top: 20rpx; background-color: #fff; margin-left: -1.6vw;">
+                <!-- <view style="border-bottom: 1px solid #D8D8D8;line-height:8vw;">
+          <view style='position:absolute'>
+          <image style='margin-left:10rpx;margin-right:20rpx; width: 8vw; height: 8vw; justify-content: center; border-radius: 10rpx;' src='../../static/image/commonQuestion.png'></image>
+          </view>
+          <view style='padding-left:12vw'>
+          <text style="font-size: 18px;justify-content: center" >常见问题</text>
+          </view>
+        </view> -->
+                <view style='display: flex;' wx:for='{{item.option}}' wx:for-index='key' wx:for-item='value'>
+                  <view style='margin-left: 13rpx;' class='select' catchtap='changeValueClick'
+                    data-class_type_id='{{index}}' data-lockerid='{{index}}' data-text='{{value}}'>{{value}}
+                  </view>
+                </view>
+              </view>
+              <view wx:if='{{item.action=="fb_button"}}' style='display: flex;background-color:#fff' wx:for-index='key'
+                wx:for-item='value' class='btn'>
+                <button class='b1' data-status="confirm" data-text='否' bindtap='clickNo'
+                  style='background-color:#fff;'>否</button><button class='b2' data-status="confirm" data-text='是'
+                  bindtap='clickYes' style='background-color: rgb(4, 126, 240);font-color:#fff;'>是</button>
+              </view>
+            </view>
+          </view>
+
+        </view>
+
+
+        <!-- 单个消息2 用户发出（右） -->
+        <view wx:else id='msg-{{index}}' style='display: flex;justify-content: flex-end; padding: 2vw 2vw 2vw 15vw;'>
+          <!-- style='display: flex;' -->
+          <view class='rightMsg'>{{item.content}}</view>
+          <view style='width: 3vw; height: 11vw; margin-right: 0.5vw; display: flex; align-items: center; z-index: 9;'>
+            <image style='width: 3vw;' src='' mode='widthFix'></image>
+          </view>
+          <view style='width: 11vw; height: 11vw;' class="userinfo">
+            <open-data type="userAvatarUrl"></open-data>
+            <image style='width: 11vw; height: 11vw; border-radius: 10rpx;' src=''></image>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class='inputRoom' style='bottom: {{inputBottom}}'>
+    <movable-view bindtap='adddetial' direction="all" style="pointer-events:auto;">
+      <image class='imgStyle' src='../../../static/image/advice.png'></image>
+    </movable-view>
+    <!-- style="ime-mode: disabled"     "{{item.option!=''?'readonly':''}}"       readonly="readonly"-->
+    <input readonly='true' placeholder='请输入您的问题' id='inputTxt' bindinput='sendClick' bindfocus='focus' bindblur='blur'
+      adjust-position='{{false}}' value='{{inputVal}}'></input>
+    <view style='width:2%;'></view>
+    <button data-status="confirm" bindtap='send' class='send'>发送</button>
+  </view>
+<view class="popMes">
+  <button class="kf_btn" open-type="contact">
+ <image class="kf_image" src="/static/image/wxkefu.jpg"></image>
+  </button>
+<view class="popTxt">微信客服</view>
+<picker bindchange="choosePhone" value="{{index}}" range="{{kefuPhone}}" range-key="{{'kefu'}}" style="margin:0 auto"><image class="phone_image" src="/static/image/ass.png" style="width:80rpx;height:80rpx"></image></picker>
+<view class="popTxt">电话客服</view>
+
+</view>
+
+</view>
+<!-- <movable-area class="mStyle" style="pointer-events: none;position:absolute;right:40rpx;top:160rpx;">
+  <movable-view bindtap='adddetial' direction="all" style="pointer-events:auto;">
+    <image class= 'imgStyle' src='../../static/image/u0.jpg'></image>
+  </movable-view>
+</movable-area> -->

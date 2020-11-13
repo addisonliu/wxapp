@@ -1,0 +1,33 @@
+<!--pages/upload/index.wxml-->
+<view class="chen-upload {{otherClass}}" style='{{otherStyle}}'>
+  <block wx:if="{{sourceType === 'image'}}">
+      <view class="chen-preview-images">
+      <view class="">
+        <image class="" src="" mode="scaleToFill"></image>
+        <view class="iconfont icon-delete chen-image-delete"></view>
+      </view>
+      <view class=""></view>
+      <view class=""></view>
+      <view class=""></view>
+      <view class=""></view>
+  </view>
+  </block>
+  <view
+		class="chen-upload-touch"
+    bindtap="chooseMethod"
+    wx:if="{{currentFiles.length === 0}}"
+  >
+  </view>
+  <view class="iconfont icon-{{file_type}} chen-upload-filedelete" wx:if="{{currentFiles.length > 	0 && sourceType == 'file'}}">
+  	<view class="chen-upload-filedeleteicon iconfont icon-delete" bind:tap="deleteFile"></view>
+  </view>
+  <view class="chen-upload-tips" style="color: {{tipsColor}}">
+  	tips:{{messages}}
+  </view>
+  <view class="chen-upload-tips">上传文件类型:{{uploadFileType}}</view>
+  <view class="chen-upload-filename" wx:if='{{filename}}'>文件名称:{{filename}}</view>
+  <view class="chen-upload-tips" wx:if='{{file_size}}'>文件大小:{{file_size}}</view>
+</view>
+<view class="i-class i-message i-message-{{type}} {{ visible ? 'i-message-show' : '' }}">
+    {{ content }}
+</view>

@@ -1,0 +1,44 @@
+<!--pages/DetailedMessage/detaildmessage.wxml-->
+<view class="con">
+   <view class="text">
+     <text class="txt_name">{{roomid}}会议室排程信息</text>
+   </view>
+  <view class="pickdate">
+   <view class="txt1">
+      <text style="font-size:37rpx;">日期：</text>
+      <text class="t1" style="font-size: 37rpx;">{{start_datetime}}</text>
+      <text style="font-size: 37rpx;">--</text>
+      <text class="t2" style="font-size:37rpx;">{{end_datetime}}</text>
+  </view>
+   
+   <view class="date_btn">
+    <button class="btn" style="width:100%;" bindtap="select_date">选择日期</button>
+   </view>
+  </view>
+ 
+
+   <view class="tr bg-w">
+      <view class="th">时间</view>
+      <view class="th">预定者</view>
+      <view class="th">日期</view>
+      <view class="th">查看</view>
+    </view>
+
+  <scroll-view scroll-y="true" bindscrolltoupper="refresh" bindscrolltolower=" " style="height: {{scroll_height}}rpx;" >
+    <block wx:for-items="{{listData}}"  wx:key="{{key}}">
+      <view class="tr bg-g" wx:if="{{index%2 == 0}}">
+        <view class="td"  style="width:40%"><text style="font-size:1rem;">{{item.TIME}}</text></view>
+        <view class="td1"  style="width:40%"><text style="font-size:1rem;">{{item.YUDINGZHE}}</text></view>
+        <view class="td" style="width:40%"><text style="font-size:1rem;">{{item.DATE}}</text></view>
+        <button class="border"  style="width:28%" bindtap="look_btn" data-item='{{item}}'>查看</button>
+      </view>
+      <view class="tr" wx:else>
+        <view class="td" style="width:40%"><text style="font-size:1rem;">{{item.TIME}}</text></view>
+        <view class="td1" style="width:40%"><text style="font-size:1rem;">{{item.YUDINGZHE}}</text></view>
+        <view class="td" style="width:40%"><text style="font-size:1rem;">{{item.DATE}}</text></view>
+        <button class="border" style="width:28%" bindtap="look_btn" data-item='{{item}}'>查看</button>
+      </view>
+    </block>
+  </scroll-view>
+
+</view>

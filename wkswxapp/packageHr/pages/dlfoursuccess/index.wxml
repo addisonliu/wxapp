@@ -1,0 +1,7 @@
+<!--packageHr/pages/dlfoursuccess/index.wxml-->
+<!-- <text>packageHr/pages/dlfoursuccess/index.wxml</text> -->
+<view>
+  <image class="image" src="/static/image/success.png"  ></image>
+<view class="words" >提交成功,请及时关注签核状态</view>
+<button class="button" bindtap="backhome" >返回首页</button>
+</view>

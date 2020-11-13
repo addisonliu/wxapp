@@ -1,0 +1,95 @@
+<!--pages/overtime/overtime.wxml-->
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">津貼明細</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">特殊岗位出勤</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 80}}px" bindchange="bindChange">
+    <!--津貼明細 -->
+    <swiper-item>
+      <!--按钮-->
+      <view class="table">
+        <view class="tr bg-w">
+          <view class="th_1 ">技能名称</view>
+          <view class="th_2 ">技能类型</view>
+          <view class="th_3">考试合格日</view>
+          <view class="th_4">有效期</view>
+        </view>
+        <block wx:for="{{DetailList}}" wx:key="{{item.RID}}">
+          <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+            <view class="td_1">{{item.PChName}}</view>
+            <view class="td_2">{{item.SkillName}}</view>
+            <view class="td_3">{{item.ValidDate}}</view>
+            <view class="td_4">{{item.Validity}}</view>
+          </view>
+          <view class="tr" wx:else>
+            <view class="td_1">{{item.PChName}}</view>
+            <view class="td_2">{{item.SkillName}}</view>
+            <view class="td_3">{{item.ValidDate}}</view>
+            <view class="td_4">{{item.Validity}}</view>
+          </view>
+          </block>
+      </view>
+    </swiper-item>
+    <!-- 特殊岗位出勤 -->
+    <swiper-item>
+      <view class="table">
+        <view class="tr bg-w">
+          <view class="th1_1 ">津贴项目</view>
+          <view class="th1_2 ">出勤天数</view>
+          <view class="th1_3">出勤月份</view>
+          <view class="th1_4">明细</view>
+        </view>
+        <block wx:for="{{CleanDetailList}}" wx:key="{{item.RID}}">
+        <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+          <view class="td1_1">{{item.STATION_Post_DESC}}</view>
+          <view class="td1_2">{{item.DAY_QTY_Tota}}</view>
+          <view class="td1_3">{{item.YearMonth}}</view>
+          <view class="td1_4" data-key="{{item.RID}}" bindtap='ShowDetail'>明细</view>
+        </view>
+        <view class="tr" wx:else>
+          <view class="td1_1">{{item.STATION_Post_DESC}}</view>
+          <view class="td1_2">{{item.DAY_QTY_Tota}}</view>
+          <view class="td1_3">{{item.YearMonth}}</view>
+          <view class="td1_4" data-key="{{item.RID}}" bindtap='ShowDetail'>明细</view>
+        </view>
+        </block>
+      </view>
+  </swiper-item>
+</swiper>
+
+<!-- 特殊岗位出勤明细 -->
+<view class='tip-content-dialog' wx:if="{{showDetail}}">
+  <view class='close'>
+    <image class="icon" src="/static/image/x.png" bindtap='closeDetail'></image>
+  </view> 
+  <scroll-view class="tip-dialog-view tc bg_rule p_all15 p_b20" scroll-y='true' style='height:90%'>
+     <view class="h">
+        <text class="txt">特殊岗位({{special}})出勤明细</text>
+    </view>
+     <view class="table">
+        <view class="tr1 bg-w">
+          <view class="th2_1 ">线别</view>
+          <view class="th2_2 ">段别</view>
+          <view class="th2_3">工站名称</view>
+          <view class="th2_4">出勤日期</view>
+          <view class="th2_5">班别</view>
+        </view>
+        <block wx:for="{{CleanDetailList[index].CDetailList}}" wx:key="{{item.RID}}">
+        <view class="tr1 bg-g" wx:if="{{index % 2 == 0}}">
+          <view class="td2_1">{{item.LINE}}</view>
+          <view class="td2_2">{{item.SECTION}}</view>
+          <view class="td2_3">{{item.STATION}}</view>
+          <view class="td2_4">{{item.AttDate}}</view>
+          <view class="td2_5">{{item.LINE_SHIFT}}</view>
+        </view>
+        <view class="tr1" wx:else>
+          <view class="td2_1">{{item.LINE}}</view>
+          <view class="td2_2">{{item.SECTION}}</view>
+          <view class="td2_3">{{item.STATION}}</view>
+          <view class="td2_4">{{item.AttDate}}</view>
+          <view class="td2_5">{{item.LINE_SHIFT}}</view>
+        </view>
+        </block>
+      </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,89 @@
+.container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  overflow-y: auto;
+  background-color: #fff;
+  padding: 20rpx 40rpx;
+}
+.list-container {
+  margin-bottom: 40rpx;
+}
+.list-item-month {
+  position: relative;
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0 40rpx;
+  margin-bottom: 20rpx;
+  border: 1px solid #ccc;
+}
+.list-item-month>view{
+  font-size: 32rpx;
+  color: #666;
+}
+.list-item-arrow {
+  position: absolute;
+  top: 16rpx;
+  right: 20rpx;
+  display: block;
+  width: 35rpx;
+  height: 35rpx;
+  transition: all 0.3s linear;
+}
+.list-item-container {
+  width: 100%;
+  padding: 10rpx;
+  border: 1px solid #ccc;
+  animation-duration: .3s;
+  animation-timing-function: linear;
+}
+.list-item-info {
+  margin: auto;
+  width: 100%;
+  padding: 10rpx 20rpx;
+  border-bottom: 1px solid #ccc;
+}
+.list-item-info:last-child {
+  border: none;
+}
+.list-item-info>view{
+  display: flex;
+  margin: 15rpx auto;
+  width: 90%;
+  /* height: 30rpx; */
+  line-height: 32rpx;
+}
+.list-item-info>view>text{
+  display: block;
+  height: 100%;
+}
+.list-item-info text:nth-child(odd) {
+  flex: 1;
+  text-align: right;
+}
+.list-item-info text:nth-child(even) {
+  flex: 1.5;
+  margin-left: 20rpx;
+}
+
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

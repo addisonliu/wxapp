@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "危險施工申请",
+  "usingComponents": {
+  	"i-message": "../../../components/message/index",
+  	"i-icon": "../../../components/icon/index",
+  	"i-modal": "../../../components/modal/index",
+  	"upload": "../upload/index"
+  }
+}
+
+
+
+
+
+

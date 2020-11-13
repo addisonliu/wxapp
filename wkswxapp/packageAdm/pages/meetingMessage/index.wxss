@@ -1,0 +1,280 @@
+/* pages/MeetingMessage/meetingmessage.wxss */
+.con{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.title{
+  font-size: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 12rpx;
+  border-bottom: 1px solid #0066ff;
+}
+
+.siterow{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
+  border-bottom:1px solid #0066ff;
+  border-top: 1px dashed #0066ff;
+}
+
+.iconview{
+  display: flex;
+  flex-direction: row;
+  width: 35%;
+  border-right:1px solid #0066ff ;
+}
+
+
+.icon{
+  height: 62rpx;
+  width: 62rpx;
+  margin-left: 4%;
+  margin-top: 9rpx;
+  margin-right: 10rpx;
+}
+
+.site1{
+  font-size: 50rpx;
+  font-weight: 520;
+  padding-top: 13rpx;
+}
+
+.textright{
+  width: 60%;
+  text-align: center;
+  padding-top: 20rpx;
+}
+
+.site2{
+  font-size: 42rpx;
+}
+
+.timerow{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #0066ff;
+}
+
+.time1{
+  /* margin-left: 15.5%; */
+  margin-left: 0%;
+  font-size: 50rpx;
+  font-weight: 520;
+  padding-top: 13rpx;
+}
+
+.time2{
+  font-size:42rpx;
+}
+
+.icon1{
+  height: 60rpx;
+  width: 64rpx;
+  margin-left: 5%;
+  margin-top: 9rpx;
+  margin-right: 10rpx;
+}
+
+.daterow{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #0066ff;
+}
+
+.date1{
+  margin-left: 0%;
+  font-size: 50rpx;
+  font-weight: 520;
+  padding-top: 13rpx;
+}
+
+.date2{
+  font-size:40rpx;
+}
+
+.icon2{
+  height: 60rpx;
+  width: 67rpx;
+  margin-left: 5%;
+  margin-top: 9rpx;
+  margin-right: 10rpx;
+}
+
+
+.orderpeoplerow{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #0066ff;
+}
+
+.orderpeople1{
+  margin-left: 3%;
+  font-size: 50rpx;
+  font-weight: 520;
+  padding-top: 13rpx;
+}
+
+.orderpeople2{
+  font-size: 40rpx;
+}
+
+.hosterrow{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px dashed #0066ff;
+}
+
+.hoster1{
+  margin-left: 0%;
+  font-size: 50rpx;
+  font-weight: 520;
+  padding-top: 13rpx;
+}
+
+.hoster2{
+  font-size: 40rpx;
+}
+
+.meeting_substancerow{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px dashed #0066ff;
+}
+
+.iconview1{
+  display: flex;
+  flex-direction: row;
+  width: 45%;
+}
+
+.iconview2{
+  display: flex;
+  flex-direction: row;
+  text-indent:2em; 
+}
+
+.meeting_substance1{
+  margin-left: 4%;
+  font-size: 40rpx;
+  font-weight: 550;
+  padding-top: 13rpx;
+}
+
+.meeting_substance2{
+  font-size: 40rpx;
+}
+
+.joinpeoplerow{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px dashed #0066ff;
+}
+
+.joinpeople1{
+  margin-left: 4%;
+  font-size: 40rpx;
+  font-weight: 550;
+  padding-top: 13rpx;
+}
+
+.joinpeople2{
+  font-size: 40rpx;
+}
+
+.radioView{
+  margin-top: 1%;
+  display: flex;
+  flex-direction: row;
+  width: 75.5%;
+  margin-left: 12.25%;
+  margin-top: 5%;
+}
+
+.dailiset{
+  width: 50%;
+}
+
+.daliset_btn{
+  font-size: 40rpx;
+  height: 100rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2rpx solid rgb(230, 226, 226);
+}
+
+.delayset{
+   width: 50%;
+   margin-left: 3%;
+}
+
+.delay_btn{
+  font-size: 40rpx;
+  height: 100rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2rpx solid rgb(230, 226, 226);
+}
+
+.loginLab{
+  margin-left: 6%;
+  font-size: 40rpx;
+  font-weight: 550;
+  padding-top: 13rpx;
+}
+
+.radio-group{
+  margin-left: 20%;
+}
+
+
+.iconview3{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.radio1{
+  margin-top: 1%;
+}
+
+
+.radio2{
+  margin-left: 3%;
+  margin-top: 1%;
+}
+
+.loginLab1{
+  font-size: 40rpx;
+}
+
+.agent{
+  margin-top: 1%;
+}
+
+.yes{
+  margin-top: 1%;
+}
+
+

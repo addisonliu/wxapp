@@ -1,0 +1,405 @@
+/* pages/applicationForm/index.wxss */
+.container{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+}
+.title{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150rpx;
+  width: 100vw;
+  line-height: 150rpx;
+  background-color: #FFFBEF;
+  border-bottom:1px solid #f2f2f2;
+  font-size: 45rpx;
+  color: #333;
+  font-weight: 700;
+  padding-left:30rpx;
+  z-index: 3;
+}
+.content{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color:#fff;
+}
+.content>button{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 88rpx;
+  line-height: 88rpx;
+  margin-top: 20rpx;
+  background: #2d9cf0;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  padding: 0 14px;
+  text-decoration: none;
+  z-index: 10;
+}
+
+.item{
+  min-height: 150rpx;
+  width: 100vw;
+  padding: 20rpx 30rpx 10rpx  30rpx;
+  box-sizing: border-box;
+}
+.item>label{
+  display: block;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color:#666;
+}
+.item>view{
+  margin-top: 10rpx;
+  border: 1px solid #ccc;
+  position: relative;
+}
+.item item-input{
+  border: none;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #fff;
+  padding:0 30rpx;
+  box-sizing: border-box;
+}
+.item .item-input input{
+  padding: 0 10rpx;
+  height: 80rpx;
+}
+.item picker{
+  position: absolute;
+  top: 0;
+  right: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  color:#ffad77;
+  z-index: 2;
+}
+.visitor{
+  width: 100%;
+  margin:auto;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.visitor>view{
+  display: flex;
+  margin-top: 20rpx;
+}
+.visitor>view>text:first-child{
+  width: 140rpx;
+}
+.visitor>view>text:nth-child(2){
+  flex: 1;
+  text-align: center;
+}
+.visitor>view>text:last-child{
+  width: 200rpx;
+  text-align: right;
+}
+.item-visitor{
+  min-height: 60rpx;
+  line-height: 60rpx;
+  background-color: #fff;
+  padding:0 30rpx;
+  box-sizing: border-box;
+  margin-bottom: 110rpx;
+}
+.a{
+  height:110rpx;
+  width: 100vw;
+  border: none;
+  background: #fff;
+  padding: 20rpx;
+}
+.item-visitor>view:first-child{
+  color: #ffad77;
+}
+.visitor-info{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  z-index: 12;
+}
+.visitor-info>view:first-child{
+  display: flex;
+  justify-content: space-between;
+  height: 100rpx;
+  width: 100vw;
+  padding: 17rpx 30rpx;
+  box-sizing: border-box;
+  background-color: #3690cf;
+  border-bottom: 1px solid #ccc;
+}
+.visitor-info>view:first-child>text{
+  height: 100%;
+  line-height: 64rpx;
+  width: 140rpx;
+  border:1px solid #ccc;
+  border-radius: 5px;
+  color:#fff;
+  text-align: center;
+  box-sizing: border-box;
+}
+.visitor-info>view:first-child>text:last-child{
+  color: #333;
+  background-color: #fff;
+}
+.allCheck {
+  padding: 0 10rpx;
+  width: 90vw;
+  margin: auto;
+  margin-top: 10rpx;
+}
+.allCheck>text {
+  color: #cc0;
+  display: block;
+  width: 120rpx;
+  text-align: center;
+}
+.visitor-item{
+  display: flex;
+  height: 120rpx;
+  width: 100vw;
+  padding: 10rpx;
+  overflow-x: hidden;
+  margin-bottom: 20rpx;
+}
+.visitor-item-chk{
+  line-height: 100rpx;
+  overflow: hidden;
+}
+.visitor-item>view{
+  flex:1;
+  overflow: hidden;
+  overflow-x:auto ;
+  display: flex;
+  box-sizing: border-box;
+  padding-right: 10rpx;
+}
+.visitor-item>view>text{
+  line-height: 100rpx;
+  box-sizing: border-box;
+  text-align: center;
+}
+.visitor-item>view>text:first-child{
+  width: 170rpx;
+  padding-right: 15rpx;
+}
+.visitor-item>view>text:nth-child(2){
+  flex: 1;
+  padding-right: 10rpx;
+}
+.visitor-item>view>input{
+  height: 100%;
+  line-height: 100rpx;
+  box-sizing: border-box;
+  width: 240rpx;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+.visitor-title{
+  background-color:#5cadff;
+  height: 60rpx;
+  padding: 10rpx;
+  display: flex;
+}
+.visitor-title>view>text{
+  line-height: 50rpx;
+  text-align: center;
+  font-weight: 600;
+}
+.visitor-title>view>text:last-child{
+  text-align: center;
+  border: none;
+}
+.visitor-title>text:first-child{
+  width: 20px;
+  height: 43px;
+}
+.btn{
+  width: 90vw;
+  padding:0 10rpx;
+  height: 70rpx;
+  line-height: 60rpx;
+  margin: auto;
+  border-bottom: 1px solid #ccc;
+}
+.btn>view{
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+.btn>view>text {
+  display: block;
+  width: 200rpx;
+  height: 100%;
+}
+.btn>view>text:first-child {
+  color: #ff9900;
+}
+.btn>view>text:nth-child(2) {
+  flex: 1;
+  text-align: center;
+  color: #09f;
+}
+.btn>view>text:last-child {
+  color: #f23030;
+  text-align: right;
+}
+#dialog{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: o;
+  background-color: rgba(0, 0, 0, .3);
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+}
+#dialog>view{
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width:90vw;
+  height: 40vh;
+  background: #f2f2f2;
+  border-radius: 5px;
+}
+#dialog-header{
+  height: 80rpx;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  line-height: 80rpx;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  color: #1c2438;
+  font-size: 33rpx;
+  font-weight: 600;
+}
+#close{
+  position: absolute;
+  top: 14rpx;
+  right: 5rpx;
+}
+#dialog-footer{
+  height: 120rpx;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  line-height: 120rpx;
+  border-top: 1px solid #ccc;
+}
+#dialog-footer>button{
+  margin-top: 20rpx;
+  display:inline-block;
+  height: 80rpx;
+  width: 150rpx;
+  line-height: 90rpx;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 29rpx;
+}
+#dialog-footer>button:first-child{
+  background: #2d8cf0;
+  margin-right: 40rpx;
+}
+#dialog-footer>button:last-child{
+  background: #fc6;
+}
+#dialog-container{
+  height: calc(100% - 200rpx) ;
+  width: 90%;
+  margin: auto;
+}
+#dialog-container>view{
+  display: flex;
+  width: 100%;
+  height: 33.333%;
+  line-height: 100rpx;
+}
+#dialog-container>view>label{
+  flex: 1.5;
+  text-align: right;
+}
+#dialog-container>view>input{
+  flex: 3.5;
+  border-bottom: 1px solid #ccc;
+  margin: 0  30rpx 0 40rpx;
+  box-sizing: border-box;
+  height: 80%;
+}
+
+@keyframes In{
+  0%{
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+@keyframes Out{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
+@keyframes show{
+  0%{
+    opacity: 0;
+    transform: scale(0);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1)
+  }
+}
+@keyframes hidden{
+  0%{
+    opacity: 1;
+    transform: scale(1)
+  }
+  100%{
+    opacity: 0;
+    transform: scale(0);
+  }
+}

@@ -1,0 +1,263 @@
+/* packageHr/pages/skillapplication/skillapplication.wxss */
+.container{
+  width: 100vw;
+}
+.item{
+  position: fixed;
+  margin-top: 7%;
+  /* top: 5%; */
+  left: 8%;
+  right: 8%;
+  background: #5ab9eb;
+  /* text-align: center; */
+  height: 150rpx;
+  font-size: 32rpx;
+  color:#ffff;
+  border-radius: 5%;
+  padding: 14 14px;
+  /* z-index: 10; */
+  /* justify-content: center;
+  align-items: center;
+  display: flex */
+}
+.itemg{
+  position: fixed;
+  top: 23%;
+  left: 8%;
+  right: 8%;
+  background: #42a5eb;
+  /* text-align: center; */
+  height: 150rpx;
+  font-size: 32rpx;
+  color:#ffff;
+  border-radius: 5%;
+  padding: 0 14px;
+  /* text-decoration: none; */
+  /* z-index: 10; */
+  /* justify-content: center;
+  align-items: center;
+  display: flex */
+}
+.itemj{
+  position: fixed;
+  top: 40%;
+  left: 8%;
+  right: 8%;
+  background: #5091ec;
+  /* text-align: center;  */
+   height: 150rpx;
+  font-size: 32rpx;
+  color:#ffff;
+  border-radius: 5%;
+  padding: 0 14px;
+  text-decoration: none;
+  /* z-index: 10; */
+  /* justify-content: center;
+  align-items: center;
+  display: flex */
+}
+.itemz{
+  position: fixed;
+  top: 60%;
+  left: 8%;
+  right: 8%;
+  background: #4f75c2; 
+  /* text-align: center;  */
+   height: 150rpx;
+  font-size: 32rpx;
+  color:#ffff;
+  border-radius: 5%;
+  padding: 0 14px;
+  text-decoration: none;
+  /* z-index: 10; */
+  /* justify-content: center;
+  align-items: center;
+  display: flex */
+}
+.itemgj{
+  position: fixed;
+  top: 80%;
+  left: 8%;
+  right: 8%;
+  background: #265db4;
+  /* text-align: center;  */
+   height: 150rpx;
+  font-size: 32rpx;
+  color:#ffff;
+  border-radius: 5%;
+  padding: 0 14px;
+  /* z-index: 10; */
+  /* justify-content: center;
+  align-items: center;
+  display: flex */
+}  
+/* .mine_cells {
+  margin: 20rpx 0;
+  padding: 0 30rpx;
+  background-color: #fff;
+}
+
+.mine_cell {
+  display: flex;
+  padding: 15rpx 0;
+  align-items: center;
+}
+
+.mine_cell {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.mine_icon {
+  margin:0 20rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.mine_title{
+  font-size:16px;
+  flex:1;
+}
+
+.mine_arrow{
+  text-align: right;
+}
+
+/*伪元素实现右箭头*/
+/* .mine_arrow:after{
+  content: " ";
+  display: inline-block;
+  height:6px;
+  width:6px;
+  border-top:2px solid #b2b2b2; 
+  border-right: 2px solid #b2b2b2;
+  transform: rotate(45deg);
+  margin-left: 5rpx;
+} */ 
+.four{
+  justify-content: left;
+  align-items: center;
+  text-align: left; 
+  color:#ffff;
+  display: flex;
+  margin-top: 50rpx;
+  font-size: 32rpx;
+}
+.dl{
+  justify-content: right;
+  align-items: right;
+  text-align: right; 
+  color:#ffff;
+  font-weight: bold;
+  margin-top: -60rpx;
+  font-size: 32rpx;
+  margin-right: 5%;
+}
+.ji{
+   margin-right: 5%;
+  justify-content: right;
+  align-items: right;
+  text-align: right; 
+  color:#ffff;
+  font-size: 28rpx;
+}
+.up{
+  margin-left: 5%;
+  justify-content: left;
+  align-items: center;
+  text-align: left; 
+  color:#ffff;
+  display: flex;
+  margin-top: 50rpx;
+  font-size: 32rpx;
+}
+.ups{
+  margin-right: 5%;
+  justify-content: right;
+  align-items: right;
+  text-align: right; 
+  font-weight: bold;
+  margin-top: -50rpx;
+  color:#ffff;
+  font-size: 32rpx;
+}
+.eleven{
+  justify-content: left;
+  align-items: center;
+  text-align: left; 
+  color:#ffff;
+  display: flex;
+  margin-top: 50rpx;
+  font-size: 32rpx;
+}
+.elevendl{
+  justify-content: right;
+  align-items: right;
+  text-align: right; 
+  color:#ffff;
+  font-weight: bold;
+  margin-top: -60rpx;
+  font-size: 32rpx;
+  margin-right: 5%;
+}
+.elevens{
+  justify-content: right;
+  align-items: right;
+  text-align: right; 
+  color:#ffff;
+  font-size: 28rpx;
+  margin-right: 5%;
+}
+.twelve{
+  justify-content: left;
+  align-items: center;
+  text-align: left; 
+  color:#ffff;
+  display: flex;
+  margin-top: 50rpx;
+  font-size: 32rpx;
+}
+.twelvedl{
+  justify-content: right;
+  align-items: right;
+  text-align: right; 
+  color:#ffff;
+  font-weight: bold;
+  margin-top: -60rpx;
+  font-size: 32rpx;
+  margin-right: 5%; 
+}
+.twelves{
+justify-content: right;
+  align-items: right;
+  text-align: right; 
+  color:#ffff;
+  font-size: 28rpx;
+  margin-right: 5%; 
+}
+.thirteen{
+  justify-content: left;
+  align-items: center;
+  text-align: left; 
+  color:#ffff;
+  display: flex;
+  margin-top: 50rpx;
+  font-size: 32rpx;
+}
+.thirteendl{
+  justify-content: right;
+  align-items: right;
+  text-align: right; 
+  color:#ffff;
+  font-weight: bold;
+  margin-top: -60rpx;
+  font-size: 32rpx;
+  margin-right: 5%;
+}
+.thirteens{
+  justify-content: right;
+  align-items: right;
+  text-align: right; 
+  color:#ffff;
+  font-size: 28rpx;
+  margin-right: 5%;
+}

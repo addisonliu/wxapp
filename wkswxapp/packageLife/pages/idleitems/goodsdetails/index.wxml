@@ -1,0 +1,62 @@
+<view class="container">
+  <view class="maindetail" wx:for="{{goodsdetails}}" wx:key="goodsdetails" wx:for-item="item">
+    <view class="mainlist">
+      <view class="mainlefttitle">标题</view>
+      <view class="mainrightcontion">{{item.Title}}</view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">发布时间</view>
+      <view class="mainrightcontion">{{item.PublishTime}}</view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">新旧</view>
+      <view class="mainrightcontion">{{item.NewDegree}}</view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">价格</view>
+      <view class="mainrightcontion mainprice">¥ {{item.Price}}</view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">物品描述</view>
+    </view>
+    <view class="goodsdescribe"><text>{{item.GoodsDesc}}</text></view>
+
+    <view class="mainlist">
+      <view class="mainlefttitle">图片</view>
+    </view>
+    <view class="goodsimgdetails">
+      <view wx:for="{{goodsimgs}}" wx:key="messageimgs" wx:for-item="item">
+        <image src="{{item.PicPath}}"></image>
+      </view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">所在地点</view>
+      <view class="mainrightcontion">{{item.GoodsPlace}}</view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">交易地点</view>
+      <view class="mainrightcontion">{{item.SalePlace}}</view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">联系人</view>
+      <view class="mainrightcontion">{{item.PublisherName}}</view>
+    </view>
+    <view class="mainlist">
+      <view class="mainlefttitle">联系电话</view>
+      <view class="mainrightcontion">{{item.Tel}}</view>
+    </view>
+
+  </view>
+  <view class="goodsdetailsbottom">
+    <view class="goodsnav">
+      <view class="goodsnavlist">
+        <image src="/static/image/wantrelease.png" class="img"></image>
+        <view>私信</view>
+      </view>
+      <view class="goodsnavlist" bindtap="collectGoods">
+        <image src="/static/image/f.png" class="img"></image>
+        <view>收藏</view>
+      </view>
+    </view>
+  </view>
+</view>

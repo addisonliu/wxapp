@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "离职",
+  "usingComponents": {
+    "i-tab-bar": "../../../components/tab-bar/index",
+    "i-tab-bar-item": "../../../components/tab-bar-item/index",
+    "i-input": "../../../components/input/index",
+    "i-button": "../../../components/button/index",
+    "i-toast": "../../../components/toast/index",
+    "i-modal": "../../../components/modal/index"
+  }
+}

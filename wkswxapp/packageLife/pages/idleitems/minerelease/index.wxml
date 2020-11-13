@@ -1,0 +1,21 @@
+<!-- 我发布的 -->
+<view class="container">
+  <view class="goodslist" wx:for="{{mypublish}}" wx:for-item="item" wx:key="mypublish">
+    <view class="leftimg">
+      <image src="{{item.MainPic}}"></image>
+    </view>
+    <view class="midcontain">
+      <view class="midtitle">{{item.Title}}</view>
+      <view class="midprice">
+        <view>¥ {{item.Price}}</view>
+        <view style="margin:0 10rpx">|</view>
+        <view>{{item.NewDegree}}</view>
+      </view>
+      <view class="midtime">{{item.PublishTime}}</view>
+    </view>
+    <view class="rightbtn">
+      <view class="edit" bindtap="editPublish">编辑</view>
+      <view class="delete" bindtap="ondeleteTap" data-goodsid="{{item.GoodsID}}">删除</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,262 @@
+/* pages/record/index.wxss */
+
+.swiper-tab{
+  /* margin: 20rpx 0;
+	width: 100%;
+  background: white;
+	border-bottom: 1rpx solid #777777;
+	text-align: center;
+  line-height: 60rpx; */
+  flex: none;
+  display: flex;
+  background: #2fb7eb;
+  height: 80rpx;
+  width: 100%;
+  /* border-bottom: 2rpx solid #e8e8e8; */
+  }
+.swiper-tab-list{  
+  /* font-size: 14px;
+  display: inline-block;
+	width: 50%;
+  color: #777; */
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 80rpx;
+  color: #82e3fb;
+}
+.on{ 
+  /* color: #2d8cf0;
+	border-bottom: 2rpx solid #2d8cf0; */
+  display: inline-block;
+  color: #e3ebf0;
+  /* border-bottom: 2rpx solid #e3ebf0; */
+}
+.on::after{
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 0;
+  transform: translateX(-50%);
+  height: 4rpx;
+  width:120rpx;
+  background: #e3ebf0;
+  border-radius: 25% 25% 0 0;
+}
+page{
+  background: #f3f7f7;
+}
+.table {
+  border: 0px solid darkgray;
+  width: 100%;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+}
+.title{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+  background-color: #fff;
+}
+.td_1 {
+    width:50%;
+    justify-content: center;
+    text-align: center;
+}
+.td_2 {
+    width:50%;
+    justify-content: center;
+    text-align: center;
+}
+.bg-w{
+  background: snow;
+}
+.bg-g{
+  background: #E6F3F9;
+}
+.th_1 {
+  width: 50%;
+  justify-content: center;
+  background:  #fff;
+  /* color:#fff; */
+  /* font-size: 30rpx; */
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+.th_2 {
+  width: 50%;
+  justify-content: center;
+  background:  #fff;
+  /* color:#fff; */
+  /* font-size: 30rpx; */
+  display: flex;
+  height: 3rem;
+  align-items: center;  
+}
+ .h {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 100rpx;
+  background: #fff;
+}
+ .h .txt {
+  padding-right: 30rpx;
+  background-size: 16.656rpx 27rpx;
+  display: inline-block;
+  height: 36rpx;
+  font-size: 33rpx;
+  line-height: 36rpx;
+ } 
+
+
+
+
+ .page{background: #f3f7f7;}
+
+.list_name_box{
+background: #fff;
+border-bottom: 1px solid #efefef;
+display: flex;
+height: 90rpx;
+align-items: center;
+padding: 0 25rpx;
+font-size: 32rpx;}
+
+.list_item_name{flex: 1;}
+
+.icon_down{
+width: 35rpx;
+height:35rpx;
+transition:transform  0.3s;}
+
+/*
+.list_item_box{
+height: 0;
+transition:height  0.3s;
+overflow: hidden;
+}
+
+.list_item_box_show{
+height: 500rpx;
+} */
+
+.list_item_name_box{
+background: #fff;
+font-size: 30rpx;
+height: 80rpx;
+display: flex;
+align-items: center;
+padding: 0 25rpx 0 50rpx;}
+
+.other{
+display: flex;
+height: 80rpx;
+padding: 0 25rpx 0 50rpx;
+align-items: center;
+font-size: 30rpx;
+color: #666;}
+
+.icon_down_rotate{
+transform:rotate(180deg);}
+
+
+
+
+.other{
+  display: flex;
+  height: 80rpx;
+  padding: 0 25rpx 0 50rpx;
+  width: 100%;
+  align-items: center;
+  font-size: 30rpx;
+  color: rgb(17, 158, 201);
+}
+
+ .td_11 { 
+    width:15%;
+    justify-content: center;
+    text-align: center;
+}
+.td_22 {
+    width:20%;
+    justify-content: center;
+    text-align: center;
+}
+.td_33 {
+    width:25%;
+    justify-content: center;
+    text-align: center;
+}
+.td_44 {
+    width:25%;
+    justify-content: center;
+    text-align: center;
+}
+.td_55 {
+    width:15%;
+    justify-content: center;
+    text-align: center;
+}
+
+.th_11 {
+  width: 15%;
+  justify-content: center;
+  background:  #3366FF;
+  color:#fff;
+  font-size: 30rpx;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+.th_22 {
+  width: 20%;
+  justify-content: center;
+  background:  #3366FF;
+  color:#fff;
+  font-size: 30rpx;
+  display: flex;
+  height: 3rem;
+  align-items: center;  
+}
+.th_33 {
+  width: 25%;
+  justify-content: center;
+  background:  #3366FF;
+  color:#fff;
+  font-size: 30rpx;
+  display: flex;
+  height: 3rem;
+  align-items: center;  
+}
+.th_44 {
+  width: 25%;
+  justify-content: center;
+  background:  #3366FF;
+  color:#fff;
+  font-size: 30rpx;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+.th_55 {
+  width: 15%;
+  justify-content: center;
+  background:  #3366FF;
+  color:#fff;
+  font-size: 30rpx;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+} 

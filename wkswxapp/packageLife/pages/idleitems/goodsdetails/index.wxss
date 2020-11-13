@@ -1,0 +1,89 @@
+.maindetail{
+  display: flex;
+  flex-direction: column;
+  background-color: #e4e4e4;
+}
+.mainlist{
+  width: 100%;
+  height: 80rpx;
+  margin-bottom: 1rpx;
+  display:flex ;
+  align-items: center;
+  background-color: #fff;
+}
+.mainlefttitle{
+  font-size: 28rpx;
+  font-weight:bold;
+  margin-left: 20rpx;
+  width: 130rpx;
+  text-align: justify;
+  text-align-last: justify;
+  line-height: 80rpx;
+  align-items: center;
+
+}
+.mainrightcontion{
+  font-size: 24rpx;
+  /* color: #8b8b8b; */
+  margin-left: 100rpx;
+  text-align: left;
+  line-height: 80rpx;
+  align-items: center;
+
+}
+.mainprice{
+  font-size: 30rpx;
+  color: rgb(255, 0, 0);
+}
+.goodsdescribe{
+  background-color: #fff;
+  padding:20rpx;
+  font-size: 24rpx;
+}
+.goodsimgdetails{
+  
+  display: flex;
+  flex-direction: row;
+  height: 250rpx;
+  background-color: #fff;
+}
+.goodsimgdetails>view{
+  width: 180rpx;
+  height: 180rpx;
+  margin: 0 20rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  align-self: center;
+}
+.goodsimgdetails>view>image{
+  width: 180rpx;
+  height: 180rpx;
+}
+.goodsdetailsbottom{
+  height: 150rpx;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-bottom: 10rpx;
+  background-color: #fff;
+  /* margin-top: 100rpx; */
+}
+.goodsnav{
+  width: 250rpx;
+  height: 150rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.goodsnavlist{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  width: 200rpx;
+  height: 150prx;
+}
+.img{
+  width: 40rpx;
+  height:40rpx;
+}

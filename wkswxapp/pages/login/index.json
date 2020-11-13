@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-message": "../../components/message/index",
+    "i-toast": "../../components/toast/index",
+    "i-notice-bar": "../../components/notice-bar/index"
+  }
+}

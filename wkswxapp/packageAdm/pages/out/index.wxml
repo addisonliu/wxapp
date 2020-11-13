@@ -1,0 +1,95 @@
+<!--pages/applicationForm/index.wxml-->
+<view class="container">
+<scroll-view scroll-y style="height:{{winHeight}}px;">
+<view class='out row' style="border-bottom:1px solid #e2e2e2">
+  <view class='textColor'>申请人工号:</view>
+  <view>
+    <text class="txt">{{employee.Empno}}</text>
+  </view>
+</view>
+<view class='outnDetail row'>
+  <view class='textColor'>申请人姓名:</view>
+  <view>
+    <text class="txt">{{employee.Chname}}</text>
+  </view>
+</view>
+<view class='outDetail row'>
+  <view class='textColor'>申请人部门:</view>
+  <view>
+    <text class="txt">{{employee.Deptcode}}</text>
+  </view>
+</view>
+<view class='outDetail row'>
+  <view class='textColor'>申请人班别:</view>
+  <view>
+    <text class="txt">{{employee.ShiftName}}</text>
+  </view>
+</view>
+<view class='outDetail row'>
+  <view class='textColor'>是否假日:</view>
+  <view>
+    <text class="txt">{{employee.isholiday}}</text>
+  </view>
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>出厂事由:</view>
+  <textarea class='textarea' bindblur="bindTextAreaBlur" auto-height placeholder="请输入事由" />
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>出厂类别:</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" range-key="{{'Description'}}">
+      <view class="picker">
+        {{objectArray[index].Description}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>出厂日期:</view>
+    <picker mode="date" value="{{date}}" start="{{now}}" bindchange="bindDateChange">
+      <view class="picker">
+        {{date}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>出厂时间:</view>
+    <picker mode="time" value="{{time}}" start="00:00" end="24:00" bindchange="bindTimeChange">
+    <view class="picker">
+      {{time}}  <text class='choose'>请选择</text>
+    </view>
+  </picker>
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>是否需要返回:</view>
+  <view>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio" wx:for="{{items}}" wx:key="item.id">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+</view>
+<view class='outDetail row' wx:if="{{returnflag}}">
+  <view class='textColor'><text style="color:#f23030">*</text>返回日期:</view>
+    <picker mode="date" value="{{returndate}}" start="{{now}}" bindchange="bindBackDateChange">
+      <view class="picker">
+        {{returndate}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+<view class='outDetail row' wx:if="{{returnflag}}">
+  <view class='textColor'><text style="color:#f23030">*</text>返回时间:</view>
+    <picker mode="time" value="{{returntime}}" start="00:00" end="24:00" bindchange="bindBackTimeChange">
+    <view class="picker">
+     {{returntime}}  <text class='choose'>请选择</text>
+    </view>
+  </picker>
+</view>
+
+</scroll-view>
+<button class='butt' bindtap="sendApplication">送出签核</button>
+
+</view>
+    

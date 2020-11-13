@@ -1,0 +1,56 @@
+.goodslist{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 200rpx;
+  padding: 20rpx 20rpx 20rpx 40rpx;
+}
+.leftimg{
+  width: 160rpx;
+  height: 160rpx;
+  overflow: hidden;
+  border-radius: 20rpx 20rpx 0 0;
+}
+.leftimg>image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.midcontain{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400rpx;
+}
+.midtitle{
+  font-weight: bold;
+}
+.midprice{
+  display: flex;
+  flex-direction: row;
+  height: 30rpx;
+  align-items: center;
+
+}
+.midtime{
+  color: #8b8b8b;
+}
+.rightbtn{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.rightbtn>image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.delete{
+  width: 100rpx;
+  height: 60rpx;
+  background-color: rgb(250, 0, 0);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+}

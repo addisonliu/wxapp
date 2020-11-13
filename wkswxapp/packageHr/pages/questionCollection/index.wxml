@@ -1,0 +1,201 @@
+<!--pages/questionCollection/questionCollection.wxml-->
+
+<page class='page'>
+<i-tab-bar current="{{ current }}" bindchange="handleChange">
+    <i-tab-bar-item key="describe" title="问题描述"></i-tab-bar-item>
+    <i-tab-bar-item key="apply" title="申请列表" ></i-tab-bar-item>
+    <!-- <i-tab-bar-item key="apply" title="申请列表" bindchange="getQuestionsList"></i-tab-bar-item> -->
+</i-tab-bar>
+
+<!-- 問題描述 -->
+<view wx:if="{{current=='describe'}}" class="container">
+<!-- <view class="container"> -->
+<!-- <view style='height:18rpx;'></view> -->
+<view class='global'>
+  <view class='infoDetail row'>
+    <!-- <view class='title' > -->
+      <!-- 姓<text space="ensp" style="margin-left:70rpx;"></text>名 -->
+      <!-- <text style="color:#f23030"></text> -->
+      <text>工号姓名</text>
+      <!-- <text class="textEn"></text>:  -->
+      <text space="ensp" class='na' style="ma rgin-left:100rpx;">{{empno}}/{{chname}}</text>
+    <!-- </view> -->
+  </view>
+  <view class='infoDetail row'>
+    <view class='title'>
+      <text style="color:#f23030">*</text>问题类别
+      <!-- <text class="textEn"></text>: -->
+    </view>
+    <view>
+<!--  value="{{index}}"    -->
+    <picker class='judge' bindchange="bindCategoryChange"  range="{{categoryArray}}" range-key="{{'value'}}">
+      <view class="ins">
+      {{category}} 
+        <text class='choose'>请选择</text>
+      </view>
+    </picker>
+    </view>
+  </view>
+  <!-- <view class='dutyUnit'>
+    <view class='title'>责任单位
+      <text style="color:#f23030">*</text>
+      <text class="textEn"></text>:
+    </view>
+  </view> -->
+
+<view class='infoDetail row'>
+    <view class='title'>
+      <text style="color:#f23030">*</text>责任单位
+      <!-- <text class="textEn"></text>: -->
+    </view>
+    <picker class='judge' bindchange="bindChargeChange" value="{{index}}" range="{{riderCommentList}}" range-key="{{'value'}}">
+      <view class="ins">
+      {{incharge}} 
+        <text class='choose'>请选择</text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- bindchange="bindChargeChange" -->
+  <!-- <view class='btns' >
+    <button 
+        wx:for="{{riderCommentList}}" 
+        wx:for-item="item" 
+        wx:key="item.index"  
+        bindtap="bindChargeChange" 
+        data-value="{{item.value}}" 
+        data-index="{{index}}"  
+        checked="{{item.selected}}"
+        class="btn {{item.selected ? 'btn-selected' : ''}}" >
+        {{item.title}}
+    </button>
+  </view> -->
+  <!-- <view style='height: 4vw;'></view> -->
+  <view class='describe'> 
+  <view class='por'>
+    <textarea bindinput="getQuestions" readonly='true' value='{{questions}}' placeholder="请简明地描述您的问题" placeholder-style="color:gary" auto-focus>
+    <!-- <text>请简明的描述您的问题</text> -->
+    </textarea>
+    </view>
+  </view>
+  <block style="height: 10rpx"> </block>
+</view>
+<view class='warnview'>
+  <a class="warn">禁止提问与主题无关或违反道德、法律的问题，违者封禁账号处理</a>
+</view>
+<button class='submit' style="background-color: rgba(16, 142, 233, 1);" bindtap="sendApplication" type="success" shape="circle"><text class='font'>提交</text></button>
+</view>
+
+
+<!-- 申請列表 style='height: {{scrollHeight}};' --> 
+<!-- <scroll-view scroll-y scroll-into-view='{{toView}}'  >
+<view wx:if="{{current=='apply'}}" class="container">
+  <view class='mine_cells'>
+	  <navigator wx:if='{{item.state=="pending"}}' url="/pages/pending/pending?name={{item.name}}&uid={{item.uid}}&subject={{item.subject}}&in_charge={{item.in_charge}}&question={{item.question}}&reply={{item.reply}}" wx:for="{{except}}" wx:key="item.id" class="mine_cell">
+      <text class="mine_title">{{item.time}} {{item.subject}} <text style="text-align：right；">{{item.state == 'pending'? '待處理': '已完成'}}</text></text>
+      <view class="mine_arrow"></view>
+    </navigator>
+    <navigator wx:if='{{item.state=="replied"}}' url="/pages/completed/completed" wx:for="{{except}}" wx:key="item.id" class="mine_cell">
+      <text class="mine_title">{{item.subject}}+{{item.state}}</text>
+      <view class="mine_arrow"></view>
+    </navigator>
+  </view>
+</view>
+</scroll-view>
+</page> -->
+
+
+
+
+
+
+
+
+<scroll-view scroll-y scroll-into-view='{{toView}}'>
+
+    <view wx:if="{{current=='apply'}}" class="container">
+
+      <view class='list_box' wx:for='{{pending}}' wx:key='this' wx:for-item='parentItem' wx:for-index='parentIndex'>
+        <view class='list'>
+          <view class='list_name_box' style="border-bottom: 2px solid #efefef;" catchtap='listTap' data-parentindex='{{parentIndex}}'>
+            <text class='list_item_name'>{{parentItem.time}} {{parentItem.subject}} </text>
+            <!-- <text class="text11" style="text-align：right; padding: 0rpx 20rpx 0rpx 0rpx">{{parentItem.state == 'pending'? '待處理': '已完成'}}</text> -->
+
+            <button class= "state" disabled="disabled" style="border-radius: 60px;background-color:rgb(227, 147, 247);" >
+            <text style="font-size:13px;color: white;text-align: center;padding: 20rpx 0rpx">待处理</text>
+            </button>
+
+
+            <!-- <text class="text11" style="text-align：right; padding: 0rpx 20rpx 0rpx 0rpx">待處理</text> -->
+            <image src='/static/image/down.jpg' class='icon_down {{parentItem.show&&"icon_down_rotate"}}'></image>
+          </view>
+          <view class='more'  wx:if='{{parentItem.show}}' style="{ height: viewHeight + 'px' }">
+           <view class='other'>
+            <view class='list_item_name'><a style="color:#f23030">*</a><a style="font-weight:bold">责任单位</a></view>
+            <view class='num'>{{parentItem.in_charge}}</view>
+           </view>
+           <view class='other'>
+            <view class='list_item_name' style="font-weight:bold">问题描述</view>
+           </view>
+           <view class='other1'>
+            <view class='num1'>{{parentItem.question}}</view>
+           </view>
+
+           <!-- <view wx:if="{{parentItem.state == 'replied'}}">
+            <view class='other' >
+              <view class='list_item_name' style="font-weight:bold">问题反馈</view>
+            </view>
+            <view class='other'>
+              <view class='num1'>{{parentItem.reply}}</view>
+            </view>
+           </view> -->
+        </view>
+        
+        <!-- </scroll-view> -->
+    </view>  
+    </view>
+     <view class='list_box' wx:for='{{completed}}' wx:key='this' wx:for-item='parentItem' wx:for-index='parentIndex'>
+        <view class='list'>
+          <view class='list_name_box' style="border-bottom: 2px solid #efefef;" catchtap='listTap2' data-parentindex='{{parentIndex}}'>
+            <text class='list_item_name'>{{parentItem.time}} {{parentItem.subject}} </text>
+            <!-- <text class="text11" style="text-align：right; padding: 0rpx 20rpx 0rpx 0rpx">{{parentItem.state == 'pending'? '待處理': '已完成'}}</text> -->
+            <button class= "state" disabled="disabled" style="border-radius: 60px;background-color: rgb(4, 152, 252);" >
+            <!-- <text class="text11" style="text-align：right; padding: 0rpx 20rpx 0rpx 0rpx">完成</text> -->
+            <text style="font-size:13px;color: white;text-align: center;padding: 20rpx 0rpx">完成</text>
+            <!-- 完成 -->
+            </button>
+            <image src='/static/image/down.jpg' class='icon_down {{parentItem.show&&"icon_down_rotate"}}'></image>
+            </view>
+
+            <view class='more'  wx:if='{{parentItem.show}}' style="{ height: viewHeight + 'px' }">
+           <view class='other'>
+            <view class='list_item_name'><a style="color:#f23030">*</a><a style="font-weight:bold">责任单位</a></view>
+            <view class='num'>{{parentItem.in_charge}}</view>
+           </view>
+           <view class='other'>
+            <view class='list_item_name' style="font-weight:bold">问题描述</view>
+           </view>
+           <view class='other'>
+            <view class='num1'>{{parentItem.question}}</view>
+           </view>
+
+           <!-- <view wx:if="{{parentItem.state == 'replied'}}"> -->
+            <view class='other' >
+              <view class='list_item_name' style="font-weight:bold">问题反馈</view>
+            </view>
+            <view class='other1'>
+            <view class='num1'>{{parentItem.reply}}</view>
+              <!-- <view><textarea class='num1'>{{parentItem.reply}}</textarea></view> -->
+            </view>
+           <!-- </view> -->
+        </view>
+
+
+          <!-- </view> -->
+        </view>
+      </view>
+    </view>
+    </scroll-view>
+
+</page>
+

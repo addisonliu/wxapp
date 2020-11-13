@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "Traveler Status",
+  "usingComponents": {
+    "i-toast": "../../../components/toast/index"
+  }
+}

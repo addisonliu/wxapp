@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "入厂权限核查",
+  "usingComponents": {
+    "i-toast": "../../../components/toast/index",
+    "i-steps": "../../../components/steps/index",
+    "i-step": "../../../components/step/index"
+  }
+}

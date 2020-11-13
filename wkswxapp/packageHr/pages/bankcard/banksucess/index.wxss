@@ -1,0 +1,45 @@
+page{
+  background-color: #fff;
+}
+.container{
+  background-color: #fff;
+  text-align: center;
+}
+.imgSuccess{
+  width: 160rpx;
+  height: 160rpx;
+  margin-top: 200rpx;
+  margin-bottom: 60rpx;
+}
+.txt{
+  font-size: 30rpx;
+  margin-bottom: 60rpx;
+}
+.title{
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.explain{
+  margin: 20rpx;
+  padding: 10rpx;
+  border:2rpx solid rgb(211, 211, 211);
+  background-color: #fff;
+  letter-spacing: 2rpx;
+}
+
+.ex-text>view{
+  text-align: left;
+ line-height: 40rpx;
+ margin: 20rpx 0;
+}
+button{
+  width: 60%;
+  margin-top: 100rpx;
+  color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color:rgb(47,183,235);
+  border: 0;
+  border-radius: 10rpx;
+}

@@ -1,0 +1,58 @@
+<view class="container">
+  <view class="mine-header">
+    <view class="mine-header-bg"></view>
+    <view class="userinfo">
+      <view class="mine-header-info">
+        <open-data type="userAvatarUrl" class="userImg"></open-data>
+      </view>
+    </view>
+  </view>
+
+  <!-- wx:for="{{item}}" wx:key="*this" -->
+  <view class="mine-content" wx:for="{{mineMessage}}" wx:key="*this" wx:for-item="item">
+    <view class="user-name">
+      <text>{{item.chName}}</text>
+      <text>{{item.enName}}</text>
+    </view>
+    <view>
+      <text>厂别</text>
+      <text>{{item.chComName}}</text>
+    </view>
+    <view>
+      <text>工号</text>
+      <text>{{item.empno}}</text>
+    </view>
+    <view>
+      <text>性别</text>
+      <text>{{item.sex}}</text>
+    </view>
+    <view>
+      <text>部门</text>
+      <text>{{item.deptCode}}</text>
+    </view>
+    <view>
+      <text>职位</text>
+      <text>{{item.jobName}}</text>
+    </view>
+    <view>
+      <text>入职日期</text>
+      <text>{{item.hireDate}}</text>
+    </view>
+    <!-- <view>
+      <text>合同签订</text>
+      <text>{{item.hireDate}}</text>
+    </view>
+    <view>
+      <text>合同到期</text>
+      <text>{{item.hireDate}}</text>
+    </view> -->
+    <!-- <view>
+      <text>特休剩余</text>
+      <text>{{item.total}}</text>
+    </view> -->
+  </view>
+
+  <navigator class='logout' open-type="exit" target="miniProgram">登出</navigator>
+  <!-- <view class='logout' bindtap='logout'>登出</view> -->
+
+</view>

@@ -1,0 +1,67 @@
+<!-- 侧滑导航栏 -->
+<view class="idlelistNav {{isRuleTrue?'isRuleShow':'isRuleHide'}} ">
+  <view class="idlelistcont">
+    <view class="leftcont">
+      <navigator url="/packageLife/pages/idleitems/mycollection/index" class="navlistdetail">
+        <image src="/static/image/mycollection.png"></image>
+        <text>我的收藏</text>
+      </navigator>
+      <navigator url="/packageLife/pages/idleitems/myprivateletter/index" class="navlistdetail">
+        <image src="/static/image/personalletter.png"></image>
+        <text>我的私信</text>
+      </navigator>
+      <navigator url="/packageLife/pages/idleitems/minerelease/index" class="navlistdetail">
+        <image src="/static/image/minerelease.png"></image>
+        <text>我发布的</text>
+      </navigator>
+      <navigator url="/packageLife/pages/idleitems/wantrelease/index" class="navlistdetail">
+        <image src="/static/image/wantrelease.png"></image>
+        <text>我要发布</text>
+      </navigator>
+    </view>
+    <view class="rightcont" bindtap='hideRule'></view>
+  </view>
+
+</view>
+<!-- 页头导航搜索栏 -->
+<view class="title">
+  <view class="idlelist" bindtap="showRule">
+    <image src="/static/image/idlelist.png"></image>
+  </view>
+  <view class="search-box">
+    <icon class="search-icon" type="search" size="16" color="white"></icon>
+    <input type="text" class="search-input" placeholder="请输入搜索关键字" placeholder-class="placehoderStyle" bindblur="getInput"/>
+  </view>
+  <view class="search-btn" bindtap="searchGoods">搜索</view>
+</view>
+<!-- 页面内容 -->
+<view class="main">
+  <view class="main-list">
+    <picker class="type" bindtap="bindClassfiy" range="{{classify}}" range-key="{{'CategoryName'}}">
+      <text>分类</text>
+      <image src="/static/image/down.jpg" class='minelist-img {{show && "minelist-img-rotate"}}'></image>
+    </picker>
+    <picker class="time" bindtap="bindTime"  range="{{timeSort}}" range-key="{{'publishSort'}}">
+      <text>发布时间</text>
+      <image src="/static/image/down.jpg" class='minelist-img {{show && "minelist-img-rotate"}}'></image>
+    </picker>
+    <picker class="price" bindtap="bindPrice"  range="{{priceSort}}" range-key="{{'priceSort'}}">
+      <text>价格排序</text>
+      <image src="/static/image/down.jpg" class='minelist-img {{show && "minelist-img-rotate"}}'></image>
+    </picker>
+  </view>
+  <!-- 筛选列表 -->
+  <view class=""></view>
+
+  <!-- 商品列表 -->
+  <view class="message">
+    <view class="goods" wx:for="{{idleGoodslist}}" wx:key="goodslist" wx:for-item="item" data-goodsid="{{item.GoodsID}}" bindtap="onPostTap">
+      <image src="{{item.MainPic}}"></image>
+      <view class="message-title">{{item.Title}}</view>
+      <view class="message-detail">
+        <view class="goodsprice">¥ {{item.Price}}</view>
+        <view class="degree">{{item.NewDegree}}</view>
+      </view>
+    </view>
+  </view>
+</view>

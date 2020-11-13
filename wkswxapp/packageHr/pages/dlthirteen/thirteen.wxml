@@ -1,0 +1,159 @@
+<!--packageHr/pages/thirteen/thirteen.wxml-->
+<!-- <text>packageHr/pages/thirteen/thirteen.wxml</text> -->
+<view class="container">
+<scroll-view scroll-y style="height:{{winHeight}}px;">
+<view class='out row' style="border-bottom:1px solid #e2e2e2">
+  <view class='textColor'><text style="color:#f23030">*</text>申请人工号:</view>
+  <view>
+    <text class="txt">{{employee.Empno}}</text>
+  </view>
+</view>
+<view class='outnDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>申请人姓名:</view>
+  <view>
+    <text class="txt">{{employee.Chname}}</text>
+  </view>
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>申请人部门:</view>
+  <view>
+    <text class="txt">{{employee.Deptcode}}</text>
+  </view>
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>申请人班别:</view>
+  <view>
+    <text class="txt">{{employee.ShiftName}}</text>
+  </view>
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>申请人厂别:</view>
+  <view>
+    <text class="txt">{{employee.isholiday}}</text>
+  </view>
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>技能申请:</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" range-key="{{'Description'}}">
+      <view class="picker">
+        {{objectArray[index].Description}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>申请人手机号:</view>
+  <textarea class='textarea' bindblur="bindTextAreaBlur" auto-height placeholder="请输入您的手机号" />
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>申请人线别:</view>
+  <textarea class='textarea' bindblur="bindTextAreaBlur" auto-height placeholder="请输入您的线别" />
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>组长姓名:</view>
+  <textarea class='textarea' bindblur="bindTextAreaBlur" auto-height placeholder="请输入您的组长姓名" />
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>组长联系方式:</view>
+  <textarea class='textarea' bindblur="bindTextAreaBlur" auto-height placeholder="请输入您的组长得联系方式" />
+</view>
+<!-- <view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>技能类别:</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" range-key="{{'Description'}}">
+      <view class="picker">
+        {{objectArray[index].Description}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view> -->
+
+<!-- <view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>训练方式:</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{objectArray}}" range-key="{{'Description'}}">
+      <view class="picker">
+        {{objectArray[index].Description}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view> -->
+</scroll-view>
+
+<!-- <navigator url="/status/status" class="chang">
+ <text style="color:#3690cf" >签核状态</text>
+</navigator> -->
+<!-- <navigator url='packageHr/pages/status/status'>签核状态</navigator>  -->
+
+<view bindtap='bindViewTap' class='userinfo'>
+ <text style="color:#3690cf" >签核状态</text>
+</view>
+
+<button class='butt' bindtap="sendApplication">提交</button>
+</view>
+<!-- 
+<view class="change">
+<navigator url="packageHr/pages/status/status" class="chang">
+ <text >签核状态</text>
+</navigator>
+</view> -->
+
+<view class='tip-content-dialog' wx:if="{{showModal}}">
+  <scroll-view class="tip-dialog-view tc bg_rule p_all15 p_b20" scroll-y='true' style='height:85%;padding:30rpx;'>
+    <view class="applyNotice11">
+     <text class='notice-title'>DL内部考核技能-高级技术员提报规则</text>
+    </view>
+    <view class="applyNotice">
+  <text class="noticeMore1">认证条件:</text>
+  </view>
+    <view class="applyNotice">
+  <text class="noticeMore">资深技术员合格;</text>
+  </view>
+   <view class="applyNotice">
+  <text class="noticeMore">担任资深技术员满六个月;</text>
+  </view>
+   <view class="applyNotice">
+  <text class="noticeMore">三个月内无惩处</text>
+  </view>
+   <view class="applyNotice">
+  <text class="noticeMore">初次提报绩效管控:半年两优及以上;年审管控:最近两次两优及以上</text>
+  </view>
+   <view class="applyNotice">
+  <text class="noticeMore">只能申请一项</text>
+  </view>
+  <!-- <view class="applyNotice">
+  <text class="noticeMore">C区电脑室</text>
+  </view> -->
+  <view class="applyNotice">
+  <text class="noticeMore1">报名时间:</text>
+  </view>
+     <view class="applyNotice">
+  <text class="noticeMore">每年5月&11月,需要在4月和10月底27/28/29三天完成报名</text>
+  </view>
+
+   <view class="applyNotice">
+  <text class="noticeMore1">考试时间:</text>
+  </view>
+     <view class="applyNotice">
+  <text class="noticeMore">签核完毕后,请依据训练单位实际通知参与考试</text>
+  </view>
+  
+  
+   <view class="applyNotice">
+  <text class="noticeMore1">津贴额度:1300元/月/项</text>
+  </view>
+ <view class="applyNotice">
+  <text class="noticeMore1">有效期:</text>
+  </view>
+     <view class="applyNotice">
+  <text class="noticeMore">一年</text>
+  </view>
+<view class="applyNotice">
+  <text class="noticeMore1">注:此项仅用于考试申请,签核完毕后请依据训练单位实际通知参加考试</text>
+  </view>
+  <!-- <view class='check'>
+<checkbox-group bindchange="checkboxNoticeChange">
+  <checkbox value="{{noticechoose}}"/>
+  本人已阅读并同意上述条款(I have read and agree to the above terms)
+</checkbox-group>
+</view> -->
+  <i-button bind:click="readClick" class='read-btn' type="error" disabled="{{disabled}}">{{codename}}</i-button>
+  </scroll-view>
+</view>   
+

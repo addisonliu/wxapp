@@ -1,0 +1,132 @@
+<view class="container">
+<scroll-view scroll-y style="height:{{winHeight}}px;">
+<view class='out row' style="border-bottom:1px solid #e2e2e2">
+  <view class='textColor'><text style="color:#f23030">*</text>申请人工号:</view>
+  <view>
+    <text class="txt">{{objectArray[0].EmpNo}}</text>
+  </view>
+</view>
+<view class='outnDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>申请人姓名:</view>
+  <view>
+    <text class="txt">{{objectArray[0].ChName}}</text>
+  </view>
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>申请人部门:</view>
+  <view>
+    <text class="txt">{{objectArray[0].DeptCode}}</text>
+  </view>
+</view>
+<!-- <view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>申请人班别:</view>
+  <view>
+    <text class="txt">{{employee.ShiftName}}</text>
+  </view>
+</view> -->
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>申请人厂别:</view>
+  <view>
+    <text class="txt">{{objectArray[0].PlantID}}</text>
+  </view>
+</view>
+
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>申请类型:</view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{Apply}}" >
+      <view class="picker">
+        {{Apply[index]}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>技能类别:</view>
+    <picker bindchange="bindPickerChangeSkillCategory" value="{{indexs}}" range="{{SkillCategory}}" >
+      <view class="picker">
+        {{SkillCategory[indexs]}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>技能:</view>
+    <picker bindchange="bindPickerChangeskill" value="{{index0}}" range="{{Skill}}" >
+      <view class="picker">
+        {{Skill[index0]}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+
+<view class='outDetail row'>
+  <view class='textColor'><text style="color:#f23030">*</text>训练方式:</view>
+    <picker bindchange="bindPickerChangemethod" value="{{indexed}}" range="{{Method}}">
+      <view class="picker">
+        {{Method[indexed]}} <text class='choose'>请选择</text>
+      </view>
+    </picker>
+</view>
+</scroll-view>
+
+<!-- <navigator url="/status/status" class="chang">
+ <text style="color:#3690cf" >签核状态</text>
+</navigator> -->
+<!-- <navigator url='packageHr/pages/status/status'>签核状态</navigator>  -->
+
+<view bindtap='bindViewTap' class='userinfo'>
+ <text style="color:#3690cf;font-size:32rpx;" >签核状态</text>
+</view>
+
+<button class='butt' bindtap="sendApplication">提交</button>
+</view>
+<!-- 
+<view class="change">
+<navigator url="packageHr/pages/status/status" class="chang">
+ <text >签核状态</text>
+</navigator>
+</view> -->
+
+<view class='tip-content-dialog' wx:if="{{showModal}}">
+  <scroll-view class="tip-dialog-view tc bg_rule p_all15 p_b20" scroll-y='true' style='height:90%;padding:30rpx;'>
+    <view class="applyNotice11">
+     <text class='notice-title'>DL内部考核鉴定卡-上岗证提报规则</text>
+    </view>
+    <view class="applyNotice">
+  <text class="noticeMore1">考试时间:</text>
+  </view>
+    <view class="applyNotice">
+  <text class="noticeMore">签核完毕后,每周一三五17:00-21:00</text>
+  </view>
+  <!-- <view class="applyNotice">
+  <text class="noticeMore">C区电脑室</text>
+  </view> -->
+  <view class="applyNotice">
+  <text class="noticeMore1">考试地点:</text>
+  </view>
+     <view class="applyNotice">
+  <text class="noticeMore">C区电脑室</text>
+  </view>
+  
+ <view class="applyNotice">
+  <text class="noticeMore1">有效期:</text>
+  </view>
+     <view class="applyNotice">
+  <text class="noticeMore">六个月</text>
+  </view>
+<view class="applyNotice">
+  <text class="noticeMore1">注:个人的技能项目总数不能超过五个</text>
+  </view>
+
+   <!-- <view class='check'>
+<checkbox-group bindchange="checkboxNoticeChange">
+  <checkbox value="{{noticechoose}}"/>
+  本人已阅读 -->
+<!-- </checkbox-group> -->
+<!-- </view>
+  <i-button bind:click="readClick" class='read-btn' type="error" disabled="{{disabled}}">{{codename}}</i-button> -->
+
+  <!-- <button click="readClick" class='read-btn'>我已阅读</button> -->
+  <view bindtap='readClick' class='read-btn'>
+ <text style="color:#ffff" >我已阅读</text>
+</view>
+  </scroll-view>
+</view>   

@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "健康宣告书",
+  "usingComponents": {
+    "i-toast": "../../../components/toast/index",
+    "i-button": "../../../components/button/index",
+    "i-modal": "../../../components/modal_new/index",
+    "i-modal_o": "../../../components/modal/index",
+    "i-modal_red": "../../../components/modal_new_red/index",
+    "i-modal_green": "../../../components/modal_new_green/index",
+    "i-modal_yellow": "../../../components/modal_new_yellow/index"
+  }
+}

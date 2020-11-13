@@ -1,0 +1,100 @@
+<!--pages/overtime/overtime.wxml-->
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">加班总计</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">加班明细</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+    <!--加班总计 -->
+    <swiper-item>
+      <!--按钮-->
+      <view class='list_box' wx:for='{{overtimeSummary}}' wx:key='this' wx:for-item='parentItem' wx:for-index='parentIndex' style="height:{{parentItem.height}}px;">
+        <view class='list'>
+          <view class='list_name_box' style="border-bottom: 2px solid #efefef;" catchtap='listTap' data-parentindex='{{parentIndex}}'>
+            <text class='list_item_name'>{{parentItem.OTYearMonth}}</text>
+            <image src='/static/image/down.jpg' class='icon_down {{parentItem.show&&"icon_down_rotate"}}'></image>
+          </view>
+          <scroll-view scroll-y style="height:{{parentItem.height0}}px;">
+          <view class='more'  wx:if='{{parentItem.show}}'>
+           <view class='other'>签核完毕</view>
+           <view class='other'>
+            <view class='list_item_name'>平时加班</view>
+            <view class='num'>{{parentItem.FPayWorkdayOTHours}}</view>
+           </view>
+           <view class='other'>
+            <view class='list_item_name'>假日加班</view>
+            <view class='num'>{{parentItem.FPayHolidayOTHours}}</view>
+           </view>
+           <view class='other'>
+            <view class='list_item_name'>国定假日加班</view>
+            <view class='num'>{{parentItem.FPayLegalHolidayOTHours}}</view>
+           </view>
+           <view class='other'>
+            <view class='list_item_name'>超时加班转补休</view>
+            <view class='num'>{{parentItem.FPayCompensatory}}</view>
+           </view>
+           <view class='other'>
+            <view class='list_item_name'>小夜班天数</view>
+            <view class='num'>{{parentItem.FNS7E}}</view>
+           </view>
+           <view class='other'>
+            <view class='list_item_name'>大夜班天数</view>
+            <view class='num'>{{parentItem.FNS7F}}</view>
+           </view>
+           <view class='other'>签核中</view>
+           <view class='other'>
+            <view class='list_item_name'>平时加班</view>
+            <view class='num'>{{parentItem.PPayWorkdayOTHours}}</view>
+           </view>
+           <view class='other'>
+            <view class='list_item_name'>假日加班</view>
+            <view class='num'>{{parentItem.PPayHolidayOTHours}}</view>
+           </view>
+           <view class='other'>
+            <view class='list_item_name'>国定假日加班</view>
+            <view class='num'>{{parentItem.PPayLegalHolidayOTHours}}</view>
+           </view>
+           <view class='other'>
+            <view class='list_item_name'>超时加班转补休</view>
+            <view class='num'>{{parentItem.PPayCompensatory}}</view>
+           </view>
+
+        </view>
+        </scroll-view>
+    </view>   
+</view>
+    </swiper-item>
+
+
+
+    <!-- 加班明细 -->
+    <swiper-item>
+      <view class="table">
+  <view class="tr bg-w">
+    <view class="th_1 ">开始时间</view>
+    <view class="th_2 ">结束时间</view>
+    <view class="th_3">类别</view>
+    <view class="th_4">时数</view>
+    <view class="th_5">状态</view>
+  </view>
+  <view scroll-y style="height:calc(100vh - 80rpx);overflow: hidden; overflow-y:auto">
+  <block wx:for="{{OvertimeDetail}}" wx:key="{{item.RID}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td_1">{{item.StartDate}}</view>
+       <view class="td_2">{{item.EndDate}}</view>
+       <view class="td_3">{{item.Type}}</view>
+      <view class="td_4">{{item.Hours}}</view>
+      <view class="td_5">{{item.Status}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td_1">{{item.StartDate}}</view>
+      <view class="td_2">{{item.EndDate}}</view>
+      <view class="td_3">{{item.Type}}</view>
+      <view class="td_4">{{item.Hours}}</view>
+      <view class="td_5">{{item.Status}}</view>
+    </view>
+  </block>
+  </view>
+</view>
+    </swiper-item>
+</swiper>

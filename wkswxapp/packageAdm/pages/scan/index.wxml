@@ -1,0 +1,26 @@
+<!--pages/Scan/Scan.wxml-->
+<!-- 扫描二维码 -->
+<view class="con">
+  <view class="header">
+   <text class="headertxt">智能会议室联动系统</text>
+  </view>
+
+  <view class="body">
+   <image class="img" src="../Image/scan_pic.png" bindtap="click" class="click_button" style="height: 550rpx;width: 550rpx;padding-top:10rpx;"></image>
+  </view>
+  <view class="bodytxt">
+   <text style="font-size: 1.1rem;">点击图片扫描门牌上的二维码</text>
+  </view>
+
+  <view class="create_QR">
+    <button class="btn" bindtap="create_QR">个人二维码</button>
+  </view>
+
+   <view class="footer">
+   <image class="img_icon" src="../Image/wistron_icon.jpg"></image>
+  </view> 
+ <view class="footer_end">
+   <text>Design By TDD(技术发展处) </text>
+   <text style="font-size: 24rpx;"> version:1.0.0</text>
+  </view>
+</view> 

@@ -1,0 +1,13 @@
+<view class="container">
+<image class="imgSuccess" src="/static/image/success.png"></image>
+<view class="txt">提交成功</view>
+  <view class="explain" style="width:100vw-20rpx">
+    <view class="title">再次提醒:</view>
+    <view class="ex-text">
+      <view>领取地点：C区电脑教室</view>
+      <view>领取时间：每周一、周三、周五 17:00-21:00</view>
+      <view>(当日申请当日无法领取，节假日不办理)</view>
+    </view>
+  </view>
+  <button bindtap="backHome">返回首页</button>
+</view>
