@@ -1,0 +1,57 @@
+/* packageHr/pages/mealapplication/index/index.wxss */
+.container {
+  width: 100vw;
+  background-color: white;
+}
+
+.application {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #42a5eb;
+  width: 50vw;
+  height: 100rpx;
+  margin-top: 70rpx;
+  margin-left: 200rpx;
+}
+
+.alter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #5091ec;
+  width: 50vw;
+  height: 100rpx;
+  margin-top: 70rpx;
+  margin-left: 200rpx;
+}
+
+.query {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #265db4;
+  width: 50vw;
+  height: 100rpx;
+  margin-top: 70rpx;
+  margin-left: 200rpx;
+}
+
+.text {
+  margin-top: 100rpx;
+  border: 2rpx solid black;
+  padding: 30rpx;
+  margin-right: 40rpx;
+  margin-left: 40rpx;
+  font-weight: bold;
+}
+.text2{
+  margin-top: 10rpx;
+}
+.text3{
+  margin-left: 50rpx;
+  margin-top: 10rpx;
+}

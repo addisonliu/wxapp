@@ -1,0 +1,233 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.12.2",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "appid": "wx0fc23d52483ecede",
+  "projectname": "1009",
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "登录",
+          "pathName": "pages/login/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "技能查询",
+          "pathName": "packageHr/pages/skill/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "技能申请",
+          "pathName": "packageHr/pages/skillapplication/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "停线通知单",
+          "pathName": "packageIE/pages/stops/stops",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "packageHr/pages/locker/index",
+          "pathName": "packageHr/pages/locker/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 5,
+          "name": "eleven",
+          "pathName": "packageHr/pages/dleleven/eleven",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 6,
+          "name": "twelve",
+          "pathName": "packageHr/pages/dltwelve/twelve",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 7,
+          "name": "four",
+          "pathName": "packageHr/pages/dlfour/four",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "foursuccess",
+          "pathName": "packageHr/pages/dlfoursuccess/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "fourerror",
+          "pathName": "packageHr/pages/dlfourerror/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "上岗证补办",
+          "pathName": "packageHr/pages/workLicense/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "鞋柜",
+          "pathName": "packageAdm/pages/shoecabinet/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "upstatus",
+          "pathName": "packageHr/pages/dlupstatus/upstatus",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "fourstatus",
+          "pathName": "packageHr/pages/dlfourstatus/fourstatus",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "银行卡识别首页",
+          "pathName": "packageHr/pages/bankcard/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "闲置物品首页",
+          "pathName": "packageLife/pages/idleitems/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "elevenstatus",
+          "pathName": "packageHr/pages/dlelevenstatus/elevenstatus",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "twelvestatus",
+          "pathName": "packageHr/pages/dltwelvestatus/twelvestatus",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "up",
+          "pathName": "packageHr/pages/dlup/up",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "报餐首页",
+          "pathName": "packageAdm/pages/mealapplication/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "报餐申请",
+          "pathName": "packageAdm/pages/mealapplication/application/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "packageHr/pages/salarySearch/index",
+          "pathName": "packageHr/pages/salarySearch/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "停线通知单",
+          "pathName": "packageAdm/pages/stop/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "packageAdm/pages/shoecabinet/index",
+          "pathName": "packageAdm/pages/shoecabinet/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "packageHr/pages/allowance/index",
+          "pathName": "packageHr/pages/allowance/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "调查问卷",
+          "pathName": "packageHr/pages/empquestionnaire/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

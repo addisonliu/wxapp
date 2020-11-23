@@ -1,0 +1,42 @@
+.container{
+  background-color: #fff;
+  padding: 10rpx;
+  letter-spacing: 3rpx;
+}
+.title{
+  text-align: center;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.notice{
+  margin: 20rpx auto;
+}
+.questionview{
+  display: flex;
+  flex-direction: column;
+
+}
+.question{
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 40rpx;
+  margin-bottom: 20rpx;
+}
+.answer{
+  display: flex;
+  flex-direction: row;
+  line-height: 40rpx;
+  flex-wrap: wrap;
+}
+.anweroption{
+  display: flex;
+  flex-direction: row;
+  line-height: 60rpx;
+  margin-left: 20rpx;
+}
+.answerdetalis{
+  margin-left: 10rpx;
+}

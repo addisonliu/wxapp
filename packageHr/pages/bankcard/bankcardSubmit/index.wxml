@@ -1,0 +1,60 @@
+<view class="container">
+  <view class="mainMessage" wx:for="{{bankDataBase}}" wx:for-item='item' wx:key="bankdatabase">
+    <view class="messageDetail">
+      <view><text class="xin">*</text>申请人工号:</view>
+      <view class="rightMES">{{item.empno}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>申请人姓名:</view>
+      <view class="rightMES">{{item.chName}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>身份证:</view>
+      <view class="rightMES">{{item.idno}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>手机号:</view>
+      <input bindblur="bindinputPhone" style="padding-top:12rpx;" class="blod" type="number" maxlength="11" value="{{bankPhonenumber}}" placeholder="请输入本人手机号" placeholder-style="color:black;"></input>
+    </view> 
+    <view class="messageDetail">
+      <view><text class="xin">*</text>更新后银行卡号:</view>
+      <view class="blod" style="padding-top:10rpx;">
+        <input type="text" placeholder="必须为本人银行卡" placeholder-style="color:black;"
+          value="{{bankDetails.bank_card_number}}" style="display:inline-block;"
+          bindblur="bindInputChange"></input>
+          <view class="takePhoto">
+          <image src="../../../../static/image/bankPhoto.png" bindtap="upFileFront"
+            style="height:50rpx; width:50rpx;"></image>
+        </view>
+      </view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>银行:</view>
+      <picker bindchange="chooseType" style="padding-top:12rpx;" value="{{index}}" range="{{bankType}}" range-key="{{'bankName'}}">
+        <input type="text" disabled="true" placeholder="请选择:工行或农行" placeholder-style="color:black;" value="{{bankDetails.bank_name || bankType[index].bankName }}"
+          class="blod"></input>
+      </picker>
+    </view>
+  </view>
+  <view class="explain" style="width:100vw-20rpx">
+    <view class="title">提醒:</view>
+    <view class="ex-text">
+      <view>1. 上传的银行卡号将作为发薪的卡号，必须是使用本人身份证号办理的银行卡，请上传时注意核对，银行卡号上传错误会导致发薪失败，请仔细确认；</view>
+      <view>2. 工资发放银行仅限中国农业银行和中国工商银行，其他银行暂不支持发薪；</view>
+      <view>3. 若银行卡号上传错误，请勿再次上传，请在银行卡号变更中重新维护；</view>
+    </view>
+  </view>
+  <button bindtap="submit">提交</button>
+</view>
+
+<view class="popup {{ showPop ? 'popShow' : '' }}">
+  <view class="mess">
+    <view>手机号：{{bankPhonenumber}}</view>
+    <view>银行卡：{{bankDetails.bank_name || bankType[index].bankName }}</view>
+    <view>银行卡号：{{bankDetails.bank_card_number  || bankcardnumber}}</view>
+  </view>
+  <view class="btn">
+    <view bindtap="backChange">返回修改</view>
+    <view bindtap="lastSubmit">确认上传</view>
+  </view>
+</view>

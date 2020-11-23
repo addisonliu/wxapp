@@ -1,0 +1,156 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/otherIndex/index",
+    "pages/changepwd/index",
+    "pages/tabevent/index",
+    "pages/mine/index",
+    "pages/homepage/index",
+    "components/popup/index"
+  ],
+  "subPackages": [
+    {
+      "root": "packageVisit",
+      "pages": [
+        "pages/applicationForm/index",
+        "pages/applicationSearch/index",
+        "pages/dangerExecution/index",
+        "pages/healthVisitForm/index",
+        "pages/normalExecution/index",
+        "pages/normalSearch/index"
+      ]
+    },
+    {
+      "root": "packageHr",
+      "pages": [
+        "pages/record/index",
+        "pages/party/index",
+        "pages/locker/index",
+        "pages/locker/changelock",
+        "pages/salarySearch/index",
+        "pages/allowance/index",
+        "pages/resignForm/index",
+        "pages/travelerStatus/index",
+        "pages/questionCollection/index",
+        "pages/smartService/index",
+        "pages/overtime/index",
+        "pages/leave/index",
+        "pages/unatten/index",
+        "pages/except/index",
+        "pages/unbrush/index",
+        "pages/unnormal/index",
+        "pages/skill/index",
+        "pages/skillapplication/index",
+        "pages/dlup/up",
+        "pages/dlupstatus/upstatus",
+        "pages/dlfour/four",
+        "pages/dlfourstatus/fourstatus",
+        "pages/dleleven/eleven",
+        "pages/dlelevenstatus/elevenstatus",
+        "pages/dltwelve/twelve",
+        "pages/dltwelvestatus/twelvestatus",
+        "pages/dlthirteen/thirteen",
+        "pages/dlthirteenstatus/thirteenstatus",
+        "pages/workLicense/index",
+        "pages/workSuccess/index",
+        "pages/employing/index",
+        "pages/dlupsuccess/index",
+        "pages/dlfoursuccess/index",
+        "pages/dlelevensuccess/index",
+        "pages/dltwelvesuccess/index",
+        "pages/bankcard/index/index",
+        "pages/bankcard/bankcardSubmit/index",
+        "pages/bankcard/bankcardChange/index",
+        "pages/bankcard/bankcardSearch/index",
+        "pages/bankcard/banksucess/index",
+        "pages/bankcard/locker/index",
+        "pages/bankcard/locker/changelock",
+        "pages/empquestionnaire/index"
+      ]
+    },
+    {
+      "root": "packageAdm",
+      "pages": [
+        "pages/vacationSearch/index",
+        "pages/out/index",
+        "pages/rs/index",
+        "pages/healthSearch/index",
+        "pages/certification/index",
+        "pages/healthForm/index",
+        "pages/scan/index",
+        "pages/detailedMessage/index",
+        "pages/query/index",
+        "pages/meetingMessage/index",
+        "pages/beProxy/index",
+        "pages/agentSet/index",
+        "pages/delayMeeting/index",
+        "pages/create_QR/create_QR",
+        "pages/shoecabinet/index",
+        "pages/shoesuccess/index",
+        "pages/mealapplication/index/index",
+        "pages/mealapplication/application/index",
+        "pages/mealapplication/query/index",
+        "pages/mealapplication/alter/index",
+        "pages/mealapplication/success/index",
+        "pages/mealapplication/alter1/index",
+        "pages/stop/index"
+      ]
+    },
+    {
+      "root": "packageLife",
+      "pages": [
+        "pages/health/index",
+        "pages/idleitems/index/index",
+        "pages/idleitems/collected/index",
+        "pages/idleitems/goodsdetails/index",
+        "pages/idleitems/minerelease/index",
+        "pages/idleitems/myprivateletter/index",
+        "pages/idleitems/mycollection/index",
+        "pages/idleitems/privateletter/index",
+        "pages/idleitems/wantrelease/index"
+      ]
+    },
+    {
+      "root": "packageIE",
+      "pages": [
+        "pages/stops/stops"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2fb7eb",
+    "navigationBarTitleText": "纬创微服务",
+    "navigationBarTextStyle": "white"
+  },
+  "networkTimeout": {
+    "request": 200000,
+    "downloadFile": 10000
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#2c2c2c",
+    "selectedColor": "#1296db",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/tabevent/index",
+        "text": "活动",
+        "iconPath": "static/image/oactivites.png",
+        "selectedIconPath": "static/image/iactivites.png"
+      },
+      {
+        "pagePath": "pages/homepage/index",
+        "text": "功能",
+        "iconPath": "static/image/oribbon.png",
+        "selectedIconPath": "static/image/iribbon.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "static/image/omine.png",
+        "selectedIconPath": "static/image/imine.png"
+      }
+    ]
+  }
+}

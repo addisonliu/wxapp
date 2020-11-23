@@ -1,0 +1,54 @@
+<!--packageHr/pages/mealapplication/query/index.wxml-->
+<!-- <text>packageHr/pages/mealapplication/query/index.wxml</text> -->
+<view class="container">
+  <scroll-view scroll-y="true" style="height:568px;overflow-y:auto;overflow:hidden;">
+
+    <view class='outDetail row'>
+      <view class='textColor'><text style="color:#f23030">*</text>区域:</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{arrSkill}}">
+        <view class="picker">
+          {{arrSkill[index]}} <text class='choose'>请选择</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class='outDetail row'>
+      <view class='textColor'><text style="color:#f23030">*</text>开始日期:</view>
+      <picker mode="date" value="{{date}}" start="{{now}}" bindchange="bindStar">
+        <view class="picker">
+          {{Stardate}} <text class='choose'>请选择</text>
+        </view>
+      </picker>
+    </view>
+    <view class='outDetail row'>
+      <view class='textColor'><text style="color:#f23030">*</text>结束日期:</view>
+      <picker mode="date" value="{{date}}" start="{{now}}" bindchange="bindEnd">
+        <view class="picker">
+          {{Enddate}} <text class='choose'>请选择</text>
+        </view>
+      </picker>
+    </view>
+    <swiper-item>
+      <view class="table">
+        <view class="tr">
+          <view class="th_1 ">日期</view>
+          <view class="th_2 ">中餐</view>
+          <view class="th_3">早餐</view>
+          <view class="th_4">晚餐</view>
+          <view class="th_5">早早餐</view>
+        </view>
+        <view scroll-y style="height:calc(100vh - 80rpx);overflow: hidden; overflow-y:auto">
+          <block wx:for="{{upArr}}" wx:key="{{item.RID}}">
+            <view class="tr">
+              <view class="td_1">{{item.skillLevel}}</view>
+              <view class="td_2">{{item.skill}}</view>
+              <view class="td_3">{{item.applicationState}}</view>
+              <view class="td_4">{{item.applicationState}}</view>
+              <view class="td_5">{{item.applicationState}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </swiper-item>
+  </scroll-view>
+</view>

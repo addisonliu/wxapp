@@ -1,0 +1,190 @@
+<!--packageIE/pages/stops/stops.wxml-->
+<!-- <text>packageIE/pages/stops/stops.wxml</text> -->
+<view class='page'>
+  <view>WMY Line stop notice</view>
+</view>
+<view class="container">
+  <view class="ping" style="display:flex;">
+    <view class="plant">Plant：</view>
+    <!--下拉框  -->
+    <view class='select_box'>
+      <view class='select' catchtap='selectTap' bindchange="bindPlantChange" value="{{index}}" range="{{Plants}}">
+        <text class='select_text'>{{Plants[index]}}</text>
+        <image class='select_img {{selectShow&&"select_img_rotate"}}' src='/static/image/down.jpg'
+          background-size="contain"></image>
+      </view>
+      <view class='option_box' style='height:{{selectShow?(Plants.length>1?325:Plants.length*50):0}}rpx;'>
+        <text class='option' wx:for='{{Plants}}' wx:key='this' data-index='{{index}}'
+          catchtap='optionTap'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='outDetail row'>
+    <view class='textColor'><text style="color:#f23030"></text>ShiftData:</view>
+    <picker mode="date" value="{{date}}" start="{{now}}" bindchange="bindDateChange">
+      <input class="picker" placeholder="Please choose" value="{{date}}"></input>
+    </picker>
+  </view>
+  <view style="display:flex; ">
+    <view class="plant">ShiftID：</view>
+    <view class='select_box'>
+      <view class='select' catchtap='selectTapselect' bindchange="bindshiftidChange" value="{{shiftid}}" range="{{s}}">
+        <text class='select_text'>{{s[shiftid]}}</text>
+        <image class='select_img {{shiftidshow&&"select_img_rotate"}}' src='/static/image/down.jpg'
+          background-size="contain"></image>
+      </view>
+      <view class='option_box' style='height:{{shiftidshow?(s.length>4?325:s.length*50):0}}rpx;'>
+        <text class='option' wx:for='{{s}}' wx:key='this' data-shiftid='{{index}}'
+          catchtap='optionTapselect'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view style="display:flex;">
+    <view class="plant">Stage：</view>
+    <view class='select_box'>
+      <view class='select' catchtap='selectTapstage' bindchange="bindstageChange" value="{{stage}}" range="{{t}}"> <text
+          class='select_text'>{{t[stage]}}</text>
+        <image class='select_img {{stageshow&&"select_img_rotate"}}' src='/static/image/down.jpg'
+          background-size="contain"></image>
+      </view>
+      <view class='option_box' style='height:{{stageshow?(t.length>2?325:t.length*50):0}}rpx;'>
+        <text class='option' wx:for='{{t}}' wx:key='this' data-stage='{{index}}'
+          catchtap='optionTapstage'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view style="display:flex;">
+    <view class="plant">Line leader：</view>
+    <view class='select_box'>
+      <view class='select' catchtap='selectTaps' bindchange="bindindexsChange" value="{{indexs}}" range="{{i}}">
+        <text class='select_text'>{{i[indexs]}}</text>
+        <image class='select_img {{selectShows&&"select_img_rotate"}}' src='/static/image/down.jpg'
+          background-size="contain"></image>
+      </view>
+      <view class='option_box' style='height:{{selectShows?(i.length>1?325:i.length*50):0}}rpx;'>
+        <text class='option' wx:for='{{i}}' wx:key='this' data-indexs='{{index}}' catchtap='optionTaps'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <view style="display:flex;">
+    <view class="plant">Project code：</view>
+    <view class='select_box'>
+      <view class='select' catchtap='selectTapcode' bindchange="bindcodeChange" value="{{code}}" range="{{c}}">
+        <text class='select_text'>{{c[code]}}</text>
+        <image class='select_img {{codeshow&&"select_img_rotate"}}' src='/static/image/down.jpg'
+          background-size="contain"></image>
+      </view>
+      <view class='option_box' style='height:{{codeshow?(c.length>14?325:c.length*50):0}}rpx;'>
+        <text class='option' wx:for='{{c}}' wx:key='this' data-code='{{index}}' catchtap='optionTapcode'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <view style="display:flex;">
+    <view class="plant">Project name：</view>
+    <view class='select_box'>
+      <view class='select' catchtap='selectTapname' bindchange="bindnameChange" value="{{name}}" range="{{n}}">
+        <text class='select_text'>{{n[code]}}</text>
+        <image class='select_img {{nameshow&&"select_img_rotate"}}' src='/static/image/down.jpg'
+          background-size="contain"></image>
+      </view>
+      <view class='option_box' style='height:{{nameshow?(n.length>14?325:n.length*50):0}}rpx;'>
+        <text class='option' wx:for='{{n}}' wx:key='this' data-code='{{index}}' catchtap='optionTapname'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <view style="display:flex;  ">
+    <view class="plant">Project stage：</view>
+    <view class='select_box'>
+      <view class='select' catchtap='selectTapproject' bindchange="bindprojectChange" value="{{project}}" range="{{j}}">
+        <text class='select_text'>{{j[project]}}</text>
+        <image class='select_img {{projectshow&&"select_img_rotate"}}' src='/static/image/down.jpg'
+          background-size="contain"></image>
+      </view>
+      <view class='option_box' style='height:{{projectshow?(j.length>4?325:j.length*50):0}}rpx;'>
+        <text class='option' wx:for='{{j}}' wx:key='this' data-project='{{index}}'
+          catchtap='optionTapproject'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view style="display:flex;">
+    <view class="plant">Line：</view>
+    <view class="input">
+      <input type='text' maxlengetNumbergth="50" value='{{Line}}' placeholder="请输入" bindblur="bindLine" />
+      <!-- {{Line}} -->
+    </view>
+  </view>
+
+  <view class='outDetail row'>
+    <view class='textColor'><text style="color:#f23030"></text>Loss From:</view>
+    <date-time-picker mode="datetime" value="{{dateSecond}}" bindchange="selectDateSecondChange">
+      <input class="picker" type="text" placeholder="Please choose" value="{{dateSecond}}"></input>
+    </date-time-picker>
+  </view>
+  <view style="display:flex;">
+    <view class="plant"><text style="color:#f23030">*</text>Number of people：</view>
+    <view class="input" style='width:500rpx'>
+      <input type='number' id="input" maxlengetNumbergth="11" value='{{number}}' placeholder="Please enter a  number"
+        bindblur="bindNumber" />
+    </view>
+  </view>
+  <view style="display:flex;">
+    <view class="plant">Reason Code：</view>
+    <view class='select_box'>
+      <view class='select' catchtap='selectTapclass' bindchange="bindclasChange" value="{{selectReasontype}}"
+        range="{{reasontype}}">
+        <text class='select_text'>{{reasontype[selectReasontype]}}</text>
+        <image class='select_img {{classshow&&"select_img_rotate"}}' src='/static/image/down.jpg'
+          background-size="contain"></image>
+      </view>
+      <view class='option_box' style='height:{{classshow?(C.length>12?325:C.length*50):0}}rpx;'>
+        <text class='option' wx:for='{{reasontype}}' wx:key='this' data-clas='{{index}}'
+          catchtap='optionTapclass'>{{item}}</text>
+      </view>
+    </view>
+    <view class='select_box'>
+      <view class='select' catchtap='selectTapreason' bindchange="bindreasonChange" value="{{selectReasoncode}}"
+        range="{{reasoncode}}">
+        <text class='select_text'>{{reasoncode[selectReasoncode].Code}}</text>
+        <image class='select_img {{ reasonshow&&"select_img_rotate"}}' src='/static/image/down.jpg'
+          background-size="contain"></image>
+      </view>
+      <view class='option_box' style='height:{{ reasonshow?(R.length>255?325:R.length*50):0}}rpx;'>
+        <text class='option' wx:for='{{reasoncode}}' wx:key='this' data-clas='{{index}}'
+          catchtap='optionTapreason'>{{item.Code}}</text>
+      </view>
+    </view>
+  </view>
+  <view style="display:flex;">
+    <view class="plant">Description：</view>
+    <view class='select_box' style='width:500rpx'>
+      <view class='select' catchtap='selectTapdescription' bindchange="binddescriptionChange" value="{{description}}"
+        range="{{D}}">
+        <text class='select_text'>{{D[clas]}}</text>
+        <image class='select_img {{descriptionshow&&"select_img_rotate"}}' src='/static/image/down.jpg'
+          background-size="contain"></image>
+      </view>
+      <view class='option_box' style='height:{{descriptionshow?(D.length>245?325:D.length*50):0}}rpx;'>
+        <text class='option' wx:for='{{D}}' wx:key='this' data-clas='{{index}}'
+          catchtap='optionTapdescription'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <view style="display:flex;">
+    <view class="plant"><text style="color:#f23030">*</text>Text message：</view>
+    <view class="input">
+      <input type='text' value='{{descript}}' placeholder="Please enter" bindblur="bindDescription" />
+    </view>
+  </view>
+
+  <view style="display:flex;">
+    <view class="plant"><text style="color:#f23030">*</text>Person responsible：</view>
+    <view class="input">
+      <input type='text'style='width:500rpx' maxlength="9" value='{{empno}}' placeholder="Enter responsible person number"
+        bindblur="bindEmpno" />
+    </view>
+  </view>
+  <button class='butt' bindtap="sendWMY">Submit</button>
+</view>

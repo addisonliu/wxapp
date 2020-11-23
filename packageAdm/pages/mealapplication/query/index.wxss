@@ -1,0 +1,119 @@
+/* packageHr/pages/mealapplication/query/index.wxss */
+.container {
+  background-color: #FFF;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: PingFangSC-Light, helvetica, 'Heiti SC';
+}
+
+.outDetail {
+  width: 520rpx;
+  color: black !important;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100rpx;
+  background: white;
+  color: #c1c1c1;
+  border-bottom: 1px solid #c1c1c1;
+  font-size: 32rpx;
+}
+
+.row view {
+  padding: 0 20rpx;
+}
+
+.textarea {
+  width: 60%;
+  padding: 0 20rpx;
+  justify-content: right;
+  font-size: 30rpx;
+  text-align: right
+}
+
+.textColor {
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.text {
+  margin-top: 20rpx;
+  border: 2rpx solid black;
+  padding: 30rpx;
+  margin-right: 50rpx;
+  margin-left: 50rpx;
+  font-weight: bold;
+}
+
+.text2 {
+  margin-top: 10rpx;
+}
+
+.text3 {
+  margin-left: 50rpx;
+  margin-top: 10rpx;
+}
+
+.table {
+  border: 0px solid darkgray;
+  width: 100%;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  background:  #ffff;
+  /* color:#fff; */
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.td_1 {
+    width:20%;
+   
+}
+.td_2 {
+    width:20%;
+ 
+}
+.td_3 {
+    width:20%;
+  
+}
+.td_4 {
+  width:20%;
+ 
+}
+.td_5 {
+  width:20%;
+
+}
+.th_1 {
+  width: 20%;
+
+}
+.th_2 {
+  width: 20%;
+   
+}
+.th_3 {
+  width: 20%;
+
+}
+.th_4 {
+  width: 20%;
+ 
+}
+.th_5 {
+  width: 20%;
+ 
+}

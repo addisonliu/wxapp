@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="title">2020年纬创员工满意度调查问卷</view>
+  <view class="notice">
+    <view class="noticetitle">尊敬的各位同仁：</view>
+    <view class="noticemesage">　　2020年感谢您的一路陪伴，我们一起共克时艰，携手同行。为了公司更好的发展，我们需要您真实且宝贵的意见。本次将采用匿名的方式进行满意度问卷调查，感谢您的支持！</view>
+  </view>
+<!-- 单选项 -->
+  <view class="questionview" wx:for="{{singleSelect}}" wx:for-item='item' wx:key="questiondatabase">
+    <view class="question">{{item.Question}}</view>
+    <radio-group class="answer" wx:for="{{item.Answer}}" wx:for-item='items' wx:key="answer" bindchange="radiochange" data-id="{{item.ID}}">
+      <label for="" class="anweroption">
+        <view >
+          <radio value="{{item.Answer[index].option}}" bindtap="radio" checked="{{item.Answer[index].checked}}"></radio>
+        </view>
+        <view class="answerdetalis">{{item.Answer[index].option}}</view>
+      </label>  
+    </radio-group>
+  </view>
+<!-- 多选项 -->
+  <view class="questionview" wx:for="{{MultiSelect}}" wx:for-item='item' wx:key="questiondatabase">
+    <view class="question">{{item.Question}}</view>
+    <checkbox-group class="answer" wx:for="{{item.Answer}}" wx:for-item='items' wx:key="answer" bindchange="radiochange">
+      <label for="" class="anweroption">
+        <view>
+          <checkbox value=""></checkbox>
+        </view>
+        <view class="answerdetalis">{{item.Answer[index].option}}</view>
+      </label>  
+    </checkbox-group>
+  </view>
+</view>

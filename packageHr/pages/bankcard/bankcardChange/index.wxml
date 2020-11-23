@@ -1,0 +1,79 @@
+<view class="container">
+  <view class="mainMessage" wx:for="{{bankDataBase}}" wx:for-item='item' wx:key="bankdatabase">
+    <view class="messageDetail">
+      <view><text class="xin">*</text>申请人工号:</view>
+      <view class="rightMES">{{item.empno}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>申请人姓名:</view>
+      <view class="rightMES">{{item.chName}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>身份证号:</view>
+      <view class="rightMES">{{item.idno}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>手机号:</view>
+     <input bindinput="bindinputPhone" style="padding-top:14rpx;" class="blod" type="number" maxlength="11" value="{{bankPhonenumber}}"
+        placeholder="请输入本人手机号" placeholder-style="color:black;"></input>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>现有银行:</view>
+      <view class="rightMES">{{item.bankName}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>现有银行卡号:</view>
+      <view class="rightMES">{{item.cardNo}}</view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>更新后卡号:</view>
+      <view class="blod" style="padding-top:10rpx;">
+        <input type="text" placeholder="必须为本人银行卡" placeholder-style="color:black;"
+          value="{{bankDetails.bank_card_number}}" style="display:inline-block;width:420rpx"
+          bindblur="bindInputChange"></input>
+        <view class="takePhoto">
+          <image src="../../../../static/image/bankPhoto.png" bindtap="upFileFront"
+            style="height:50rpx; width:50rpx;"></image>
+        </view>
+      </view>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>更新后银行:</view>
+      <picker bindchange="chooseType" style="padding-top:12rpx;" value="{{index0}}" range="{{bankType}}" range-key="{{'bankName'}}">
+        <input type="text" placeholder="请选择:工行或农行" placeholder-style="color:black;"
+          value="{{bankType[index0].bankName || bankDetails.bank_name}}" class="blod" disabled="true"></input>
+      </picker>
+    </view>
+    <view class="messageDetail">
+      <view><text class="xin">*</text>补办原因:</view>
+      <picker class="pick" style="padding-top:12rpx;" bindchange="chooseReason" value="{{index1}}" range="{{changeReason}}"
+        range-key="{{'reason'}}">
+        <input type="text" placeholder="请选择" placeholder-style="color:black;" value="{{changeReason[index1].reason}}"
+          disabled="true" class="blod"></input>
+      </picker>
+    </view>
+  </view>
+  <view class="explain" style="width:100vw-20rpx">
+    <view class="title">提醒:</view>
+    <view class="ex-text">
+      <view>1. 上传的银行卡号必须为员工本人身份证号办理的银行卡，否则影响工资发放；</view>
+      <view>2. 新入职员工第一次上传银行卡号，请选第一个（只允许上传一次），其他因银行卡丢失，开户异常等原因重新办理银行卡，变更卡号请选第二个；</view>
+      <view>3. 工资发放银行仅限中国农业银行和中国工商银行，其他银行暂不支持发薪；</view>
+      <view>4. 请在入职一周内办理并上传银行卡号；</view>
+    </view>
+  </view>
+  <button bindtap="submit">提交</button>
+</view>
+
+<!-- 确认弹窗 -->
+<view class="popup {{ showPop ? 'popShow' : '' }}">
+  <view class="mess">
+    <view>手机号：{{bankPhonenumber}}</view>
+    <view>银行卡：{{bankDetails.bank_name || bankType[index0].bankName}}</view>
+    <view>银行卡号：{{bankDetails.bank_card_number || bankcardnumber}}</view>
+  </view>
+  <view class="btn">
+    <view bindtap="backChange">返回修改</view>
+    <view bindtap="lastSubmit">确认上传</view>
+  </view>
+</view>
